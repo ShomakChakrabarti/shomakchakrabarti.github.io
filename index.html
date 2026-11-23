@@ -488,7 +488,7 @@ const SITE = {
       {term:"Aut 2024",score:4.6},{term:"Spr 2025",score:4.5},{term:"Aut 2025",score:4.7},{term:"Spr 2026",score:4.8}
     ],
     courses:[
-      { code:"ECON 20512", title:"Intermediate Microeconomic Theory 2", level:"Undergraduate, Year 2", role:"Course Unit Director", terms:"Oct 25 - now", students:200, blurb:"Placeholder description for a graduate course.", href:"#" },
+      { code:"ECON 20512", title:"Intermediate Microeconomic Theory 2", level:"Undergraduate, Year 2", role:"Course Unit Director", terms:"Oct 25 - now", students:200, blurb:"Information economics: choice over time and under uncertainty, hidden actions, hidden information and signalling. Taught with an interactive textbook.", href:"textbooks/information-economics/intro.html", linkLabel:"Open the textbook" } },
       { code:"ECON 10071", title:"Advanced Mathematics", level:"Undergraduate, Year 1 & 2", role:"Course Unit Director", terms:"Oct 2022 – now", students:950, blurb:"Two sentences on what the course covers and how it is taught. Mention where the interactive textbook is used.", href:"#" },
       { code:"ECON 10072", title:"Advanced Statistics", level:"Undergraduate, Year 1 & 2", role:"Course Unit Director", terms:"Feb 2025 – Jun 2025", students:950, blurb:"What students produce in this seminar, and one thing they say they valued.", href:"#" },
       { code:"ECON 10192", title:"Introduction to Mathematical Economics", level:"Undergraduate, Year 1 & 2", role:"Course Unit Director", terms:"Feb 2022 - Jun 2024", students:200, blurb:"Placeholder description for a graduate course.", href:"#" },
@@ -499,7 +499,7 @@ const SITE = {
 
   /* Paste each textbook's published link into `href`. */
   textbooks:[
-    { title:"Intermediate Microeconomic Theory", course:"Course code · Level", status:"Complete", progress:1, blurb:"What students do in this book: the ideas they explore and what the interactive pieces let them try.", chapters:["Starting points","Core idea one","Core idea two","Worked problems","Where to go next"], href:"#" },
+    { title:"Information Economics", course:"ECON20512 · Year 2 · Intermediate Microeconomics", status:"In use 2026/27", progress:.9, blurb:"An interactive textbook for ECON20512: every result proved in full, with proofs folded away so students try them first, and interactive labs that let them move the parameters and watch contracts, prices and equilibria respond. For students enrolled on the course.", chapters:["Factor markets","Choice under uncertainty","Hidden actions","Hidden information","Signalling"], href:"textbooks/information-economics/intro.html" },
     { title:"Mathematical Economics", vol:"Vol. II", course:"Course code · Level", status:"In use this term", progress:.8, blurb:"Describe the second book, and mention a favourite simulation or explainer inside it.", chapters:["Foundations","Models","Simulations","Case studies"], href:"#" },
     { title:"Mathematics from School to University", vol:"Vol. III", course:"Workshop companion", status:"In draft", progress:.35, blurb:"A book still being written. The finished chapters are open to readers now.", chapters:["Introduction","Chapter in progress"], href:"#" }
   ],
@@ -677,7 +677,7 @@ const P = {
     <div class="list">${t.courses.map(c=>`<article class="course">
       <span class="code">${esc(c.code)}</span>
       <div><h3>${esc(c.title)}</h3><p class="by">${esc(c.level)} · ${esc(c.role)} · ${esc(c.terms)}</p><p class="desc">${esc(c.blurb)}</p>
-        <div class="acts"><a${ext(c.href)}>Syllabus ↗</a></div></div></article>`).join("")}</div>`;
+        <div class="acts"><a${ext(c.href)}>${esc(c.linkLabel||"Syllabus")} ↗</a></div></div></article>`).join("")}</div>`;
   },
 
   textbooks(){
