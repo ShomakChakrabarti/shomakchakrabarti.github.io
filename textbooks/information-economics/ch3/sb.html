@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.4. The second best: hidden actions &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch3/sb';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. Welfare and the cost of hidden action" href="welfare.html" />
+    <link rel="prev" title="3.3. The first best: contractible actions" href="fb.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Hidden actions: moral hazard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The second best: hidden actions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-incentive-constraint">3.4.1. The incentive constraint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-optimal-contracts">3.4.2. The optimal contracts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-contract-carrot-and-stick">3.4.3. Reading the contract: carrot and stick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-second-best-contract">3.4.4. Interpreting the second-best contract</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-second-best-hidden-actions">
+<span id="sec-ha-sb"></span><h1><span class="section-number">3.4. </span>The second best: hidden actions<a class="headerlink" href="#the-second-best-hidden-actions" title="Link to this heading">#</a></h1>
+<p>Now the action is not contractible. The principal can tell the agent which action she would like, but she cannot enforce it. The only tool she has is the wage schedule, and the only thing it can depend on is output. The agent will take the recommended action only if, given the wage schedule, it is in his own interest.</p>
+<p><strong>What changes.</strong> In the language of the two-stage method, Stage 1 acquires a new constraint. Before, the cheapest way to implement an action only had to persuade the agent to <em>accept</em>. Now it must also persuade him to <em>act</em>. We first work out what that new constraint says (<a class="reference internal" href="#lem-ha-ic">Lemma 3.2</a>), then show that the first-best contract violates it (<a class="reference internal" href="#lem-ha-fi">Lemma 3.3</a>), and then find the cheapest contract that satisfies it (<a class="reference internal" href="#thm-ha-sb">Theorem 3.2</a>).</p>
+<p><strong>What should we expect?</strong> The first-best high-action contract was a flat wage. A flat wage gives the agent no reason to work, since he is paid the same whatever he does. So to get effort, pay must depend on output. But then the agent bears risk, and he must be compensated for it. We should therefore expect a contract that is <em>less</em> than full insurance and costs the principal <em>more</em> than the first best.</p>
+<section id="the-incentive-constraint">
+<h2><span class="section-number">3.4.1. </span>The incentive constraint<a class="headerlink" href="#the-incentive-constraint" title="Link to this heading">#</a></h2>
+<div class="proof lemma admonition" id="lem-ha-ic">
+<p class="admonition-title"><span class="caption-number">Lemma 3.2 </span> (Incentive compatibility)</p>
+<section class="lemma-content" id="proof-content">
+<p>Under contract <span class="math notranslate nohighlight">\((z_g,z_b)\)</span> the agent weakly prefers the high action to the low action if and only if</p>
+<div class="math notranslate nohighlight">
+\[
+z_g-z_b\;\ge\;\frac{c}{\Dpi}. \tag{IC}
+\]</div>
+<p>He weakly prefers the low action if and only if <span class="math notranslate nohighlight">\(z_g-z_b\le c/\Dpi\)</span>.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#lem-ha-ic">Lemma 3.2</a></p>
+<p>The high action is weakly preferred if and only if <span class="math notranslate nohighlight">\(\muh z_g+(1-\muh)z_b-c\;\ge\;\mul z_g+(1-\mul)z_b\)</span>. Collecting terms, <span class="math notranslate nohighlight">\((\muh-\mul)z_g-(\muh-\mul)z_b\ge c\)</span>, i.e. <span class="math notranslate nohighlight">\(\Dpi(z_g-z_b)\ge c\)</span>. Divide by <span class="math notranslate nohighlight">\(\Dpi&gt;0\)</span>.</p>
+</div>
+<p><em>Reading the constraint.</em> Working harder raises the probability of the good outcome by <span class="math notranslate nohighlight">\(\Dpi\)</span>. Each extra unit of probability is worth <span class="math notranslate nohighlight">\(z_g-z_b\)</span> to the agent. So effort pays if <span class="math notranslate nohighlight">\(\Dpi\times(z_g-z_b)\)</span> covers its cost <span class="math notranslate nohighlight">\(c\)</span>. The required gap <span class="math notranslate nohighlight">\(c/\Dpi\)</span> is large when effort is costly and when output is a poor signal of effort (small <span class="math notranslate nohighlight">\(\Dpi\)</span>).</p>
+<div class="proof lemma admonition" id="lem-ha-fi">
+<p class="admonition-title"><span class="caption-number">Lemma 3.3 </span> (Full insurance kills incentives)</p>
+<section class="lemma-content" id="proof-content">
+<p>When the action is hidden, the first-best high-action contract <span class="math notranslate nohighlight">\(z_g=z_b=\uo+c\)</span> is not incentive compatible: the agent strictly prefers the low action.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#lem-ha-fi">Lemma 3.3</a></p>
+<p>Under full insurance <span class="math notranslate nohighlight">\(z_g-z_b=0&lt;c/\Dpi\)</span>, so (IC) fails. Directly: with a flat wage the agent’s utility from money is the same whatever he does, so he saves the cost <span class="math notranslate nohighlight">\(c\)</span>.</p>
+</div>
+</section>
+<section id="the-optimal-contracts">
+<h2><span class="section-number">3.4.2. </span>The optimal contracts<a class="headerlink" href="#the-optimal-contracts" title="Link to this heading">#</a></h2>
+<div class="proof theorem admonition" id="thm-ha-sb">
+<p class="admonition-title"><span class="caption-number">Theorem 3.2 </span> (Optimal contracts under hidden action)</p>
+<section class="theorem-content" id="proof-content">
+<p>Suppose the action is hidden and <a class="reference internal" href="model.html#as-ha-prob">Assumption 3.1</a>, <a class="reference internal" href="model.html#as-ha-pref">Assumption 3.2</a>, <a class="reference internal" href="model.html#as-ha-int">Assumption 3.3</a> hold.</p>
+<ul>
+<li><p><strong>(a)</strong> <strong>High action.</strong> The cheapest contract that induces <span class="math notranslate nohighlight">\(\ah\)</span> is the partial-insurance contract</p>
+<div class="math notranslate nohighlight" id="equation-eq-ha-sb">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-eq-ha-sb" title="Link to this equation">#</a></span>\[
+  z_g^* = \uo+(1-\mul)\frac{c}{\Dpi},\qquad
+      z_b^* = \uo-\mul\frac{c}{\Dpi}.
+  \]</div>
+<p>Both (PC) and (IC) bind: the agent gets exactly <span class="math notranslate nohighlight">\(\uo\)</span> and is indifferent between the two actions.</p>
+</li>
+<li><p><strong>(b)</strong> <strong>Low action.</strong> The cheapest contract that induces <span class="math notranslate nohighlight">\(\al\)</span> is full insurance at <span class="math notranslate nohighlight">\(z_g=z_b=\uo\)</span>, exactly as in the first best. (PC) binds and the agent strictly prefers the low action.</p></li>
+<li><p><strong>(c)</strong> <strong>Choice of action.</strong> Let <span class="math notranslate nohighlight">\(C^{\SB}\coloneqq\muh\,h(z_g^*)+(1-\muh)\,h(z_b^*)\)</span> be the expected wage bill in (a). The principal induces the high action if and only if</p>
+<div class="math notranslate nohighlight" id="equation-eq-ha-sb-cond">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-eq-ha-sb-cond" title="Link to this equation">#</a></span>\[
+  \Dpi\,\Dy\;\ge\;C^{\SB}-h(\uo).
+  \]</div>
+</li>
+</ul>
+</section>
+</div><div class="dropdown tip admonition">
+<p class="admonition-title">Proof strategy (<a class="reference internal" href="#thm-ha-sb">Theorem 3.2</a>(a))</p>
+<p>The principal minimises <span class="math notranslate nohighlight">\(\muh h(z_g)+(1-\muh)h(z_b)\)</span> subject to two <em>linear</em> constraints, (PC) and (IC). We show that both bind; two linear equations in two unknowns then pin down the contract.</p>
+<p><strong>Step 1:</strong> (PC) binds, by the same perturbation as in <a class="reference internal" href="fb.html#thm-ha-fb">Theorem 3.1</a>: shifting both utilities down by the same amount leaves the <em>difference</em> <span class="math notranslate nohighlight">\(z_g-z_b\)</span>, and hence (IC), untouched.</p>
+<p><strong>Step 2:</strong> (IC) binds. The cleanest route is a change of variables. Describe a contract by its <em>mean</em> utility <span class="math notranslate nohighlight">\(m\)</span> and its <em>spread</em> <span class="math notranslate nohighlight">\(d=z_g-z_b\)</span>. (PC) is a constraint on <span class="math notranslate nohighlight">\(m\)</span> only; (IC) is a constraint on <span class="math notranslate nohighlight">\(d\)</span> only; and for fixed <span class="math notranslate nohighlight">\(m\)</span> the cost is increasing in <span class="math notranslate nohighlight">\(d\)</span> by Jensen. So the principal wants the smallest spread (IC) allows.</p>
+<p><strong>Step 3:</strong> solve the two binding constraints.</p>
+</div>
+<div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#thm-ha-sb">Theorem 3.2</a></p>
+<p><strong>(a)</strong> The principal solves</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\min_{z_g,z_b}\;&amp; \muh\,h(z_g)+(1-\muh)\,h(z_b)\\
+  \text{s.t.}\;&amp; \muh z_g+(1-\muh)z_b-c\ge\uo \tag{PC$_H$}\\
+              &amp; z_g-z_b\ge c/\Dpi. \tag{IC$_H$}
+\end{align*}
+\end{split}\]</div>
+<p><strong>Step 1: (PC<span class="math notranslate nohighlight">\(_H\)</span>) binds.</strong> Suppose <span class="math notranslate nohighlight">\((z_g,z_b)\)</span> is optimal with slack <span class="math notranslate nohighlight">\(s\coloneqq\muh z_g+(1-\muh)z_b-c-\uo&gt;0\)</span>. The contract <span class="math notranslate nohighlight">\(\tilde z_i=z_i-s\)</span> satisfies (PC<span class="math notranslate nohighlight">\(_H\)</span>) with equality, and <span class="math notranslate nohighlight">\(\tilde z_g-\tilde z_b=z_g-z_b\ge c/\Dpi\)</span>, so (IC<span class="math notranslate nohighlight">\(_H\)</span>) still holds.</p>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>A parallel shift moves the mean but not the spread, and (IC) only cares about the spread.</p>
+</div>
+<p>Because <span class="math notranslate nohighlight">\(h\)</span> is strictly increasing the new contract is strictly cheaper, contradicting optimality.</p>
+<p><strong>Step 2: (IC<span class="math notranslate nohighlight">\(_H\)</span>) binds.</strong> Change variables to the mean and spread under the high action,</p>
+<div class="math notranslate nohighlight">
+\[
+m\coloneqq\muh z_g+(1-\muh)z_b,\qquad d\coloneqq z_g-z_b,
+\]</div>
+<p>whose inverse is</p>
+<div class="math notranslate nohighlight" id="equation-eq-ha-md">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-eq-ha-md" title="Link to this equation">#</a></span>\[
+z_g=m+(1-\muh)\,d,\qquad z_b=m-\muh\,d .
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>Check: <span class="math notranslate nohighlight">\(\muh[m+(1-\muh)d]+(1-\muh)[m-\muh d]=m\)</span>, and the difference is <span class="math notranslate nohighlight">\(d\)</span>. The map is linear and invertible, so optimising over <span class="math notranslate nohighlight">\((m,d)\)</span> is the same as optimising over <span class="math notranslate nohighlight">\((z_g,z_b)\)</span>.</p>
+</div>
+<p>In the new variables the problem is</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{m,d}\;C(m,d)\coloneqq \muh\,h\big(m+(1-\muh)d\big)+(1-\muh)\,h\big(m-\muh d\big)
+  \quad\text{s.t.}\quad m\ge\uo+c,\quad d\ge c/\Dpi .
+\]</div>
+<p>The constraints have <em>separated</em>: one restricts <span class="math notranslate nohighlight">\(m\)</span>, the other restricts <span class="math notranslate nohighlight">\(d\)</span>. We show that for any fixed <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(C(m,\cdot)\)</span> is strictly increasing on <span class="math notranslate nohighlight">\([0,\infty)\)</span>.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(C(m,\cdot)\)</span> is strictly convex in <span class="math notranslate nohighlight">\(d\)</span>: it is a positive combination of the strictly convex <span class="math notranslate nohighlight">\(h\)</span> composed with affine functions of <span class="math notranslate nohighlight">\(d\)</span> that are not constant.</p></li>
+<li><p><span class="math notranslate nohighlight">\(C(m,d)\ge C(m,0)\)</span> for every <span class="math notranslate nohighlight">\(d\)</span>, with strict inequality when <span class="math notranslate nohighlight">\(d\ne 0\)</span>. This is Jensen again: the lottery <a class="reference internal" href="#equation-eq-ha-md">(3.5)</a> has mean <span class="math notranslate nohighlight">\(m\)</span>, so <span class="math notranslate nohighlight">\(C(m,d)\ge h(m)=C(m,0)\)</span>, strictly if <span class="math notranslate nohighlight">\(d\neq 0\)</span>.</p></li>
+<li><p>A strictly convex function whose minimum is at <span class="math notranslate nohighlight">\(0\)</span> is strictly increasing on <span class="math notranslate nohighlight">\([0,\infty)\)</span>. Take <span class="math notranslate nohighlight">\(0\le d_1&lt;d_2\)</span>. If <span class="math notranslate nohighlight">\(d_1=0\)</span>, <span class="math notranslate nohighlight">\(C(m,0)&lt;C(m,d_2)\)</span> by the previous point. If <span class="math notranslate nohighlight">\(d_1&gt;0\)</span>, write <span class="math notranslate nohighlight">\(d_1=t\cdot 0+(1-t)d_2\)</span> with <span class="math notranslate nohighlight">\(t=1-d_1/d_2\in(0,1)\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[
+  C(m,d_1)&lt;t\,C(m,0)+(1-t)\,C(m,d_2)\le C(m,d_2).
+  \]</div>
+</li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>This is the formal version of “a riskier contract is costlier”. Holding the agent’s expected utility fixed, every extra unit of spread raises the expected wage bill. The principal therefore uses only as much spread as incentives require.</p>
+</div>
+<p>Hence at the optimum <span class="math notranslate nohighlight">\(d=c/\Dpi\)</span>, i.e. (IC<span class="math notranslate nohighlight">\(_H\)</span>) binds. (By Step 1, <span class="math notranslate nohighlight">\(m=\uo+c\)</span>.)</p>
+<p><strong>Step 3: solve.</strong> Substituting <span class="math notranslate nohighlight">\(m=\uo+c\)</span> and <span class="math notranslate nohighlight">\(d=c/\Dpi\)</span> into <a class="reference internal" href="#equation-eq-ha-md">(3.5)</a>,</p>
+<div class="math notranslate nohighlight">
+\[
+z_g^*=\uo+c+(1-\muh)\frac{c}{\Dpi},\qquad
+  z_b^*=\uo+c-\muh\frac{c}{\Dpi}.
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(c=\Dpi\cdot c/\Dpi=(\muh-\mul)\,c/\Dpi\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+z_g^*=\uo+\big[\muh-\mul+1-\muh\big]\frac{c}{\Dpi}=\uo+(1-\mul)\frac{c}{\Dpi},
+  \qquad
+  z_b^*=\uo+\big[\muh-\mul-\muh\big]\frac{c}{\Dpi}=\uo-\mul\frac{c}{\Dpi}.
+\]</div>
+<p>By the tie-breaking rule the agent accepts and takes <span class="math notranslate nohighlight">\(\ah\)</span>.</p>
+<p><strong>(b)</strong> The principal solves</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{z_g,z_b}\;\mul h(z_g)+(1-\mul)h(z_b)
+  \quad\text{s.t.}\quad
+  \mul z_g+(1-\mul)z_b\ge\uo,\qquad z_g-z_b\le c/\Dpi .
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>This is relaxation (T3). Drop the incentive constraint. The relaxed problem is exactly the first-best low-action problem, whose unique solution is full insurance at <span class="math notranslate nohighlight">\(\uo\)</span> (<a class="reference internal" href="fb.html#thm-ha-fb">Theorem 3.1</a>).</p>
+</div>
+<p>Full insurance has <span class="math notranslate nohighlight">\(z_g-z_b=0&lt;c/\Dpi\)</span>, so it satisfies the dropped constraint. A point that is optimal for the relaxed problem and feasible for the original one is optimal for the original one. Since the inequality <span class="math notranslate nohighlight">\(0&lt;c/\Dpi\)</span> is strict, the agent strictly prefers <span class="math notranslate nohighlight">\(\al\)</span>.</p>
+<p><strong>(c)</strong> Profit from (a) is <span class="math notranslate nohighlight">\(\muh y_g+(1-\muh)y_b-C^{\SB}\)</span> and from (b) is <span class="math notranslate nohighlight">\(\mul y_g+(1-\mul)y_b-h(\uo)\)</span>. Subtracting gives <a class="reference internal" href="#equation-eq-ha-sb-cond">(3.4)</a>.</p>
+</div>
+<div class="proof remark admonition" id="hidden-actions-remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 3.2 </span> (The slides’ proof of Step 2)</p>
+<section class="remark-content" id="proof-content">
+<p>The lecture slides prove that (IC<span class="math notranslate nohighlight">\(_H\)</span>) binds with a different perturbation: lower <span class="math notranslate nohighlight">\(z_g\)</span> by <span class="math notranslate nohighlight">\(\varepsilon\)</span> and raise <span class="math notranslate nohighlight">\(z_b\)</span> by <span class="math notranslate nohighlight">\(\varepsilon\muh/(1-\muh)\)</span>. That perturbation keeps mean utility fixed and reduces the spread by <span class="math notranslate nohighlight">\(\varepsilon/(1-\muh)\)</span>, so in our coordinates it is a move to the left along the <span class="math notranslate nohighlight">\(d\)</span>-axis at fixed <span class="math notranslate nohighlight">\(m\)</span>. Both proofs rest on the same fact, that cost is increasing in spread; the change of variables just makes the fact visible.</p>
+</section>
+</div><figure class="align-default" id="fig-ha-contracts">
+<a class="reference internal image-reference" href="../_images/hidden-actions-figure-2.svg"><img alt="../_images/hidden-actions-figure-2.svg" src="../_images/hidden-actions-figure-2.svg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Contracts in utility space. (PC<span class="math notranslate nohighlight">\(_H\)</span>) has slope <span class="math notranslate nohighlight">\(-(1-\muh)/\muh\)</span>; (IC<span class="math notranslate nohighlight">\(_H\)</span>) is parallel to the <span class="math notranslate nohighlight">\(45^\circ\)</span> line, <span class="math notranslate nohighlight">\(c/\Dpi\)</span> above it. Without (IC<span class="math notranslate nohighlight">\(_H\)</span>) the cheapest point on (PC<span class="math notranslate nohighlight">\(_H\)</span>) is on the full-insurance line. With it, the cheapest feasible point is the corner where both constraints bind.</span><a class="headerlink" href="#fig-ha-contracts" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="reading-the-contract-carrot-and-stick">
+<h2><span class="section-number">3.4.3. </span>Reading the contract: carrot and stick<a class="headerlink" href="#reading-the-contract-carrot-and-stick" title="Link to this heading">#</a></h2>
+<p>Relative to the first-best wage <span class="math notranslate nohighlight">\(h(\uo)\)</span> that the agent would receive for the low action, the second-best contract</p>
+<ul class="simple">
+<li><p><em>rewards</em> the good outcome: <span class="math notranslate nohighlight">\(z_g^*=\uo+(1-\mul)c/\Dpi&gt;\uo\)</span>;</p></li>
+<li><p><em>punishes</em> the bad outcome: <span class="math notranslate nohighlight">\(z_b^*=\uo-\mul c/\Dpi&lt;\uo\)</span>.</p></li>
+</ul>
+<p>The agent cannot be paid for effort directly, so he is paid for the evidence of effort. Taking the high action makes the reward more likely and the punishment less likely, and the contract is calibrated so that the gain exactly covers the cost:</p>
+<div class="math notranslate nohighlight">
+\[
+\muh z_g^*+(1-\muh)z_b^*=\uo+c,\qquad
+  \mul z_g^*+(1-\mul)z_b^*=\uo .
+\]</div>
+<div class="warning admonition">
+<p class="admonition-title">Common mistake</p>
+<p>In the first identity the weight on <span class="math notranslate nohighlight">\(z_b^*\)</span> is <span class="math notranslate nohighlight">\(1-\muh\)</span>, not <span class="math notranslate nohighlight">\(\mul\)</span>. The two weights must add up to one.</p>
+</div>
+<p><strong>Risk sharing.</strong> The price of incentives is risk. Output varies by <span class="math notranslate nohighlight">\(\Dy\)</span>; with the second-best contract the principal’s profit varies by <span class="math notranslate nohighlight">\(\Dy-(w_g^*-w_b^*)\)</span> and the agent’s wage by <span class="math notranslate nohighlight">\(w_g^*-w_b^*&gt;0\)</span>. Some risk has moved from the risk-neutral party to the risk-averse one, which is exactly what efficient risk sharing says should never happen. That is the source of the welfare loss in the next section.</p>
+</section>
+<section id="interpreting-the-second-best-contract">
+<span id="sec-ha-sb-interp"></span><h2><span class="section-number">3.4.4. </span>Interpreting the second-best contract<a class="headerlink" href="#interpreting-the-second-best-contract" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#thm-ha-sb">Theorem 3.2</a> is short, but there is a lot of economics packed into it. This subsection unpacks it.</p>
+<p><strong>1. The contract is designed around the shirker.</strong> Write the reward and the punishment relative to the outside option:</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{z_g^*-\uo}_{\text{reward}}=(1-\mul)\frac{c}{\Dpi},
+  \qquad
+  \underbrace{\uo-z_b^*}_{\text{punishment}}=\mul\frac{c}{\Dpi}.
+\]</div>
+<p>Both are scaled by the <em>low</em>-action probability <span class="math notranslate nohighlight">\(\mul\)</span>, not the high-action one. Why? Because both constraints bind, the contract is pinned down by two facts: a diligent agent gets <span class="math notranslate nohighlight">\(\uo+c\)</span> in expected utility, and a shirking agent gets exactly <span class="math notranslate nohighlight">\(\uo\)</span>. The second fact is what determines the split between reward and punishment: a shirker earns the reward with probability <span class="math notranslate nohighlight">\(\mul\)</span> and the punishment with probability <span class="math notranslate nohighlight">\(1-\mul\)</span>, and these must balance so that he ends up at <span class="math notranslate nohighlight">\(\uo\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\mul\,(1-\mul)\frac{c}{\Dpi}-(1-\mul)\,\mul\frac{c}{\Dpi}=0 .
+\]</div>
+<p>The principal designs the contract so that shirking is <em>exactly as good as walking away</em>. Nothing more is needed to deter it, and anything more would waste money.</p>
+<p><strong>2. How the contract responds to the environment.</strong> The following table uses the running example (<span class="math notranslate nohighlight">\(u=\sqrt w\)</span>) and changes one parameter at a time.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(c/\Dpi\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(z_g^*\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(z_b^*\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(w_g^*\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(w_b^*\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(AC\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Baseline</p></td>
+<td><p>1</p></td>
+<td><p>10.65</p></td>
+<td><p>9.65</p></td>
+<td><p>113.42</p></td>
+<td><p>93.12</p></td>
+<td><p>0.23</p></td>
+</tr>
+<tr class="row-odd"><td><p>Effort twice as costly (<span class="math notranslate nohighlight">\(c=0.6\)</span>)</p></td>
+<td><p>2</p></td>
+<td><p>11.30</p></td>
+<td><p>9.30</p></td>
+<td><p>127.69</p></td>
+<td><p>86.49</p></td>
+<td><p>0.91</p></td>
+</tr>
+<tr class="row-even"><td><p>Noisier output (<span class="math notranslate nohighlight">\(\mul=0.5\)</span>)</p></td>
+<td><p>2</p></td>
+<td><p>11.00</p></td>
+<td><p>9.00</p></td>
+<td><p>121.00</p></td>
+<td><p>81.00</p></td>
+<td><p>0.91</p></td>
+</tr>
+<tr class="row-odd"><td><p>Better outside option (<span class="math notranslate nohighlight">\(\uo=12\)</span>)</p></td>
+<td><p>1</p></td>
+<td><p>12.65</p></td>
+<td><p>11.65</p></td>
+<td><p>160.02</p></td>
+<td><p>135.72</p></td>
+<td><p>0.23</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Three lessons. (i) The spread <span class="math notranslate nohighlight">\(z_g^*-z_b^*=c/\Dpi\)</span> rises with the cost of effort and falls with the informativeness of output. (ii) When output becomes noisier, the principal must widen the gap between good-year and bad-year pay: weak evidence must be backed by a strong incentive. (iii) A better outside option shifts both wages up but does not change the spread in utility, because the spread is set by incentives and the level by participation. With square-root utility it does not change the agency cost either.</p>
+<p><strong>3. Output is evidence, not merit.</strong> It is tempting to read the contract as “reward good work”. That is not quite right. Use Bayes’ rule: if the principal thought the agent equally likely to have taken either action, then after a good outcome she would believe he worked with probability <span class="math notranslate nohighlight">\(\muh/(\muh+\mul)=0.65\)</span> in the running example, and after a bad outcome with probability <span class="math notranslate nohighlight">\((1-\muh)/[(1-\muh)+(1-\mul)]=0.35\)</span>. A good outcome is <em>good news about effort</em>, and the contract pays more after good news. The size of the pay gap depends on how much news an outcome carries. <a class="reference internal" href="gen.html#sec-ha-n"><span class="std std-ref">Many outcomes: the Grossman–Hart approach</span></a> shows that with many outcomes the contract pays according to the likelihood ratio <span class="math notranslate nohighlight">\(\Pr(y\mid\al)/\Pr(y\mid\ah)\)</span>, not according to the level of output. An outcome that is high but equally likely under both actions earns no reward at all.</p>
+<p><strong>4. Punishing the innocent.</strong> In equilibrium the agent takes the high action, and the principal knows it: she designed the contract so that he would. So when a bad outcome occurs, she knows it was bad luck. Yet she still pays the low wage <span class="math notranslate nohighlight">\(w_b^*\)</span>. This is not because she suspects him; it is because the <em>threat</em> of the low wage is what made him work in the first place. If he expected to be forgiven after bad luck, he would not work. Two consequences follow.</p>
+<ul class="simple">
+<li><p><em>Commitment matters.</em> After effort is sunk and before output is known, both parties would gain from tearing up the contract and replacing it with full insurance. If the agent expects that to happen, his incentives disappear. The model assumes the principal can commit not to renegotiate. Fudenberg and Tirole (1990) study what happens when she cannot.</p></li>
+<li><p><em>Fairness and incentives conflict.</em> Real contracts that punish people for bad luck are often seen as unfair. The NHS scheme for GPs (<a class="reference internal" href="cases.html#sec-ha-cases"><span class="std std-ref">The model meets the data: two cases</span></a>) only ever added bonuses on top of a guaranteed core payment. That can be read as a choice to give up some incentive efficiency for fairness, and for a contract the doctors’ union would sign.</p></li>
+</ul>
+<p><strong>5. Contracts you have seen.</strong> The second-best contract appears in many guises. A sales job with a base salary and a commission sets <span class="math notranslate nohighlight">\(w_b\)</span> as the base and adds a bonus for good outcomes. A car-insurance deductible and a renewal surcharge after a claim lower the insured’s wealth in the bad state below what full insurance would give. A sharecropping lease gives the tenant a share of a good harvest. Each is a version of the same compromise between insurance and incentives.</p>
+<figure class="infoecon-lab"><iframe src="../_static/labs/contract.html" data-lab="contract" title="Optimal contracts under hidden action" loading="lazy" style="width:100%;height:1390px;border:1px solid var(--pst-color-border,#ddd);border-radius:8px"></iframe><figcaption>Interactive lab: Optimal contracts under hidden action &middot; <a href="../_static/labs/contract.html" target="_blank" rel="noopener">open in a new tab</a></figcaption></figure></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>The first best: contractible actions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="welfare.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Welfare and the cost of hidden action</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-incentive-constraint">3.4.1. The incentive constraint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-optimal-contracts">3.4.2. The optimal contracts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-contract-carrot-and-stick">3.4.3. Reading the contract: carrot and stick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-second-best-contract">3.4.4. Interpreting the second-best contract</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

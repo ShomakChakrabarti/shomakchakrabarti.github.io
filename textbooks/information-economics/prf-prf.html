@@ -1,0 +1,1538 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proof Index &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prf-prf';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="_static/text-width.js?v=cdcadc06"></script>
+    <script src="_static/slides.js?v=d1b9c555"></script>
+    <script src="_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch3/index.html">3. Hidden actions: moral hazard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch3/intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch3/errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+   <h1>Proof Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-adverse-selection-definition-1"><strong>adverse-selection-definition-1</strong></a> | 
+   <a href="#cap-adverse-selection-remark-2"><strong>adverse-selection-remark-2</strong></a> | 
+   <a href="#cap-adverse-selection-remark-3"><strong>adverse-selection-remark-3</strong></a> | 
+   <a href="#cap-as-ad-pay"><strong>as-ad-pay</strong></a> | 
+   <a href="#cap-as-ad-size"><strong>as-ad-size</strong></a> | 
+   <a href="#cap-as-ad-unif"><strong>as-ad-unif</strong></a> | 
+   <a href="#cap-as-cu-complete"><strong>as-cu-complete</strong></a> | 
+   <a href="#cap-as-cu-cont"><strong>as-cu-cont</strong></a> | 
+   <a href="#cap-as-cu-ind"><strong>as-cu-ind</strong></a> | 
+   <a href="#cap-as-cu-trans"><strong>as-cu-trans</strong></a> | 
+   <a href="#cap-as-fm-endow"><strong>as-fm-endow</strong></a> | 
+   <a href="#cap-as-fm-pref"><strong>as-fm-pref</strong></a> | 
+   <a href="#cap-as-ha-int"><strong>as-ha-int</strong></a> | 
+   <a href="#cap-as-ha-pref"><strong>as-ha-pref</strong></a> | 
+   <a href="#cap-as-ha-prob"><strong>as-ha-prob</strong></a> | 
+   <a href="#cap-as-sg-cost"><strong>as-sg-cost</strong></a> | 
+   <a href="#cap-as-sg-pay"><strong>as-sg-pay</strong></a> | 
+   <a href="#cap-as-sg-sc"><strong>as-sg-sc</strong></a> | 
+   <a href="#cap-as-sg-unprod"><strong>as-sg-unprod</strong></a> | 
+   <a href="#cap-cor-ha-loss"><strong>cor-ha-loss</strong></a> | 
+   <a href="#cap-cor-ha-mlrp"><strong>cor-ha-mlrp</strong></a> | 
+   <a href="#cap-def-ad-eff"><strong>def-ad-eff</strong></a> | 
+   <a href="#cap-def-ad-eq"><strong>def-ad-eq</strong></a> | 
+   <a href="#cap-def-cu-ap"><strong>def-cu-ap</strong></a> | 
+   <a href="#cap-def-cu-ce"><strong>def-cu-ce</strong></a> | 
+   <a href="#cap-def-cu-fair"><strong>def-cu-fair</strong></a> | 
+   <a href="#cap-def-cu-lottery"><strong>def-cu-lottery</strong></a> | 
+   <a href="#cap-def-cu-mix"><strong>def-cu-mix</strong></a> | 
+   <a href="#cap-def-cu-mps"><strong>def-cu-mps</strong></a> | 
+   <a href="#cap-def-cu-ra"><strong>def-cu-ra</strong></a> | 
+   <a href="#cap-def-cu-rep"><strong>def-cu-rep</strong></a> | 
+   <a href="#cap-def-fm-budget"><strong>def-fm-budget</strong></a> | 
+   <a href="#cap-def-fm-npv"><strong>def-fm-npv</strong></a> | 
+   <a href="#cap-def-ha-ac"><strong>def-ha-ac</strong></a> | 
+   <a href="#cap-def-ha-eq"><strong>def-ha-eq</strong></a> | 
+   <a href="#cap-def-sg-ic"><strong>def-sg-ic</strong></a> | 
+   <a href="#cap-def-sg-pbe"><strong>def-sg-pbe</strong></a> | 
+   <a href="#cap-ex-ad-cars"><strong>ex-ad-cars</strong></a> | 
+   <a href="#cap-ex-ad-harvard"><strong>ex-ad-harvard</strong></a> | 
+   <a href="#cap-ex-ad-run"><strong>ex-ad-run</strong></a> | 
+   <a href="#cap-ex-cu-families"><strong>ex-cu-families</strong></a> | 
+   <a href="#cap-ex-cu-load"><strong>ex-cu-load</strong></a> | 
+   <a href="#cap-ex-cu-run"><strong>ex-cu-run</strong></a> | 
+   <a href="#cap-ex-cu-sqsq"><strong>ex-cu-sqsq</strong></a> | 
+   <a href="#cap-ex-cu-sydnor"><strong>ex-cu-sydnor</strong></a> | 
+   <a href="#cap-ex-cu-weather"><strong>ex-cu-weather</strong></a> | 
+   <a href="#cap-ex-fm-alice"><strong>ex-fm-alice</strong></a> | 
+   <a href="#cap-ex-fm-alice-opt"><strong>ex-fm-alice-opt</strong></a> | 
+   <a href="#cap-ex-fm-bob"><strong>ex-fm-bob</strong></a> | 
+   <a href="#cap-ex-fm-perp"><strong>ex-fm-perp</strong></a> | 
+   <a href="#cap-ex-fm-poll"><strong>ex-fm-poll</strong></a> | 
+   <a href="#cap-ex-fm-precaution"><strong>ex-fm-precaution</strong></a> | 
+   <a href="#cap-ex-fm-slutsky"><strong>ex-fm-slutsky</strong></a> | 
+   <a href="#cap-ex-ha-prog"><strong>ex-ha-prog</strong></a> | 
+   <a href="#cap-ex-ha-qof"><strong>ex-ha-qof</strong></a> | 
+   <a href="#cap-ex-ha-run"><strong>ex-ha-run</strong></a> | 
+   <a href="#cap-ex-sg-case1"><strong>ex-sg-case1</strong></a> | 
+   <a href="#cap-ex-sg-case2"><strong>ex-sg-case2</strong></a> | 
+   <a href="#cap-ex-sg-run"><strong>ex-sg-run</strong></a> | 
+   <a href="#cap-hidden-actions-definition-1"><strong>hidden-actions-definition-1</strong></a> | 
+   <a href="#cap-hidden-actions-definition-4"><strong>hidden-actions-definition-4</strong></a> | 
+   <a href="#cap-hidden-actions-remark-2"><strong>hidden-actions-remark-2</strong></a> | 
+   <a href="#cap-hidden-actions-remark-3"><strong>hidden-actions-remark-3</strong></a> | 
+   <a href="#cap-lem-ad-lop"><strong>lem-ad-lop</strong></a> | 
+   <a href="#cap-lem-ad-mono"><strong>lem-ad-mono</strong></a> | 
+   <a href="#cap-lem-ha-fi"><strong>lem-ha-fi</strong></a> | 
+   <a href="#cap-lem-ha-h"><strong>lem-ha-h</strong></a> | 
+   <a href="#cap-lem-ha-ic"><strong>lem-ha-ic</strong></a> | 
+   <a href="#cap-lem-sg-bertrand"><strong>lem-sg-bertrand</strong></a> | 
+   <a href="#cap-lem-sg-none"><strong>lem-sg-none</strong></a> | 
+   <a href="#cap-lem-sg-public"><strong>lem-sg-public</strong></a> | 
+   <a href="#cap-prop-ad-bigk"><strong>prop-ad-bigk</strong></a> | 
+   <a href="#cap-prop-ad-efc"><strong>prop-ad-efc</strong></a> | 
+   <a href="#cap-prop-ad-exist"><strong>prop-ad-exist</strong></a> | 
+   <a href="#cap-prop-ad-floor"><strong>prop-ad-floor</strong></a> | 
+   <a href="#cap-prop-ad-grades"><strong>prop-ad-grades</strong></a> | 
+   <a href="#cap-prop-ad-multi"><strong>prop-ad-multi</strong></a> | 
+   <a href="#cap-prop-ad-none"><strong>prop-ad-none</strong></a> | 
+   <a href="#cap-prop-ad-oo"><strong>prop-ad-oo</strong></a> | 
+   <a href="#cap-prop-ad-public"><strong>prop-ad-public</strong></a> | 
+   <a href="#cap-prop-ad-spiral"><strong>prop-ad-spiral</strong></a> | 
+   <a href="#cap-prop-cu-affine"><strong>prop-cu-affine</strong></a> | 
+   <a href="#cap-prop-cu-allais"><strong>prop-cu-allais</strong></a> | 
+   <a href="#cap-prop-cu-ap"><strong>prop-cu-ap</strong></a> | 
+   <a href="#cap-prop-cu-approx"><strong>prop-cu-approx</strong></a> | 
+   <a href="#cap-prop-cu-concave"><strong>prop-cu-concave</strong></a> | 
+   <a href="#cap-prop-cu-full"><strong>prop-cu-full</strong></a> | 
+   <a href="#cap-prop-cu-lines"><strong>prop-cu-lines</strong></a> | 
+   <a href="#cap-prop-cu-mossin"><strong>prop-cu-mossin</strong></a> | 
+   <a href="#cap-prop-cu-rs"><strong>prop-cu-rs</strong></a> | 
+   <a href="#cap-prop-fm-irr"><strong>prop-fm-irr</strong></a> | 
+   <a href="#cap-prop-fm-lender"><strong>prop-fm-lender</strong></a> | 
+   <a href="#cap-prop-fm-precaution"><strong>prop-fm-precaution</strong></a> | 
+   <a href="#cap-prop-fm-stay"><strong>prop-fm-stay</strong></a> | 
+   <a href="#cap-prop-ha-ac"><strong>prop-ha-ac</strong></a> | 
+   <a href="#cap-prop-ha-chi"><strong>prop-ha-chi</strong></a> | 
+   <a href="#cap-prop-ha-ll"><strong>prop-ha-ll</strong></a> | 
+   <a href="#cap-prop-ha-under"><strong>prop-ha-under</strong></a> | 
+   <a href="#cap-prop-sg-cont"><strong>prop-sg-cont</strong></a> | 
+   <a href="#cap-prop-sg-disc"><strong>prop-sg-disc</strong></a> | 
+   <a href="#cap-prop-sg-ic"><strong>prop-sg-ic</strong></a> | 
+   <a href="#cap-prop-sg-waste"><strong>prop-sg-waste</strong></a> | 
+   <a href="#cap-prop-sg-who"><strong>prop-sg-who</strong></a> | 
+   <a href="#cap-rem-sg-offpath"><strong>rem-sg-offpath</strong></a> | 
+   <a href="#cap-signalling-definition-1"><strong>signalling-definition-1</strong></a> | 
+   <a href="#cap-thm-ad-akerlof"><strong>thm-ad-akerlof</strong></a> | 
+   <a href="#cap-thm-cu-eu"><strong>thm-cu-eu</strong></a> | 
+   <a href="#cap-thm-cu-pratt"><strong>thm-cu-pratt</strong></a> | 
+   <a href="#cap-thm-cu-rabin"><strong>thm-cu-rabin</strong></a> | 
+   <a href="#cap-thm-fm-euler"><strong>thm-fm-euler</strong></a> | 
+   <a href="#cap-thm-fm-fisher"><strong>thm-fm-fisher</strong></a> | 
+   <a href="#cap-thm-fm-slutsky"><strong>thm-fm-slutsky</strong></a> | 
+   <a href="#cap-thm-ha-fb"><strong>thm-ha-fb</strong></a> | 
+   <a href="#cap-thm-ha-gh"><strong>thm-ha-gh</strong></a> | 
+   <a href="#cap-thm-ha-info"><strong>thm-ha-info</strong></a> | 
+   <a href="#cap-thm-ha-sb"><strong>thm-ha-sb</strong></a> | 
+   <a href="#cap-thm-sg-pool"><strong>thm-sg-pool</strong></a> | 
+   <a href="#cap-thm-sg-sep"><strong>thm-sg-sep</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-adverse-selection-definition-1"><td></td><td>
+       <strong>adverse-selection-definition-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/intro.html#adverse-selection-definition-1"><code class="xref">adverse-selection-definition-1</code></a> <em>(ch4/intro)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-adverse-selection-remark-2"><td></td><td>
+       <strong>adverse-selection-remark-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/model.html#adverse-selection-remark-2"><code class="xref">adverse-selection-remark-2</code></a> <em>(ch4/model)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-adverse-selection-remark-3"><td></td><td>
+       <strong>adverse-selection-remark-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/asym.html#adverse-selection-remark-3"><code class="xref">adverse-selection-remark-3</code></a> <em>(ch4/asym)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-ad-pay"><td></td><td>
+       <strong>as-ad-pay</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/model.html#as-ad-pay"><code class="xref">as-ad-pay</code></a> <em>(ch4/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-ad-size"><td></td><td>
+       <strong>as-ad-size</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/model.html#as-ad-size"><code class="xref">as-ad-size</code></a> <em>(ch4/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-ad-unif"><td></td><td>
+       <strong>as-ad-unif</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/model.html#as-ad-unif"><code class="xref">as-ad-unif</code></a> <em>(ch4/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-cu-complete"><td></td><td>
+       <strong>as-cu-complete</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#as-cu-complete"><code class="xref">as-cu-complete</code></a> <em>(ch2/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-cu-cont"><td></td><td>
+       <strong>as-cu-cont</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#as-cu-cont"><code class="xref">as-cu-cont</code></a> <em>(ch2/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-cu-ind"><td></td><td>
+       <strong>as-cu-ind</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#as-cu-ind"><code class="xref">as-cu-ind</code></a> <em>(ch2/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-cu-trans"><td></td><td>
+       <strong>as-cu-trans</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#as-cu-trans"><code class="xref">as-cu-trans</code></a> <em>(ch2/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-fm-endow"><td></td><td>
+       <strong>as-fm-endow</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/model.html#as-fm-endow"><code class="xref">as-fm-endow</code></a> <em>(ch1/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-fm-pref"><td></td><td>
+       <strong>as-fm-pref</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/model.html#as-fm-pref"><code class="xref">as-fm-pref</code></a> <em>(ch1/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-ha-int"><td></td><td>
+       <strong>as-ha-int</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/model.html#as-ha-int"><code class="xref">as-ha-int</code></a> <em>(ch3/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-ha-pref"><td></td><td>
+       <strong>as-ha-pref</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/model.html#as-ha-pref"><code class="xref">as-ha-pref</code></a> <em>(ch3/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-ha-prob"><td></td><td>
+       <strong>as-ha-prob</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/model.html#as-ha-prob"><code class="xref">as-ha-prob</code></a> <em>(ch3/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-sg-cost"><td></td><td>
+       <strong>as-sg-cost</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/model.html#as-sg-cost"><code class="xref">as-sg-cost</code></a> <em>(ch5/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-sg-pay"><td></td><td>
+       <strong>as-sg-pay</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/model.html#as-sg-pay"><code class="xref">as-sg-pay</code></a> <em>(ch5/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-sg-sc"><td></td><td>
+       <strong>as-sg-sc</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/model.html#as-sg-sc"><code class="xref">as-sg-sc</code></a> <em>(ch5/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-as-sg-unprod"><td></td><td>
+       <strong>as-sg-unprod</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/model.html#as-sg-unprod"><code class="xref">as-sg-unprod</code></a> <em>(ch5/model)</em></td><td>
+       <em>assumption</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-cor-ha-loss"><td></td><td>
+       <strong>cor-ha-loss</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/welfare.html#cor-ha-loss"><code class="xref">cor-ha-loss</code></a> <em>(ch3/welfare)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-cor-ha-mlrp"><td></td><td>
+       <strong>cor-ha-mlrp</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/gen.html#cor-ha-mlrp"><code class="xref">cor-ha-mlrp</code></a> <em>(ch3/gen)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-ad-eff"><td></td><td>
+       <strong>def-ad-eff</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/model.html#def-ad-eff"><code class="xref">def-ad-eff</code></a> <em>(ch4/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-ad-eq"><td></td><td>
+       <strong>def-ad-eq</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/model.html#def-ad-eq"><code class="xref">def-ad-eq</code></a> <em>(ch4/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-ap"><td></td><td>
+       <strong>def-cu-ap</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/risk.html#def-cu-ap"><code class="xref">def-cu-ap</code></a> <em>(ch2/risk)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-ce"><td></td><td>
+       <strong>def-cu-ce</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/risk.html#def-cu-ce"><code class="xref">def-cu-ce</code></a> <em>(ch2/risk)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-fair"><td></td><td>
+       <strong>def-cu-fair</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/ins.html#def-cu-fair"><code class="xref">def-cu-fair</code></a> <em>(ch2/ins)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-lottery"><td></td><td>
+       <strong>def-cu-lottery</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#def-cu-lottery"><code class="xref">def-cu-lottery</code></a> <em>(ch2/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-mix"><td></td><td>
+       <strong>def-cu-mix</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#def-cu-mix"><code class="xref">def-cu-mix</code></a> <em>(ch2/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-mps"><td></td><td>
+       <strong>def-cu-mps</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/gen.html#def-cu-mps"><code class="xref">def-cu-mps</code></a> <em>(ch2/gen)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-ra"><td></td><td>
+       <strong>def-cu-ra</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/risk.html#def-cu-ra"><code class="xref">def-cu-ra</code></a> <em>(ch2/risk)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-cu-rep"><td></td><td>
+       <strong>def-cu-rep</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#def-cu-rep"><code class="xref">def-cu-rep</code></a> <em>(ch2/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-fm-budget"><td></td><td>
+       <strong>def-fm-budget</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/model.html#def-fm-budget"><code class="xref">def-fm-budget</code></a> <em>(ch1/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-fm-npv"><td></td><td>
+       <strong>def-fm-npv</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/npv.html#def-fm-npv"><code class="xref">def-fm-npv</code></a> <em>(ch1/npv)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-ha-ac"><td></td><td>
+       <strong>def-ha-ac</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/welfare.html#def-ha-ac"><code class="xref">def-ha-ac</code></a> <em>(ch3/welfare)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-ha-eq"><td></td><td>
+       <strong>def-ha-eq</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/model.html#def-ha-eq"><code class="xref">def-ha-eq</code></a> <em>(ch3/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-sg-ic"><td></td><td>
+       <strong>def-sg-ic</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/gen.html#def-sg-ic"><code class="xref">def-sg-ic</code></a> <em>(ch5/gen)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def-sg-pbe"><td></td><td>
+       <strong>def-sg-pbe</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/model.html#def-sg-pbe"><code class="xref">def-sg-pbe</code></a> <em>(ch5/model)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-ad-cars"><td></td><td>
+       <strong>ex-ad-cars</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/cases.html#ex-ad-cars"><code class="xref">ex-ad-cars</code></a> <em>(ch4/cases)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-ad-harvard"><td></td><td>
+       <strong>ex-ad-harvard</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/cases.html#ex-ad-harvard"><code class="xref">ex-ad-harvard</code></a> <em>(ch4/cases)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-ad-run"><td></td><td>
+       <strong>ex-ad-run</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/model.html#ex-ad-run"><code class="xref">ex-ad-run</code></a> <em>(ch4/model)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-cu-families"><td></td><td>
+       <strong>ex-cu-families</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/risk.html#ex-cu-families"><code class="xref">ex-cu-families</code></a> <em>(ch2/risk)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-cu-load"><td></td><td>
+       <strong>ex-cu-load</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/ins.html#ex-cu-load"><code class="xref">ex-cu-load</code></a> <em>(ch2/ins)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-cu-run"><td></td><td>
+       <strong>ex-cu-run</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#ex-cu-run"><code class="xref">ex-cu-run</code></a> <em>(ch2/model)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-cu-sqsq"><td></td><td>
+       <strong>ex-cu-sqsq</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/eu.html#ex-cu-sqsq"><code class="xref">ex-cu-sqsq</code></a> <em>(ch2/eu)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-cu-sydnor"><td></td><td>
+       <strong>ex-cu-sydnor</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/cases.html#ex-cu-sydnor"><code class="xref">ex-cu-sydnor</code></a> <em>(ch2/cases)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-cu-weather"><td></td><td>
+       <strong>ex-cu-weather</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/model.html#ex-cu-weather"><code class="xref">ex-cu-weather</code></a> <em>(ch2/model)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-fm-alice"><td></td><td>
+       <strong>ex-fm-alice</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/model.html#ex-fm-alice"><code class="xref">ex-fm-alice</code></a> <em>(ch1/model)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-fm-alice-opt"><td></td><td>
+       <strong>ex-fm-alice-opt</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/saving.html#ex-fm-alice-opt"><code class="xref">ex-fm-alice-opt</code></a> <em>(ch1/saving)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-fm-bob"><td></td><td>
+       <strong>ex-fm-bob</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/saving.html#ex-fm-bob"><code class="xref">ex-fm-bob</code></a> <em>(ch1/saving)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-fm-perp"><td></td><td>
+       <strong>ex-fm-perp</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/npv.html#ex-fm-perp"><code class="xref">ex-fm-perp</code></a> <em>(ch1/npv)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-fm-poll"><td></td><td>
+       <strong>ex-fm-poll</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/unc.html#ex-fm-poll"><code class="xref">ex-fm-poll</code></a> <em>(ch1/unc)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-fm-precaution"><td></td><td>
+       <strong>ex-fm-precaution</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/unc.html#ex-fm-precaution"><code class="xref">ex-fm-precaution</code></a> <em>(ch1/unc)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-fm-slutsky"><td></td><td>
+       <strong>ex-fm-slutsky</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/rate.html#ex-fm-slutsky"><code class="xref">ex-fm-slutsky</code></a> <em>(ch1/rate)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-ha-prog"><td></td><td>
+       <strong>ex-ha-prog</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/cases.html#ex-ha-prog"><code class="xref">ex-ha-prog</code></a> <em>(ch3/cases)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-ha-qof"><td></td><td>
+       <strong>ex-ha-qof</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/cases.html#ex-ha-qof"><code class="xref">ex-ha-qof</code></a> <em>(ch3/cases)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-ha-run"><td></td><td>
+       <strong>ex-ha-run</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/model.html#ex-ha-run"><code class="xref">ex-ha-run</code></a> <em>(ch3/model)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-sg-case1"><td></td><td>
+       <strong>ex-sg-case1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/cases.html#ex-sg-case1"><code class="xref">ex-sg-case1</code></a> <em>(ch5/cases)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-sg-case2"><td></td><td>
+       <strong>ex-sg-case2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/cases.html#ex-sg-case2"><code class="xref">ex-sg-case2</code></a> <em>(ch5/cases)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-sg-run"><td></td><td>
+       <strong>ex-sg-run</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/model.html#ex-sg-run"><code class="xref">ex-sg-run</code></a> <em>(ch5/model)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-hidden-actions-definition-1"><td></td><td>
+       <strong>hidden-actions-definition-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/intro.html#hidden-actions-definition-1"><code class="xref">hidden-actions-definition-1</code></a> <em>(ch3/intro)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-hidden-actions-definition-4"><td></td><td>
+       <strong>hidden-actions-definition-4</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/gen.html#hidden-actions-definition-4"><code class="xref">hidden-actions-definition-4</code></a> <em>(ch3/gen)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-hidden-actions-remark-2"><td></td><td>
+       <strong>hidden-actions-remark-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/model.html#hidden-actions-remark-2"><code class="xref">hidden-actions-remark-2</code></a> <em>(ch3/model)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-hidden-actions-remark-3"><td></td><td>
+       <strong>hidden-actions-remark-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/sb.html#hidden-actions-remark-3"><code class="xref">hidden-actions-remark-3</code></a> <em>(ch3/sb)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-ad-lop"><td></td><td>
+       <strong>lem-ad-lop</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/asym.html#lem-ad-lop"><code class="xref">lem-ad-lop</code></a> <em>(ch4/asym)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-ad-mono"><td></td><td>
+       <strong>lem-ad-mono</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/gen.html#lem-ad-mono"><code class="xref">lem-ad-mono</code></a> <em>(ch4/gen)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-ha-fi"><td></td><td>
+       <strong>lem-ha-fi</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/sb.html#lem-ha-fi"><code class="xref">lem-ha-fi</code></a> <em>(ch3/sb)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-ha-h"><td></td><td>
+       <strong>lem-ha-h</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/model.html#lem-ha-h"><code class="xref">lem-ha-h</code></a> <em>(ch3/model)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-ha-ic"><td></td><td>
+       <strong>lem-ha-ic</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/sb.html#lem-ha-ic"><code class="xref">lem-ha-ic</code></a> <em>(ch3/sb)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-sg-bertrand"><td></td><td>
+       <strong>lem-sg-bertrand</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/bench.html#lem-sg-bertrand"><code class="xref">lem-sg-bertrand</code></a> <em>(ch5/bench)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-sg-none"><td></td><td>
+       <strong>lem-sg-none</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/bench.html#lem-sg-none"><code class="xref">lem-sg-none</code></a> <em>(ch5/bench)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem-sg-public"><td></td><td>
+       <strong>lem-sg-public</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/bench.html#lem-sg-public"><code class="xref">lem-sg-public</code></a> <em>(ch5/bench)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-bigk"><td></td><td>
+       <strong>prop-ad-bigk</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/asym.html#prop-ad-bigk"><code class="xref">prop-ad-bigk</code></a> <em>(ch4/asym)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-efc"><td></td><td>
+       <strong>prop-ad-efc</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/gen.html#prop-ad-efc"><code class="xref">prop-ad-efc</code></a> <em>(ch4/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-exist"><td></td><td>
+       <strong>prop-ad-exist</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/gen.html#prop-ad-exist"><code class="xref">prop-ad-exist</code></a> <em>(ch4/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-floor"><td></td><td>
+       <strong>prop-ad-floor</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/remedies.html#prop-ad-floor"><code class="xref">prop-ad-floor</code></a> <em>(ch4/remedies)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-grades"><td></td><td>
+       <strong>prop-ad-grades</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/gen.html#prop-ad-grades"><code class="xref">prop-ad-grades</code></a> <em>(ch4/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-multi"><td></td><td>
+       <strong>prop-ad-multi</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/gen.html#prop-ad-multi"><code class="xref">prop-ad-multi</code></a> <em>(ch4/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-none"><td></td><td>
+       <strong>prop-ad-none</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/bench.html#prop-ad-none"><code class="xref">prop-ad-none</code></a> <em>(ch4/bench)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-oo"><td></td><td>
+       <strong>prop-ad-oo</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/remedies.html#prop-ad-oo"><code class="xref">prop-ad-oo</code></a> <em>(ch4/remedies)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-public"><td></td><td>
+       <strong>prop-ad-public</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/bench.html#prop-ad-public"><code class="xref">prop-ad-public</code></a> <em>(ch4/bench)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ad-spiral"><td></td><td>
+       <strong>prop-ad-spiral</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/asym.html#prop-ad-spiral"><code class="xref">prop-ad-spiral</code></a> <em>(ch4/asym)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-affine"><td></td><td>
+       <strong>prop-cu-affine</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/eu.html#prop-cu-affine"><code class="xref">prop-cu-affine</code></a> <em>(ch2/eu)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-allais"><td></td><td>
+       <strong>prop-cu-allais</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/cases.html#prop-cu-allais"><code class="xref">prop-cu-allais</code></a> <em>(ch2/cases)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-ap"><td></td><td>
+       <strong>prop-cu-ap</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/risk.html#prop-cu-ap"><code class="xref">prop-cu-ap</code></a> <em>(ch2/risk)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-approx"><td></td><td>
+       <strong>prop-cu-approx</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/gen.html#prop-cu-approx"><code class="xref">prop-cu-approx</code></a> <em>(ch2/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-concave"><td></td><td>
+       <strong>prop-cu-concave</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/risk.html#prop-cu-concave"><code class="xref">prop-cu-concave</code></a> <em>(ch2/risk)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-full"><td></td><td>
+       <strong>prop-cu-full</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/ins.html#prop-cu-full"><code class="xref">prop-cu-full</code></a> <em>(ch2/ins)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-lines"><td></td><td>
+       <strong>prop-cu-lines</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/eu.html#prop-cu-lines"><code class="xref">prop-cu-lines</code></a> <em>(ch2/eu)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-mossin"><td></td><td>
+       <strong>prop-cu-mossin</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/ins.html#prop-cu-mossin"><code class="xref">prop-cu-mossin</code></a> <em>(ch2/ins)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-cu-rs"><td></td><td>
+       <strong>prop-cu-rs</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/gen.html#prop-cu-rs"><code class="xref">prop-cu-rs</code></a> <em>(ch2/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-fm-irr"><td></td><td>
+       <strong>prop-fm-irr</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/npv.html#prop-fm-irr"><code class="xref">prop-fm-irr</code></a> <em>(ch1/npv)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-fm-lender"><td></td><td>
+       <strong>prop-fm-lender</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/saving.html#prop-fm-lender"><code class="xref">prop-fm-lender</code></a> <em>(ch1/saving)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-fm-precaution"><td></td><td>
+       <strong>prop-fm-precaution</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/unc.html#prop-fm-precaution"><code class="xref">prop-fm-precaution</code></a> <em>(ch1/unc)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-fm-stay"><td></td><td>
+       <strong>prop-fm-stay</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/rate.html#prop-fm-stay"><code class="xref">prop-fm-stay</code></a> <em>(ch1/rate)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ha-ac"><td></td><td>
+       <strong>prop-ha-ac</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/welfare.html#prop-ha-ac"><code class="xref">prop-ha-ac</code></a> <em>(ch3/welfare)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ha-chi"><td></td><td>
+       <strong>prop-ha-chi</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/gen.html#prop-ha-chi"><code class="xref">prop-ha-chi</code></a> <em>(ch3/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ha-ll"><td></td><td>
+       <strong>prop-ha-ll</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/gen.html#prop-ha-ll"><code class="xref">prop-ha-ll</code></a> <em>(ch3/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-ha-under"><td></td><td>
+       <strong>prop-ha-under</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/welfare.html#prop-ha-under"><code class="xref">prop-ha-under</code></a> <em>(ch3/welfare)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-sg-cont"><td></td><td>
+       <strong>prop-sg-cont</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/gen.html#prop-sg-cont"><code class="xref">prop-sg-cont</code></a> <em>(ch5/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-sg-disc"><td></td><td>
+       <strong>prop-sg-disc</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/gen.html#prop-sg-disc"><code class="xref">prop-sg-disc</code></a> <em>(ch5/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-sg-ic"><td></td><td>
+       <strong>prop-sg-ic</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/gen.html#prop-sg-ic"><code class="xref">prop-sg-ic</code></a> <em>(ch5/gen)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-sg-waste"><td></td><td>
+       <strong>prop-sg-waste</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/welfare.html#prop-sg-waste"><code class="xref">prop-sg-waste</code></a> <em>(ch5/welfare)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop-sg-who"><td></td><td>
+       <strong>prop-sg-who</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/welfare.html#prop-sg-who"><code class="xref">prop-sg-who</code></a> <em>(ch5/welfare)</em></td><td>
+       <em>proposition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-rem-sg-offpath"><td></td><td>
+       <strong>rem-sg-offpath</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/model.html#rem-sg-offpath"><code class="xref">rem-sg-offpath</code></a> <em>(ch5/model)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-signalling-definition-1"><td></td><td>
+       <strong>signalling-definition-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/intro.html#signalling-definition-1"><code class="xref">signalling-definition-1</code></a> <em>(ch5/intro)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-ad-akerlof"><td></td><td>
+       <strong>thm-ad-akerlof</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch4/asym.html#thm-ad-akerlof"><code class="xref">thm-ad-akerlof</code></a> <em>(ch4/asym)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-cu-eu"><td></td><td>
+       <strong>thm-cu-eu</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/eu.html#thm-cu-eu"><code class="xref">thm-cu-eu</code></a> <em>(ch2/eu)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-cu-pratt"><td></td><td>
+       <strong>thm-cu-pratt</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/gen.html#thm-cu-pratt"><code class="xref">thm-cu-pratt</code></a> <em>(ch2/gen)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-cu-rabin"><td></td><td>
+       <strong>thm-cu-rabin</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch2/gen.html#thm-cu-rabin"><code class="xref">thm-cu-rabin</code></a> <em>(ch2/gen)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-fm-euler"><td></td><td>
+       <strong>thm-fm-euler</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/saving.html#thm-fm-euler"><code class="xref">thm-fm-euler</code></a> <em>(ch1/saving)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-fm-fisher"><td></td><td>
+       <strong>thm-fm-fisher</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/gen.html#thm-fm-fisher"><code class="xref">thm-fm-fisher</code></a> <em>(ch1/gen)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-fm-slutsky"><td></td><td>
+       <strong>thm-fm-slutsky</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch1/rate.html#thm-fm-slutsky"><code class="xref">thm-fm-slutsky</code></a> <em>(ch1/rate)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-ha-fb"><td></td><td>
+       <strong>thm-ha-fb</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/fb.html#thm-ha-fb"><code class="xref">thm-ha-fb</code></a> <em>(ch3/fb)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-ha-gh"><td></td><td>
+       <strong>thm-ha-gh</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/gen.html#thm-ha-gh"><code class="xref">thm-ha-gh</code></a> <em>(ch3/gen)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-ha-info"><td></td><td>
+       <strong>thm-ha-info</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/gen.html#thm-ha-info"><code class="xref">thm-ha-info</code></a> <em>(ch3/gen)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-ha-sb"><td></td><td>
+       <strong>thm-ha-sb</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch3/sb.html#thm-ha-sb"><code class="xref">thm-ha-sb</code></a> <em>(ch3/sb)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-sg-pool"><td></td><td>
+       <strong>thm-sg-pool</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/pool.html#thm-sg-pool"><code class="xref">thm-sg-pool</code></a> <em>(ch5/pool)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm-sg-sep"><td></td><td>
+       <strong>thm-sg-sep</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch5/sep.html#thm-sg-sep"><code class="xref">thm-sg-sep</code></a> <em>(ch5/sep)</em></td><td>
+       <em>theorem</em></td></tr>
+   </table>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

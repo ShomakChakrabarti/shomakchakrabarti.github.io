@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.7. The model meets the data &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch5/cases';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.8. Generalisations" href="gen.html" />
+    <link rel="prev" title="5.6. Welfare" href="welfare.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch3/index.html">3. Hidden actions: moral hazard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Hidden information: signalling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The model meets the data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-same-skills-different-certificate">5.7.1. Case 1: same skills, different certificate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-degree-inflation">5.7.2. Case 2: degree inflation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-model-meets-the-data">
+<span id="sec-sg-cases"></span><h1><span class="section-number">5.7. </span>The model meets the data<a class="headerlink" href="#the-model-meets-the-data" title="Link to this heading">#</a></h1>
+<p>We separate the <em>mechanism</em> (a credential that separates types because it is harder for the less able to get, paid a premium beyond what it adds) from the <em>welfare conclusion</em> (that the signal is pure waste). A prediction <strong>Holds</strong> when tested directly and survived, <strong>Fits</strong> when the evidence is consistent but not a direct test, holds <strong>In part</strong>, or <strong>Fails</strong>. Worked numbers are illustrative.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Prediction</p></th>
+<th class="head"><p>Where</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S1</p></td>
+<td><p>Productivity is public: each worker is paid her productivity. Nobody signals.</p></td>
+<td><p><a class="reference internal" href="bench.html#lem-sg-public">Lemma 5.2</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>S2</p></td>
+<td><p>Hidden, no signal: everyone is paid the average.</p></td>
+<td><p><a class="reference internal" href="bench.html#lem-sg-none">Lemma 5.3</a></p></td>
+</tr>
+<tr class="row-even"><td><p>S3</p></td>
+<td><p>High types buy the signal, low types do not; firms read type off it.</p></td>
+<td><p><a class="reference internal" href="sep.html#thm-sg-sep">Theorem 5.1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>S4</p></td>
+<td><p>The wage is a step: low below the required signal, high at it.</p></td>
+<td><p><a class="reference internal" href="sep.html#thm-sg-sep">Theorem 5.1</a>(b)</p></td>
+</tr>
+<tr class="row-even"><td><p>S5</p></td>
+<td><p>The signal earns a premium although it adds nothing to productivity.</p></td>
+<td><p><a class="reference internal" href="sep.html#thm-sg-sep">Theorem 5.1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>S6</p></td>
+<td><p>The signal must be cheaper for the high type; its level is set by what a low type would pay to fake it.</p></td>
+<td><p><a class="reference internal" href="sep.html#thm-sg-sep">Theorem 5.1</a></p></td>
+</tr>
+<tr class="row-even"><td><p>S7</p></td>
+<td><p>Signalling is waste: output unchanged, welfare lower.</p></td>
+<td><p><a class="reference internal" href="welfare.html#prop-sg-waste">Proposition 5.1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>S8</p></td>
+<td><p>Pooling: everyone buys the same signal, it tells firms nothing, and it is paid for anyway.</p></td>
+<td><p><a class="reference internal" href="pool.html#thm-sg-pool">Theorem 5.2</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="case-1-same-skills-different-certificate">
+<h2><span class="section-number">5.7.1. </span>Case 1: same skills, different certificate<a class="headerlink" href="#case-1-same-skills-different-certificate" title="Link to this heading">#</a></h2>
+<p>Graduates earn more than non-graduates. That fits Spence, but it also fits the view that education makes people more productive. To isolate the signal we need two workers with the same skills, one holding the certificate and one not. Three studies find such pairs.</p>
+<p><strong>The GED.</strong> The General Educational Development credential is the second-chance certificate for Americans who leave school without a diploma: five tests taking <span class="math notranslate nohighlight">\(7\tfrac34\)</span> hours, with about half a million passes in 1996. Each state sets its own pass mark, so a dropout with a given score passes in one state and fails in another. Tyler, Murnane and Willett (2000) compare such dropouts, aged 16–21, five years later: among young white dropouts, holding the GED raised earnings by 10–19%, about $1,500 a year. They find no effect for minority dropouts.</p>
+<p><strong>Degree class at LSE.</strong> A First needs enough course marks at 70, a 2:1 enough at 60, and the decisive mark (the fourth-best) is marked anonymously. Feng and Graetz (2017) compare 2,649 graduates of 2005–10 just above and just below each threshold, six months after graduating. A First raises the chance of working in a high-wage industry by 13 points and expected wages by about 3%; a 2:1 (against a 2:2) by 8 points and about 7%. The effects are larger for men and on mathematical programmes, where ability varies more.</p>
+<p><strong>The Texas diploma, and two limits.</strong> Clark and Martorell (2014) study 37,571 Texas students at their last-chance exit exam. Just passing raises the share holding a diploma from 40% to 90%, but its effect on earnings over eleven years is close to zero: employers learn about workers from interviews, tests and trial periods. Lange (2007) estimates that employers’ initial errors about a worker halve within three years, and that signalling accounts for under a quarter of the return to schooling. Arteaga (2018) finds that when a Colombian university cut its coursework by 20%, with the same intake, its graduates’ wages fell by about 16%: the coursework was productive.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>The GED</p></th>
+<th class="head"><p>LSE degree class</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Worker, who knows <span class="math notranslate nohighlight">\(\theta\)</span></p></td>
+<td><p>A school dropout</p></td>
+<td><p>A final-year student</p></td>
+</tr>
+<tr class="row-odd"><td><p>Firms, who do not</p></td>
+<td><p>Employers of young workers</p></td>
+<td><p>Graduate recruiters</p></td>
+</tr>
+<tr class="row-even"><td><p>Signal <span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td><p>Passing a long test battery</p></td>
+<td><p>Marks over three years</p></td>
+</tr>
+<tr class="row-odd"><td><p>Required level <span class="math notranslate nohighlight">\(a_h^*\)</span></p></td>
+<td><p>The state’s pass mark</p></td>
+<td><p>70 for a First, 60 for a 2:1</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(c(a;\theta)\)</span> lower for <span class="math notranslate nohighlight">\(\theta_h\)</span></p></td>
+<td><p>Passing is harder for the less skilled</p></td>
+<td><p>Reaching 70 is harder for the less able</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(w(a)\)</span> a step at <span class="math notranslate nohighlight">\(a_h^*\)</span></p></td>
+<td><p>Pay with and without the GED</p></td>
+<td><p>Pay by degree class</p></td>
+</tr>
+<tr class="row-even"><td><p>Unproductive</p></td>
+<td><p>The certificate does not change the score</p></td>
+<td><p>69 and 70 reflect the same ability</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>The model predicts</p></th>
+<th class="head"><p>In the data</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S1</p></td>
+<td><p>If firms can see productivity, the signal is worth nothing</p></td>
+<td><p>Texas diploma: no effect on pay; employers find out by other means, and fast</p></td>
+<td><p>Holds</p></td>
+</tr>
+<tr class="row-odd"><td><p>S3</p></td>
+<td><p>High types buy the signal; firms read type from it</p></td>
+<td><p>At identical scores, employers pay more to GED holders</p></td>
+<td><p>Holds</p></td>
+</tr>
+<tr class="row-even"><td><p>S4</p></td>
+<td><p>The wage is a step at the required level</p></td>
+<td><p>Pay jumps at 70 and 60 at LSE, and at the state pass mark for the GED</p></td>
+<td><p>Holds</p></td>
+</tr>
+<tr class="row-odd"><td><p>S5</p></td>
+<td><p>A premium with no change in productivity</p></td>
+<td><p>GED: 10–19% for white dropouts, none for minority dropouts; degree class 3–7%; Texas zero</p></td>
+<td><p>In part</p></td>
+</tr>
+<tr class="row-even"><td><p>S6</p></td>
+<td><p>The signal must cost the low type more; it matters more when types differ more</p></td>
+<td><p>Both credentials are harder for the less able; the degree-class effect is larger where ability is more dispersed</p></td>
+<td><p>Fits</p></td>
+</tr>
+<tr class="row-odd"><td><p>S7</p></td>
+<td><p>Signalling is pure waste</p></td>
+<td><p>Cutting coursework lowered wages: it was productive; signalling is under a quarter of the return to schooling</p></td>
+<td><p>Fails</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The mechanism of <a class="reference internal" href="sep.html#thm-sg-sep">Theorem 5.1</a> is there: a threshold, a step in pay, a premium for people no more skilled than those just below. The welfare result is not, because <a class="reference internal" href="model.html#as-sg-unprod">Assumption 5.3</a> is false for education as a whole.</p>
+<div class="proof example admonition" id="ex-sg-case1">
+<p class="admonition-title"><span class="caption-number">Example 5.2 </span> (Case 1 in numbers)</p>
+<section class="example-content" id="proof-content">
+<p>In <a class="reference internal" href="model.html#ex-sg-run">Example 5.1</a>, the least-cost separating signal solves <span class="math notranslate nohighlight">\(2a^2=18\)</span>, so <span class="math notranslate nohighlight">\(a^*=3\)</span> years, costing the high type <span class="math notranslate nohighlight">\(9\)</span>. The low type’s cost of three years is exactly the wage gain, <span class="math notranslate nohighlight">\(18\)</span>, so she does not copy. The high type ends on <span class="math notranslate nohighlight">\(38-9=29\)</span>, what she had with no signal; the low type falls from <span class="math notranslate nohighlight">\(29\)</span> to <span class="math notranslate nohighlight">\(20\)</span>; total surplus falls from <span class="math notranslate nohighlight">\(29\)</span> to <span class="math notranslate nohighlight">\(24.5\)</span>. Give a low type the certificate and she is paid <span class="math notranslate nohighlight">\(38\)</span>, her twin without it <span class="math notranslate nohighlight">\(20\)</span>: that is the GED comparison.</p>
+</section>
+</div></section>
+<section id="case-2-degree-inflation">
+<h2><span class="section-number">5.7.2. </span>Case 2: degree inflation<a class="headerlink" href="#case-2-degree-inflation" title="Link to this heading">#</a></h2>
+<p>Fuller and Raman (2017), using 26 million job postings and a survey of 600 employers, found that 67% of US postings for production supervisors asked for a degree, while only 16% of people already doing the job had one. They estimated that more than 6 million jobs were at risk of “degree inflation”. In many middle-skill roles graduates were paid 11–30% more, although employers said experienced non-graduates performed “nearly or equally well”; graduates in these roles had higher turnover and lower engagement.</p>
+<p>In 2022 many large employers announced they were dropping degree requirements. A 2024 follow-up by the Burning Glass Institute and Harvard Business School looked at who was actually hired by large firms over 2014–23. Only 3.6% of roles had dropped the requirement, adding about 97,000 non-graduate hires a year out of 77 million: “not even 1 in 700” hires changed. Of the firms that dropped it, 37% changed whom they hired, 45% changed nothing, and 18% went back. In England, the share of graduates awarded a First rose from 15.7% in 2010–11 to 37.9% in 2020–21, of which 22.4 percentage points could not be explained by changes in the students (Office for Students 2022).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Degree inflation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Signal <span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td><p>A bachelor’s degree</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pooling signal <span class="math notranslate nohighlight">\(a_p\)</span> (<a class="reference internal" href="pool.html#thm-sg-pool">Theorem 5.2</a>)</p></td>
+<td><p>The degree “everyone” applying has</p></td>
+</tr>
+<tr class="row-even"><td><p>Off-path signal <span class="math notranslate nohighlight">\(a&lt;a_p\)</span></p></td>
+<td><p>Applying without one</p></td>
+</tr>
+<tr class="row-odd"><td><p>Off-path belief <span class="math notranslate nohighlight">\(\mu(a)=0\)</span></p></td>
+<td><p>“No degree, so not capable”</p></td>
+</tr>
+<tr class="row-even"><td><p>Off-path wage <span class="math notranslate nohighlight">\(\theta_l\)</span></p></td>
+<td><p>Screened out by the advertisement</p></td>
+</tr>
+<tr class="row-odd"><td><p>Off-path beliefs are unrestricted (<a class="reference internal" href="model.html#rem-sg-offpath">Remark 5.1</a>)</p></td>
+<td><p>The belief is never tested: non-graduates are not hired</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(c(a;\theta_l)\)</span></p></td>
+<td><p>How hard it is for a weaker candidate to get a degree, or a First</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="proof example admonition" id="ex-sg-case2">
+<p class="admonition-title"><span class="caption-number">Example 5.3 </span> (Pooling and the rising bar)</p>
+<section class="example-content" id="proof-content">
+<p>In <a class="reference internal" href="model.html#ex-sg-run">Example 5.1</a> the largest pooling signal solves <span class="math notranslate nohighlight">\(2a_p^2=29-20=9\)</span>, so <span class="math notranslate nohighlight">\(a_p\approx2.12\)</span>. Both types are paid <span class="math notranslate nohighlight">\(29\)</span>, as with no signal, and both have paid for the degree: total surplus is <span class="math notranslate nohighlight">\(22.25\)</span>. Nobody stops, because skipping the degree brings an offer of <span class="math notranslate nohighlight">\(20\)</span>, and since nobody skips it the belief is never checked.</p>
+<p>Now suppose grade inflation and wider access make the signal easier for the low type: <span class="math notranslate nohighlight">\(c(a;\theta_l)=\kappa a^2\)</span>. The least-cost separating signal is <span class="math notranslate nohighlight">\(a^*=\sqrt{18/\kappa}\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Low type’s cost</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(a^*\)</span></p></th>
+<th class="head"><p>High type’s net</p></th>
+<th class="head"><p>Total surplus</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(2a^2\)</span></p></td>
+<td><p>3.00</p></td>
+<td><p>29</p></td>
+<td><p>24.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(1.5a^2\)</span></p></td>
+<td><p>3.46</p></td>
+<td><p>26</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(1.125a^2\)</span></p></td>
+<td><p>4.00</p></td>
+<td><p>22</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(a^2\)</span></p></td>
+<td><p>4.24</p></td>
+<td><p>20</p></td>
+<td><p>20</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Making the signal easier for the low type makes the high type study <em>longer</em>: three years no longer separates. The last row is the limit in which single crossing fails; there the high type is just indifferent to separating. The model predicts a costlier signal: a master’s degree, or the name of the university.</p>
+</section>
+</div><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>The model predicts</p></th>
+<th class="head"><p>In the data</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S1</p></td>
+<td><p>If firms can see productivity, the signal is not needed</p></td>
+<td><p>The 37% of firms that changed practice did hire more non-graduates</p></td>
+<td><p>Fits</p></td>
+</tr>
+<tr class="row-odd"><td><p>S3</p></td>
+<td><p>Firms read type off the signal</p></td>
+<td><p>Two thirds of supervisor postings screen on a degree</p></td>
+<td><p>Holds</p></td>
+</tr>
+<tr class="row-even"><td><p>S5</p></td>
+<td><p>A premium with no change in productivity</p></td>
+<td><p>Graduates paid 11–30% more where experienced non-graduates perform nearly or equally well</p></td>
+<td><p>Holds</p></td>
+</tr>
+<tr class="row-odd"><td><p>S6</p></td>
+<td><p>Make the signal cheaper for the low type and the bar must rise</p></td>
+<td><p>Degrees asked for in jobs that never needed them; Firsts from 15.7% to 37.9%</p></td>
+<td><p>Fits</p></td>
+</tr>
+<tr class="row-even"><td><p>S7</p></td>
+<td><p>Signalling is waste</p></td>
+<td><p>Employers pay more and get higher turnover; over 6 million jobs at risk of closing to non-graduates</p></td>
+<td><p>Holds</p></td>
+</tr>
+<tr class="row-odd"><td><p>S8</p></td>
+<td><p>Pooling: everyone buys the signal, it tells firms nothing, and it must still be bought</p></td>
+<td><p>The requirement persists where incumbents without degrees do the job well; dropping it changed fewer than 1 hire in 700</p></td>
+<td><p>Holds</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Verdict.</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Prediction</p></th>
+<th class="head"><p>Same skills, different certificate</p></th>
+<th class="head"><p>Degree inflation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S1</p></td>
+<td><p>Visible productivity</p></td>
+<td><p>Holds: Texas diploma</p></td>
+<td><p>Fits: firms that changed</p></td>
+</tr>
+<tr class="row-odd"><td><p>S3</p></td>
+<td><p>Firms read the signal</p></td>
+<td><p>Holds: GED at equal scores</p></td>
+<td><p>Holds: postings ask for degrees</p></td>
+</tr>
+<tr class="row-even"><td><p>S4</p></td>
+<td><p>Wage is a step</p></td>
+<td><p>Holds: jumps at 70 and 60</p></td>
+<td><p>Not tested</p></td>
+</tr>
+<tr class="row-odd"><td><p>S5</p></td>
+<td><p>Unproductive premium</p></td>
+<td><p>In part: 10–19%, 3–7%, 0</p></td>
+<td><p>Holds: 11–30%</p></td>
+</tr>
+<tr class="row-even"><td><p>S6</p></td>
+<td><p>Low type’s cost sets it</p></td>
+<td><p>Fits: ability spread</p></td>
+<td><p>Fits: Firsts 15.7% to 37.9%</p></td>
+</tr>
+<tr class="row-odd"><td><p>S7</p></td>
+<td><p>Signalling is waste</p></td>
+<td><p>Fails: coursework pays</p></td>
+<td><p>Holds: pay, turnover</p></td>
+</tr>
+<tr class="row-even"><td><p>S8</p></td>
+<td><p>Pooling</p></td>
+<td><p>See Case 2</p></td>
+<td><p>Holds: 1 hire in 700</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The signal is real and partial: worth 3–19% where employers know little else, and nothing where they can find out. The assumption to watch is <a class="reference internal" href="model.html#as-sg-unprod">Assumption 5.3</a>: education is partly productive, so S7 fails for education as a whole, but it holds where a degree is demanded for a job that does not use it. And beliefs hold the pooling equilibrium up: it survives on a view of non-graduates that is never tested.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="welfare.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5.6. </span>Welfare</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="gen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.8. </span>Generalisations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-same-skills-different-certificate">5.7.1. Case 1: same skills, different certificate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-degree-inflation">5.7.2. Case 2: degree inflation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

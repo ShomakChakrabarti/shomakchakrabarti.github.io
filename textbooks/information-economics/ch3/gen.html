@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.7. Generalisations &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch3/gen';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.8. Exercises" href="ex.html" />
+    <link rel="prev" title="3.6. The model meets the data: two cases" href="cases.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Hidden actions: moral hazard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generalisations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#many-outcomes-the-grossmanhart-approach">3.7.1. Many outcomes: the Grossman–Hart approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-informativeness-principle">3.7.2. The informativeness principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limited-liability-and-rents">3.7.3. Limited liability and rents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-effort-and-the-first-order-approach">3.7.4. Continuous effort and the first-order approach</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="generalisations">
+<span id="sec-ha-gen"></span><h1><span class="section-number">3.7. </span>Generalisations<a class="headerlink" href="#generalisations" title="Link to this heading">#</a></h1>
+<div class="seealso admonition">
+<p class="admonition-title">Advanced: for research students</p>
+<p>This section relaxes the two-outcome structure, adds extra signals, introduces limited liability, and points to the continuous-effort literature. The proofs use the Karush–Kuhn–Tucker (KKT) conditions.</p>
+</div>
+<p><strong>Why generalise?</strong> The two-outcome, two-action model is chosen because it is the smallest one in which the insurance–incentive trade-off appears. That smallness has a cost. With two outcomes, “pay more after the good outcome” and “pay according to the evidence of effort” are the same instruction, so the model cannot tell us which one is the real logic of the contract. With two outcomes and nothing else observed, the model also cannot say what the principal should do with extra information. This section answers both questions. The answer, in one sentence: <em>the optimal contract rewards outcomes in proportion to how strongly they indicate that the agent took the desired action</em>. Everything else in the two-outcome model, including the binding constraints, the agency cost as a Jensen gap and the under-provision of effort, survives.</p>
+<section id="many-outcomes-the-grossmanhart-approach">
+<span id="sec-ha-n"></span><h2><span class="section-number">3.7.1. </span>Many outcomes: the Grossman–Hart approach<a class="headerlink" href="#many-outcomes-the-grossmanhart-approach" title="Link to this heading">#</a></h2>
+<p>Let output take <span class="math notranslate nohighlight">\(n\ge2\)</span> values <span class="math notranslate nohighlight">\(y_1&lt;\dots&lt;y_n\)</span>, with <span class="math notranslate nohighlight">\(p_i^H\coloneqq\Pr(y_i\mid\ah)&gt;0\)</span> and <span class="math notranslate nohighlight">\(p_i^L\coloneqq\Pr(y_i\mid\al)&gt;0\)</span>, and <span class="math notranslate nohighlight">\(p^H\ne p^L\)</span>. Define the <em>likelihood ratio</em> <span class="math notranslate nohighlight">\(\ell_i\coloneqq p_i^L/p_i^H\)</span>. A contract is <span class="math notranslate nohighlight">\(z=(z_1,\dots,z_n)\)</span> with <span class="math notranslate nohighlight">\(z_i=u(w_i)\)</span>. To induce <span class="math notranslate nohighlight">\(\ah\)</span> the principal solves</p>
+<div class="math notranslate nohighlight" id="equation-eq-ha-gh">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-eq-ha-gh" title="Link to this equation">#</a></span>\[
+\min_{z\in\R^n}\sum_i p_i^H h(z_i)\quad\text{s.t.}\quad
+  \sum_i p_i^H z_i-c\ge\uo,\qquad \sum_i (p_i^H-p_i^L)z_i\ge c .
+\]</div>
+<div class="important admonition">
+<p class="admonition-title">Proof toolkit: why the utility-space formulation is so powerful</p>
+<p>In wages, (IC) is <span class="math notranslate nohighlight">\(\sum_i(p_i^H-p_i^L)u(w_i)\ge c\)</span>, which is a non-convex constraint. In utilities it is <em>linear</em>. With a convex objective and linear constraints, <a class="reference internal" href="#equation-eq-ha-gh">(3.7)</a> is a convex program: the KKT conditions are <em>necessary</em> (linear constraints need no further constraint qualification) and <em>sufficient</em> (convexity). This observation is due to Grossman and Hart (1983).</p>
+</div>
+<div class="proof theorem admonition" id="thm-ha-gh">
+<p class="admonition-title"><span class="caption-number">Theorem 3.3 </span> (Optimal contract with <span class="math notranslate nohighlight">\(n\)</span> outcomes)</p>
+<section class="theorem-content" id="proof-content">
+<p>Suppose <span class="math notranslate nohighlight">\(h\)</span> is differentiable and <a class="reference internal" href="#equation-eq-ha-gh">(3.7)</a> has an interior solution <span class="math notranslate nohighlight">\(z^*\)</span>. Then there are multipliers <span class="math notranslate nohighlight">\(\lambda&gt;0\)</span> and <span class="math notranslate nohighlight">\(\nu&gt;0\)</span> such that</p>
+<div class="math notranslate nohighlight" id="equation-eq-ha-mh">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-eq-ha-mh" title="Link to this equation">#</a></span>\[
+\frac{1}{u'(w_i^*)}=h'(z_i^*)=\lambda+\nu\,\big(1-\ell_i\big)
+  \qquad\text{for every } i .
+\]</div>
+<p>Both constraints bind, and <span class="math notranslate nohighlight">\(z^*\)</span> is unique.</p>
+</section>
+</div><div class="dropdown tip admonition">
+<p class="admonition-title">Proof strategy (<a class="reference internal" href="#thm-ha-gh">Theorem 3.3</a>)</p>
+<p>Write the KKT conditions. To show the multipliers are <em>strictly</em> positive we exploit two identities: <span class="math notranslate nohighlight">\(\sum_i p_i^H=1\)</span> and <span class="math notranslate nohighlight">\(\sum_i p_i^H(1-\ell_i)=\sum_i(p_i^H-p_i^L)=0\)</span>. Taking a probability-weighted sum of the first-order conditions makes the <span class="math notranslate nohighlight">\(\nu\)</span> term vanish, which isolates <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+</div>
+<div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#thm-ha-gh">Theorem 3.3</a></p>
+<p>The Lagrangian is <span class="math notranslate nohighlight">\(\mathcal L=\sum_i p_i^H h(z_i)-\lambda\big(\sum_ip_i^Hz_i-c-\uo\big)
+-\nu\big(\sum_i(p_i^H-p_i^L)z_i-c\big)\)</span> with <span class="math notranslate nohighlight">\(\lambda,\nu\ge0\)</span>. The first-order conditions are <span class="math notranslate nohighlight">\(p_i^H h'(z_i)=\lambda p_i^H+\nu(p_i^H-p_i^L)\)</span>. Dividing by <span class="math notranslate nohighlight">\(p_i^H&gt;0\)</span> gives <a class="reference internal" href="#equation-eq-ha-mh">(3.8)</a>.</p>
+<p><em><span class="math notranslate nohighlight">\(\lambda&gt;0\)</span>.</em> Multiply <a class="reference internal" href="#equation-eq-ha-mh">(3.8)</a> by <span class="math notranslate nohighlight">\(p_i^H\)</span> and sum: <span class="math notranslate nohighlight">\(\sum_ip_i^Hh'(z_i)=\lambda+\nu\sum_i(p_i^H-p_i^L)=\lambda\)</span>. The left side is strictly positive (<a class="reference internal" href="model.html#lem-ha-h">Lemma 3.1</a>), so <span class="math notranslate nohighlight">\(\lambda&gt;0\)</span>, and by complementary slackness (PC) binds.</p>
+<p><em><span class="math notranslate nohighlight">\(\nu&gt;0\)</span>.</em> If <span class="math notranslate nohighlight">\(\nu=0\)</span> then <span class="math notranslate nohighlight">\(h'(z_i)=\lambda\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>; since <span class="math notranslate nohighlight">\(h'\)</span> is strictly increasing, all <span class="math notranslate nohighlight">\(z_i\)</span> are equal. But then <span class="math notranslate nohighlight">\(\sum_i(p_i^H-p_i^L)z_i=0&lt;c\)</span> and (IC) fails. So <span class="math notranslate nohighlight">\(\nu&gt;0\)</span>, and (IC) binds.</p>
+<p><em>Uniqueness.</em> The objective is strictly convex and the feasible set is convex.</p>
+</div>
+<p>Equation <a class="reference internal" href="#equation-eq-ha-mh">(3.8)</a> is the Holmström–Mirrlees condition. Its message: <em>pay is high after outcomes that are unlikely under the low action</em>. The principal is not rewarding output as such; she is using output as statistical evidence about effort.</p>
+<div class="proof definition admonition" id="hidden-actions-definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 3.4 </span> (MLRP)</p>
+<section class="definition-content" id="proof-content">
+<p>The distributions satisfy the <em>monotone likelihood ratio property</em> if <span class="math notranslate nohighlight">\(\ell_i=p_i^L/p_i^H\)</span> is decreasing in <span class="math notranslate nohighlight">\(i\)</span>: higher output is relatively more likely under high effort.</p>
+</section>
+</div><div class="proof corollary admonition" id="cor-ha-mlrp">
+<p class="admonition-title"><span class="caption-number">Corollary 3.2 </span> (Monotone pay)</p>
+<section class="corollary-content" id="proof-content">
+<p>Under MLRP the optimal wage <span class="math notranslate nohighlight">\(w_i^*\)</span> is increasing in output. Without MLRP the optimal wage need not be monotone.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#cor-ha-mlrp">Corollary 3.2</a></p>
+<p>By <a class="reference internal" href="#equation-eq-ha-mh">(3.8)</a> with <span class="math notranslate nohighlight">\(\nu&gt;0\)</span>, <span class="math notranslate nohighlight">\(h'(z_i^*)\)</span> is a decreasing function of <span class="math notranslate nohighlight">\(\ell_i\)</span>. Under MLRP <span class="math notranslate nohighlight">\(\ell_i\)</span> falls with <span class="math notranslate nohighlight">\(i\)</span>, so <span class="math notranslate nohighlight">\(h'(z_i^*)\)</span> rises. Since <span class="math notranslate nohighlight">\(h'\)</span> is strictly increasing (strict convexity), <span class="math notranslate nohighlight">\(z_i^*\)</span> rises, and so does <span class="math notranslate nohighlight">\(w_i^*=h(z_i^*)\)</span>. <a class="reference internal" href="ex.html#ex-ha-nonmono"><span class="std std-numref">Exercise 3.14</span></a> gives a counterexample without MLRP.</p>
+</div>
+<div class="proof proposition admonition" id="prop-ha-chi">
+<p class="admonition-title"><span class="caption-number">Proposition 3.3 </span> (Agency cost with square-root utility)</p>
+<section class="proposition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(u(w)=\sqrt w\)</span> and assume interiority. Then</p>
+<div class="math notranslate nohighlight">
+\[
+AC=\frac{c^2}{\chi^2},\qquad
+  \chi^2\coloneqq\sum_i\frac{(p_i^H-p_i^L)^2}{p_i^H}=\E_H\big[(1-\ell)^2\big].
+\]</div>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-ha-chi">Proposition 3.3</a></p>
+<p>With <span class="math notranslate nohighlight">\(h(z)=z^2\)</span>, <a class="reference internal" href="#equation-eq-ha-mh">(3.8)</a> reads <span class="math notranslate nohighlight">\(2z_i=\lambda+\nu(1-\ell_i)\)</span>. Taking <span class="math notranslate nohighlight">\(\E_H\)</span> and using <span class="math notranslate nohighlight">\(\E_H[1-\ell]=0\)</span> gives <span class="math notranslate nohighlight">\(\lambda/2=\E_H[z]=\uo+c\)</span>. So <span class="math notranslate nohighlight">\(z_i=(\uo+c)+k(1-\ell_i)\)</span> with <span class="math notranslate nohighlight">\(k=\nu/2\)</span>. Binding (IC) is <span class="math notranslate nohighlight">\(\sum_ip_i^H(1-\ell_i)z_i=c\)</span>, i.e. <span class="math notranslate nohighlight">\(k\,\E_H[(1-\ell)^2]=c\)</span>, so <span class="math notranslate nohighlight">\(k=c/\chi^2\)</span>. Finally <span class="math notranslate nohighlight">\(AC=\E_H[z^2]-(\E_Hz)^2=\Var_H(z)=k^2\chi^2=c^2/\chi^2\)</span>.</p>
+</div>
+<p>With two outcomes <span class="math notranslate nohighlight">\(\chi^2=\Dpi^2/[\muh(1-\muh)]\)</span>, which recovers <a class="reference internal" href="welfare.html#equation-eq-ha-ac-sqrt">(3.6)</a>. The <span class="math notranslate nohighlight">\(\chi^2\)</span>-divergence measures how well the observable statistic discriminates between the actions. The better the evidence, the cheaper the incentives.</p>
+</section>
+<section id="the-informativeness-principle">
+<span id="sec-ha-info"></span><h2><span class="section-number">3.7.2. </span>The informativeness principle<a class="headerlink" href="#the-informativeness-principle" title="Link to this heading">#</a></h2>
+<p>Suppose that besides output the principal can observe a signal <span class="math notranslate nohighlight">\(s\)</span> (a telematics score, a supervisor’s report). Let outcomes be pairs <span class="math notranslate nohighlight">\(j=(y,s)\)</span>, finitely many, with <span class="math notranslate nohighlight">\(p^a_j&gt;0\)</span>. Everything in <a class="reference internal" href="#sec-ha-n"><span class="std std-ref">Many outcomes: the Grossman–Hart approach</span></a> applies with <span class="math notranslate nohighlight">\(j\)</span> in place of <span class="math notranslate nohighlight">\(i\)</span>. Say that <span class="math notranslate nohighlight">\(s\)</span> is <em>uninformative given <span class="math notranslate nohighlight">\(y\)</span></em> if <span class="math notranslate nohighlight">\(p^a(y,s)=p^a(y)\,q(s\mid y)\)</span> with <span class="math notranslate nohighlight">\(q\)</span> not depending on <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="proof theorem admonition" id="thm-ha-info">
+<p class="admonition-title"><span class="caption-number">Theorem 3.4 </span> (Informativeness principle; Holmström 1979)</p>
+<section class="theorem-content" id="proof-content">
+<p>In the optimal contract inducing <span class="math notranslate nohighlight">\(\ah\)</span>, pay depends on <span class="math notranslate nohighlight">\(s\)</span> if and only if <span class="math notranslate nohighlight">\(s\)</span> is informative given <span class="math notranslate nohighlight">\(y\)</span>: there are <span class="math notranslate nohighlight">\(y,s,s'\)</span> with <span class="math notranslate nohighlight">\(\ell(y,s)\ne\ell(y,s')\)</span>. If <span class="math notranslate nohighlight">\(s\)</span> is informative, using it strictly lowers the principal’s cost.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#thm-ha-info">Theorem 3.4</a></p>
+<p>By <a class="reference internal" href="#equation-eq-ha-mh">(3.8)</a>, <span class="math notranslate nohighlight">\(z^*_{(y,s)}\)</span> is a strictly decreasing function of <span class="math notranslate nohighlight">\(\ell(y,s)\)</span> (because <span class="math notranslate nohighlight">\(\nu&gt;0\)</span> and <span class="math notranslate nohighlight">\(h'\)</span> is strictly increasing). If <span class="math notranslate nohighlight">\(s\)</span> is uninformative, <span class="math notranslate nohighlight">\(\ell(y,s)=p^L(y)q(s\mid y)/[p^H(y)q(s\mid y)]=\ell(y)\)</span> for all <span class="math notranslate nohighlight">\(s\)</span>, so <span class="math notranslate nohighlight">\(z^*\)</span> does not depend on <span class="math notranslate nohighlight">\(s\)</span>. If <span class="math notranslate nohighlight">\(\ell(y,s)\ne\ell(y,s')\)</span> then <span class="math notranslate nohighlight">\(z^*_{(y,s)}\ne z^*_{(y,s')}\)</span>, so the optimal contract depends on <span class="math notranslate nohighlight">\(s\)</span>. In that case the best contract that ignores <span class="math notranslate nohighlight">\(s\)</span> is feasible in the larger problem but violates its first-order conditions; since the optimum is unique, the contract that ignores <span class="math notranslate nohighlight">\(s\)</span> is strictly costlier.</p>
+</div>
+<p>This is the theory behind Progressive: the telematics score is informative about care beyond whether an accident happened, so the optimal policy conditions on it.</p>
+</section>
+<section id="limited-liability-and-rents">
+<span id="sec-ha-ll"></span><h2><span class="section-number">3.7.3. </span>Limited liability and rents<a class="headerlink" href="#limited-liability-and-rents" title="Link to this heading">#</a></h2>
+<p>Suppose pay cannot fall below a floor: <span class="math notranslate nohighlight">\(z_b\ge\underline z\)</span> (a minimum wage, a guarantee, bankruptcy). In the two-outcome model:</p>
+<div class="proof proposition admonition" id="prop-ha-ll">
+<p class="admonition-title"><span class="caption-number">Proposition 3.4 </span> (Rents from a floor)</p>
+<section class="proposition-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(\underline z&gt;\uo-\mul c/\Dpi\)</span>, the cheapest contract inducing <span class="math notranslate nohighlight">\(\ah\)</span> is <span class="math notranslate nohighlight">\(z_b=\underline z\)</span>, <span class="math notranslate nohighlight">\(z_g=\underline z+c/\Dpi\)</span>. (IC) binds, (PC) is slack, and the agent earns a rent</p>
+<div class="math notranslate nohighlight">
+\[
+R=\underline z+\mul\frac{c}{\Dpi}-\uo&gt;0 .
+\]</div>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-ha-ll">Proposition 3.4</a></p>
+<p>For any feasible contract, <span class="math notranslate nohighlight">\(z_g\ge z_b+c/\Dpi\ge\underline z+c/\Dpi\)</span> and <span class="math notranslate nohighlight">\(z_b\ge\underline z\)</span>. Since <span class="math notranslate nohighlight">\(h\)</span> is increasing, the expected wage bill is at least that of <span class="math notranslate nohighlight">\((\underline z+c/\Dpi,\ \underline z)\)</span>. This contract satisfies the floor and (IC), and its expected utility net of <span class="math notranslate nohighlight">\(c\)</span> is <span class="math notranslate nohighlight">\(\underline z+\muh c/\Dpi-c=\underline z+\mul c/\Dpi&gt;\uo\)</span> (using <span class="math notranslate nohighlight">\(\muh-\Dpi=\mul\)</span>), so (PC) holds. It is therefore optimal, and <span class="math notranslate nohighlight">\(R\)</span> is the slack in (PC).</p>
+</div>
+<p>Under the NHS scheme the core payment set <span class="math notranslate nohighlight">\(\underline z=\uo\)</span>, so the rent is <span class="math notranslate nohighlight">\(\mul c/\Dpi=0.35\)</span>, exactly as in <a class="reference internal" href="cases.html#ex-ha-qof">Example 3.2</a>. This is one reason P4 fails. The same logic with a <em>risk-neutral</em> agent and <span class="math notranslate nohighlight">\(w\ge0\)</span> is the standard model of efficiency wages and of why workers with no wealth earn rents (Innes 1990; Laffont and Martimort 2002, ch. 4).</p>
+</section>
+<section id="continuous-effort-and-the-first-order-approach">
+<h2><span class="section-number">3.7.4. </span>Continuous effort and the first-order approach<a class="headerlink" href="#continuous-effort-and-the-first-order-approach" title="Link to this heading">#</a></h2>
+<p>With effort <span class="math notranslate nohighlight">\(a\in[0,\bar a]\)</span> and density <span class="math notranslate nohighlight">\(f(y\mid a)\)</span>, the natural move is to replace the incentive constraint (“<span class="math notranslate nohighlight">\(a\)</span> is optimal for the agent”) with its first-order condition. This <em>first-order approach</em> gives the continuous analogue of <a class="reference internal" href="#equation-eq-ha-mh">(3.8)</a>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{u'(w(y))}=\lambda+\nu\,\frac{f_a(y\mid a)}{f(y\mid a)},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_a/f\)</span> is the score (the derivative of the log-likelihood). But the first-order condition is necessary, not sufficient: the agent’s problem need not be concave, and the approach can fail (Mirrlees 1975). Rogerson (1985) shows it is valid under MLRP together with the <em>convexity of the distribution function condition</em>. Jewitt (1988) gives weaker conditions. In continuous time with Brownian noise the optimal contract can be linear in output (Holmström and Milgrom 1987), and with several tasks, incentives on a measurable task can crowd out effort on an unmeasurable one (Holmström and Milgrom 1991). The fall in unpaid aspects of GP care after 2004 (<a class="reference internal" href="cases.html#sec-ha-cases"><span class="std std-ref">The model meets the data: two cases</span></a>) is an instance of that last point.</p>
+<p><strong>Further reading.</strong> Bolton and Dewatripont, <em>Contract Theory</em> (2005), ch. 4; Laffont and Martimort, <em>The Theory of Incentives</em> (2002), chs. 4–5; Salanié, <em>The Economics of Contracts</em> (2005), ch. 5.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cases.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.6. </span>The model meets the data: two cases</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ex.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.8. </span>Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#many-outcomes-the-grossmanhart-approach">3.7.1. Many outcomes: the Grossman–Hart approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-informativeness-principle">3.7.2. The informativeness principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limited-liability-and-rents">3.7.3. Limited liability and rents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-effort-and-the-first-order-approach">3.7.4. Continuous effort and the first-order approach</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.4. A change in the interest rate &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch1/rate';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5. Investment and net present value" href="npv.html" />
+    <link rel="prev" title="1.3. The best plan" href="saving.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">1. Factor markets: saving, investment and the future</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch3/index.html">3. Hidden actions: moral hazard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A change in the interest rate</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-effects">1.4.1. Two effects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-gains-when-rates-rise">1.4.2. Who gains when rates rise?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a-change-in-the-interest-rate">
+<span id="sec-fm-rate"></span><h1><span class="section-number">1.4. </span>A change in the interest rate<a class="headerlink" href="#a-change-in-the-interest-rate" title="Link to this heading">#</a></h1>
+<section id="two-effects">
+<h2><span class="section-number">1.4.1. </span>Two effects<a class="headerlink" href="#two-effects" title="Link to this heading">#</a></h2>
+<p>When <span class="math notranslate nohighlight">\(r\)</span> rises, the budget line pivots through the endowment and becomes steeper. Two things change at once.</p>
+<ul class="simple">
+<li><p><strong>Substitution.</strong> Today’s consumption becomes dearer in terms of tomorrow’s, so she wants to shift consumption to tomorrow.</p></li>
+<li><p><strong>Income.</strong> A lender earns more on her saving, so she is richer; a borrower pays more on his loan, so he is poorer.</p></li>
+</ul>
+<p>To separate them, write the budget in tomorrow’s pounds: <span class="math notranslate nohighlight">\((1+r)c_0+c_1=(1+r)x_0+x_1\equiv m\)</span>. Today’s consumption has price <span class="math notranslate nohighlight">\(P=1+r\)</span>, and <span class="math notranslate nohighlight">\(m\)</span> is the future value of income, which itself depends on <span class="math notranslate nohighlight">\(r\)</span>. Let <span class="math notranslate nohighlight">\(c_0^*(P,m)\)</span> be the optimal <span class="math notranslate nohighlight">\(c_0\)</span> and <span class="math notranslate nohighlight">\(h_0(P,v)\)</span> the <em>compensated</em> (Hicksian) demand: the cheapest <span class="math notranslate nohighlight">\(c_0\)</span> that reaches utility <span class="math notranslate nohighlight">\(v\)</span> at price <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<div class="proof theorem admonition" id="thm-fm-slutsky">
+<p class="admonition-title"><span class="caption-number">Theorem 1.2 </span> (Slutsky equation with an endowment)</p>
+<section class="theorem-content" id="proof-content">
+<p>At the optimum, with <span class="math notranslate nohighlight">\(v\)</span> the utility reached and <span class="math notranslate nohighlight">\(s_0^*=x_0-c_0^*\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dc_0^*}{dr}\;=\;\underbrace{\frac{\partial h_0}{\partial P}}_{\text{substitution}\ &lt;\ 0}
+  \;+\;\underbrace{s_0^*\,\frac{\partial c_0^*}{\partial m}}_{\text{income}} .
+\]</div>
+</section>
+</div><div class="dropdown tip admonition">
+<p class="admonition-title">Proof strategy (<a class="reference internal" href="#thm-fm-slutsky">Theorem 1.2</a>)</p>
+<p>A change in <span class="math notranslate nohighlight">\(r\)</span> moves both the price <span class="math notranslate nohighlight">\(P\)</span> and the income <span class="math notranslate nohighlight">\(m\)</span>. Split it into those two channels, then apply the ordinary Slutsky equation to the price channel. The only new feature is that income rises by <span class="math notranslate nohighlight">\(x_0\)</span> for each unit rise in <span class="math notranslate nohighlight">\(P\)</span>, because the consumer <em>sells</em> her endowment at the new price.</p>
+</div>
+<div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#thm-fm-slutsky">Theorem 1.2</a></p>
+<p><strong>Step 1: two channels.</strong> Since <span class="math notranslate nohighlight">\(dP/dr=1\)</span> and <span class="math notranslate nohighlight">\(dm/dr=x_0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dc_0^*}{dr}=\frac{\partial c_0^*}{\partial P}+x_0\frac{\partial c_0^*}{\partial m}.
+\]</div>
+<p><strong>Step 2: the ordinary Slutsky equation.</strong> Let <span class="math notranslate nohighlight">\(e(P,v)\)</span> be the least income needed to reach <span class="math notranslate nohighlight">\(v\)</span> at price <span class="math notranslate nohighlight">\(P\)</span>. By definition <span class="math notranslate nohighlight">\(h_0(P,v)=c_0^*\big(P,e(P,v)\big)\)</span>. Differentiating in <span class="math notranslate nohighlight">\(P\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial h_0}{\partial P}=\frac{\partial c_0^*}{\partial P}
+  +\frac{\partial c_0^*}{\partial m}\,\frac{\partial e}{\partial P},
+\]</div>
+<p>and <span class="math notranslate nohighlight">\(\partial e/\partial P=h_0=c_0^*\)</span> (Shephard’s lemma).</p>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>Raising the price of <span class="math notranslate nohighlight">\(c_0\)</span> by a little raises the cost of the cheapest plan by the amount of <span class="math notranslate nohighlight">\(c_0\)</span> it buys; the change in the plan itself has only a second-order effect on cost, because the plan was cheapest.</p>
+</div>
+<p>So <span class="math notranslate nohighlight">\(\partial c_0^*/\partial P=\partial h_0/\partial P-c_0^*\,\partial c_0^*/\partial m\)</span>.</p>
+<p><strong>Step 3: combine.</strong> Substituting into Step 1 gives <span class="math notranslate nohighlight">\(dc_0^*/dr=\partial h_0/\partial P+(x_0-c_0^*)\,\partial c_0^*/\partial m\)</span>. The compensated demand slopes down, <span class="math notranslate nohighlight">\(\partial h_0/\partial P&lt;0\)</span>, since the indifference curves are strictly convex.</p>
+</div>
+<p><strong>Signing the effects.</strong> If <span class="math notranslate nohighlight">\(c_0\)</span> is a normal good, <span class="math notranslate nohighlight">\(\partial c_0^*/\partial m&gt;0\)</span>. Then:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>when <span class="math notranslate nohighlight">\(r\)</span> rises</p></th>
+<th class="head"><p>substitution on <span class="math notranslate nohighlight">\(c_0\)</span></p></th>
+<th class="head"><p>income on <span class="math notranslate nohighlight">\(c_0\)</span></p></th>
+<th class="head"><p>total on <span class="math notranslate nohighlight">\(c_0\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>lender (<span class="math notranslate nohighlight">\(s_0^*&gt;0\)</span>)</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p>ambiguous</p></td>
+</tr>
+<tr class="row-odd"><td><p>borrower (<span class="math notranslate nohighlight">\(s_0^*&lt;0\)</span>)</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A borrower unambiguously consumes less today, so borrows less. A lender’s saving may rise or fall: the supply of saving can slope either way, just as labour supply can bend backwards.</p>
+<div class="proof example admonition" id="ex-fm-slutsky">
+<p class="admonition-title"><span class="caption-number">Example 1.4 </span> (Alice and Bob when <span class="math notranslate nohighlight">\(r\)</span> rises to <span class="math notranslate nohighlight">\(0.5\)</span>)</p>
+<section class="example-content" id="proof-content">
+<p>With <span class="math notranslate nohighlight">\(u=\sqrt c\)</span>, the Euler equation gives <span class="math notranslate nohighlight">\(c_1=\big(\delta(1+r)\big)^2c_0\)</span>, so <span class="math notranslate nohighlight">\(c_0^*=W/\big(1+\delta^2(1+r)\big)\)</span>.</p>
+<ul class="simple">
+<li><p><em>Alice.</em> At <span class="math notranslate nohighlight">\(r=0.5\)</span>, <span class="math notranslate nohighlight">\(W=9+4/1.5=11.67\)</span> and <span class="math notranslate nohighlight">\(c_0^*=11.67/1.96=5.95\)</span>. Holding her utility at <span class="math notranslate nohighlight">\(4.69\)</span>, the compensated plan has <span class="math notranslate nohighlight">\(c_0=5.72\)</span>. So the substitution effect is <span class="math notranslate nohighlight">\(5.72-6.78=-1.06\)</span> and the income effect <span class="math notranslate nohighlight">\(5.95-5.72=+0.23\)</span>. Substitution wins: she saves more, <span class="math notranslate nohighlight">\(3.05\)</span> instead of <span class="math notranslate nohighlight">\(2.22\)</span>.</p></li>
+<li><p><em>Bob.</em> His substitution effect is the same, since he started at the same plan. But <span class="math notranslate nohighlight">\(W=3+11.5/1.5=10.67\)</span>, so <span class="math notranslate nohighlight">\(c_0^*=5.44\)</span>: the income effect, <span class="math notranslate nohighlight">\(-0.28\)</span>, pushes the same way. His borrowing falls from <span class="math notranslate nohighlight">\(3.78\)</span> to <span class="math notranslate nohighlight">\(2.44\)</span>.</p></li>
+</ul>
+</section>
+</div><figure class="align-default" id="fig-fm-slutsky">
+<a class="reference internal image-reference" href="../_images/factor-markets-figure-2.svg"><img alt="../_images/factor-markets-figure-2.svg" src="../_images/factor-markets-figure-2.svg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Alice when <span class="math notranslate nohighlight">\(r\)</span> rises from <span class="math notranslate nohighlight">\(0.25\)</span> (grey line) to <span class="math notranslate nohighlight">\(0.5\)</span> (blue line). A to H: the substitution effect, along her old indifference curve at the new slope (dashed). H to C: the income effect; as a lender she is richer.</span><a class="headerlink" href="#fig-fm-slutsky" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="who-gains-when-rates-rise">
+<h2><span class="section-number">1.4.2. </span>Who gains when rates rise?<a class="headerlink" href="#who-gains-when-rates-rise" title="Link to this heading">#</a></h2>
+<div class="proof proposition admonition" id="prop-fm-stay">
+<p class="admonition-title"><span class="caption-number">Proposition 1.2 </span> (A lender stays a lender)</p>
+<section class="proposition-content" id="proof-content">
+<p>Suppose that at rate <span class="math notranslate nohighlight">\(r\)</span> the consumer’s best plan has <span class="math notranslate nohighlight">\(s_0^*&gt;0\)</span>, and the rate rises to <span class="math notranslate nohighlight">\(r'&gt;r\)</span>. Then at <span class="math notranslate nohighlight">\(r'\)</span> she still lends, and she is strictly better off.</p>
+</section>
+</div><div class="dropdown tip admonition">
+<p class="admonition-title">Proof strategy (<a class="reference internal" href="#prop-fm-stay">Proposition 1.2</a>)</p>
+<p>Use revealed preference (T3): compare which plans were affordable before and after the change, without computing anything.</p>
+</div>
+<div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-fm-stay">Proposition 1.2</a></p>
+<p><strong>Step 1: her old plan is still affordable.</strong> Both budget lines pass through the endowment, and the new one is steeper. To the left of the endowment (<span class="math notranslate nohighlight">\(c_0&lt;x_0\)</span>) the new line lies above the old one, so her old plan <span class="math notranslate nohighlight">\(c^*\)</span> lies strictly inside the new budget set.</p>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>Saving <span class="math notranslate nohighlight">\(s_0&gt;0\)</span> now buys <span class="math notranslate nohighlight">\((1+r')s_0&gt;(1+r)s_0\)</span> tomorrow.</p>
+</div>
+<p><strong>Step 2: she is strictly better off.</strong> Some plan on the new line has more of both goods than <span class="math notranslate nohighlight">\(c^*\)</span>, so the new optimum is strictly better than <span class="math notranslate nohighlight">\(c^*\)</span>.</p>
+<p><strong>Step 3: she does not switch to borrowing.</strong> To the right of the endowment the new line lies below the old one, so every borrowing plan affordable at <span class="math notranslate nohighlight">\(r'\)</span> was affordable at <span class="math notranslate nohighlight">\(r\)</span>, and she chose <span class="math notranslate nohighlight">\(c^*\)</span> instead. By uniqueness of the optimum (<a class="reference internal" href="saving.html#thm-fm-euler">Theorem 1.1</a>), each of them is strictly worse than <span class="math notranslate nohighlight">\(c^*\)</span>, and so strictly worse than the new optimum. The same holds for the endowment itself.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Common mistake</p>
+<p>The argument does not run in reverse for a borrower. When <span class="math notranslate nohighlight">\(r\)</span> rises, his old plan becomes unaffordable, so he may be worse off; but if the rise is large enough he may switch to lending, and then he can end up better off. Whether a borrower gains from a rate rise depends on whether he switches.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="saving.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>The best plan</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="npv.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Investment and net present value</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-effects">1.4.1. Two effects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-gains-when-rates-rise">1.4.2. Who gains when rates rise?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

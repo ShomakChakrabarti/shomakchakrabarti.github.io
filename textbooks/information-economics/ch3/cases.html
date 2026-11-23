@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.6. The model meets the data: two cases &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch3/cases';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.7. Generalisations" href="gen.html" />
+    <link rel="prev" title="3.5. Welfare and the cost of hidden action" href="welfare.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Hidden actions: moral hazard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The model meets the data: two cases</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-nhs-family-doctors-paying-for-quality">3.6.1. Case 1: NHS family doctors, paying for quality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-progressive-insurance-changing-the-information">3.6.2. Case 2: Progressive Insurance, changing the information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-cases-teach">3.6.3. What the cases teach</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-model-meets-the-data-two-cases">
+<span id="sec-ha-cases"></span><h1><span class="section-number">3.6. </span>The model meets the data: two cases<a class="headerlink" href="#the-model-meets-the-data-two-cases" title="Link to this heading">#</a></h1>
+<p>A model is a claim about how the world works. To find out whether it is a good claim we need to turn it into statements that data could contradict. This section lists seven such predictions and confronts them with evidence from two well-documented cases. In one, the principal changes the <em>contract</em>; in the other, she changes the <em>information</em>. Together they cover both remedies the model suggests.</p>
+<p><strong>How to read the verdicts.</strong> We mark a prediction <em>Holds</em> when it has been tested directly in data and survived; <em>Fits</em> when the evidence is consistent with it but is not a direct test; <em>In part</em> when some of it is borne out and some is not; and <em>Fails</em> when the evidence contradicts it. A failed prediction is not a reason to throw the model away. It is a pointer to the assumption that does not hold in that setting, which is often the most useful thing the exercise produces. Throughout, separate the <em>mechanism</em> (how incentives work) from the <em>conclusion</em> (who gets the surplus): the two can fare very differently.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Prediction</p></th>
+<th class="head"><p>Where</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P1</p></td>
+<td><p>Contractible action: the agent is fully insured; pay does not depend on output.</p></td>
+<td><p><a class="reference internal" href="fb.html#thm-ha-fb">Theorem 3.1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>P2</p></td>
+<td><p>Hidden action with full insurance: the agent takes the low action.</p></td>
+<td><p><a class="reference internal" href="sb.html#lem-ha-fi">Lemma 3.3</a></p></td>
+</tr>
+<tr class="row-even"><td><p>P3</p></td>
+<td><p>The high action needs output-contingent pay: reward in the good state, penalty in the bad.</p></td>
+<td><p><a class="reference internal" href="sb.html#thm-ha-sb">Theorem 3.2</a>(a)</p></td>
+</tr>
+<tr class="row-odd"><td><p>P4</p></td>
+<td><p>The agent is no better off: pay rises only to cover effort and risk.</p></td>
+<td><p>(PC) binds</p></td>
+</tr>
+<tr class="row-even"><td><p>P5</p></td>
+<td><p>Under the high-action contract the agent bears risk.</p></td>
+<td><p><a class="reference internal" href="sb.html#sec-ha-sb"><span class="std std-ref">The second best: hidden actions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>P6</p></td>
+<td><p>Hidden action costs surplus; making the action contractible recovers it.</p></td>
+<td><p><a class="reference internal" href="welfare.html#prop-ha-ac">Proposition 3.1</a></p></td>
+</tr>
+<tr class="row-even"><td><p>P7</p></td>
+<td><p>The principal buys the high action only if the output gain exceeds the cost of incentives.</p></td>
+<td><p><a class="reference internal" href="sb.html#thm-ha-sb">Theorem 3.2</a>(c)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Throughout the worked examples, <span class="math notranslate nohighlight">\(u(w)=\sqrt w\)</span>, so <span class="math notranslate nohighlight">\(h(z)=z^2\)</span>. The numbers are illustrative.</p>
+<section id="case-1-nhs-family-doctors-paying-for-quality">
+<h2><span class="section-number">3.6.1. </span>Case 1: NHS family doctors, paying for quality<a class="headerlink" href="#case-1-nhs-family-doctors-paying-for-quality" title="Link to this heading">#</a></h2>
+<p>Until 2004 an NHS family practice in England was paid mainly by <em>capitation</em>: a fixed sum for each patient on its list, adjusted for age and need. A practice that called its diabetic patients in every few months, checked their blood sugar and blood pressure and adjusted their drugs was paid the same as one that saw them only when they turned up ill. The NHS could see some results in patients’ records, but it could not tell good luck from good care.</p>
+<p>In April 2004 a new contract added the <em>Quality and Outcomes Framework</em> (QOF). A practice could earn up to 1,050 points on 146 indicators. Most were clinical: the share of patients with diabetes whose blood sugar was below a target, the share of patients with high blood pressure whose last reading was below 150/90, the share of heart-attack survivors on the recommended drugs. For each indicator, payment rose in proportion to the share of eligible patients reaching it, from a lower threshold to an upper one (for example from 25% to 90%). A point was worth £77.50 to an average practice in 2004/05 and about £125 from 2005/06, and the scheme cost about £1 billion a year. Practices could exclude (“exception report”) patients for whom an indicator was unsuitable, for example those who refused treatment. The core capitation payment did not fall: QOF was paid on top.</p>
+<p><strong>What happened.</strong> Practices in England earned an average of 958.7 of the 1,050 points in the first year (91%), against the 75% the government had budgeted for. The new contract as a whole cost £1.76 billion more than planned, and the average income of a GP partner rose by 58% in three years, from £72,000 in 2002/03 to £114,000 in 2005/06 (National Audit Office 2008). (The contract also let practices hand over out-of-hours care, so not all of this rise was paid for quality.) Measured care improved: Campbell et al. (2009) find that the rate of improvement in diabetes and asthma care sped up when the scheme began, then levelled off. But several things happened that the simple model does not predict.</p>
+<ul class="simple">
+<li><p><strong>Paying for care already given.</strong> Much of the money paid for quality that practices were already delivering, which is why achievement was so far above the budget.</p></li>
+<li><p><strong>What is not measured suffers.</strong> Some aspects of care that carried no points got worse, and continuity of care (seeing the same doctor) fell (Campbell et al. 2009).</p></li>
+<li><p><strong>Measures can be managed.</strong> Payment depended on a <em>ratio</em>: patients reaching a target over patients eligible. Practices could raise the ratio by excluding patients or by how they recorded disease. Most exclusions were for good clinical reasons (about 5% of patients; Doran et al. 2008), but Gravelle, Sutton and Ma (2010) find patterns in the data consistent with some gaming.</p></li>
+<li><p><strong>Health outcomes.</strong> Ryan et al. (2016) find no detectable effect of the scheme on population mortality.</p></li>
+</ul>
+<p>Scotland abolished QOF in 2016. England kept it but retired 32 indicators in 2025/26, moving part of the money back into the core payment.</p>
+<p><strong>Mapping.</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>NHS primary care</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Principal (risk-neutral)</p></td>
+<td><p>The NHS, as the payer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Agent (risk-averse)</p></td>
+<td><p>A GP practice (its partners)</p></td>
+</tr>
+<tr class="row-even"><td><p>Hidden action <span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td><p>Proactive care of patients with long-term conditions</p></td>
+</tr>
+<tr class="row-odd"><td><p>Output <span class="math notranslate nohighlight">\(y\)</span> (observable)</p></td>
+<td><p>Indicators from patients’ records</p></td>
+</tr>
+<tr class="row-even"><td><p>Why <span class="math notranslate nohighlight">\(y\)</span> is noisy</p></td>
+<td><p>Patients’ age, deprivation and adherence; epidemics; small numbers</p></td>
+</tr>
+<tr class="row-odd"><td><p>Full-insurance contract</p></td>
+<td><p>Capitation: a fixed sum per patient</p></td>
+</tr>
+<tr class="row-even"><td><p>Output-contingent contract</p></td>
+<td><p>QOF points</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(w_b\)</span></p></td>
+<td><p>The core payment, which did not fall</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\uo\)</span></p></td>
+<td><p>Salaried or locum work</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The 2004 contract is a move from <a class="reference internal" href="sb.html#lem-ha-fi">Lemma 3.3</a> (flat pay, low action) to <a class="reference internal" href="sb.html#thm-ha-sb">Theorem 3.2</a>(a) (output-contingent pay, high action), with a floor under pay.</p>
+<div class="proof example admonition" id="ex-ha-qof">
+<p class="admonition-title"><span class="caption-number">Example 3.2 </span> (The NHS scheme in numbers)</p>
+<section class="example-content" id="proof-content">
+<p>These are the numbers of the running example (<a class="reference internal" href="model.html#ex-ha-run">Example 3.1</a>), in thousands of pounds a year:</p>
+<div class="math notranslate nohighlight">
+\[
+y_g=400,\quad y_b=200,\quad \muh=0.65,\quad \mul=0.35,\quad \uo=10,\quad c=0.3 .
+\]</div>
+<p>The expected health gain is <span class="math notranslate nohighlight">\(270\)</span> under the low action and <span class="math notranslate nohighlight">\(330\)</span> under proactive care, a rise of 22%. Here <span class="math notranslate nohighlight">\(c/\Dpi=0.3/0.3=1\)</span>, so <a class="reference internal" href="sb.html#thm-ha-sb">Theorem 3.2</a> gives <span class="math notranslate nohighlight">\(z_g^*=10+0.65=10.65\)</span> and <span class="math notranslate nohighlight">\(z_b^*=10-0.35=9.65\)</span>.</p>
+<p>A QOF-style contract keeps the core payment at the old level, <span class="math notranslate nohighlight">\(z_b=10\)</span>, and adds a bonus in a good year. (IC) still requires a gap of <span class="math notranslate nohighlight">\(c/\Dpi=1\)</span>, so <span class="math notranslate nohighlight">\(z_g=11\)</span> and <span class="math notranslate nohighlight">\(w_g=121\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Contract</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(w_b\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(w_g\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\E[w]\)</span></p></th>
+<th class="head"><p>Action</p></th>
+<th class="head"><p>GP</p></th>
+<th class="head"><p>NHS net</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Capitation (P2)</p></td>
+<td><p>100.00</p></td>
+<td><p>100.00</p></td>
+<td><p>100.00</p></td>
+<td><p>low</p></td>
+<td><p>10.00</p></td>
+<td><p>170.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>First best (P1)</p></td>
+<td><p>106.09</p></td>
+<td><p>106.09</p></td>
+<td><p>106.09</p></td>
+<td><p>high</p></td>
+<td><p>10.00</p></td>
+<td><p>223.91</p></td>
+</tr>
+<tr class="row-even"><td><p>Second best (P3)</p></td>
+<td><p>93.12</p></td>
+<td><p>113.42</p></td>
+<td><p>106.32</p></td>
+<td><p>high</p></td>
+<td><p>10.00</p></td>
+<td><p>223.68</p></td>
+</tr>
+<tr class="row-odd"><td><p>Core payment + bonus</p></td>
+<td><p>100.00</p></td>
+<td><p>121.00</p></td>
+<td><p>113.65</p></td>
+<td><p>high</p></td>
+<td><p><strong>10.35</strong></p></td>
+<td><p>216.35</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>P6.</strong> The welfare loss from hidden action is <span class="math notranslate nohighlight">\(223.91-223.68\approx0.23\)</span>. This matches <span class="math notranslate nohighlight">\(\muh(1-\muh)(c/\Dpi)^2=0.2275\)</span>, as <a class="reference internal" href="welfare.html#prop-ha-ac">Proposition 3.1</a> predicts.</p></li>
+<li><p><strong>P4.</strong> With no penalty (PC) is slack: the GP earns a rent of <span class="math notranslate nohighlight">\(0.35\)</span> utils. This is <span class="math notranslate nohighlight">\(\mul c/\Dpi\)</span>, the rent created by a floor on pay (<a class="reference internal" href="gen.html#prop-ha-ll">Proposition 3.4</a>).</p></li>
+<li><p>The price of having no stick is <span class="math notranslate nohighlight">\(223.68-216.35=7.33\)</span> a year.</p></li>
+<li><p>Expected pay rises 13.65%.</p></li>
+<li><p><strong>P7.</strong> The scheme is still worth <span class="math notranslate nohighlight">\(46.35\)</span> a year more to the NHS than capitation, <em>if</em> it buys the high action. If practices were already giving proactive care, it buys nothing and simply costs <span class="math notranslate nohighlight">\(13.65\)</span>.</p></li>
+</ul>
+</section>
+</div><p><strong>Scorecard.</strong> P2 (flat pay gives the low action) is consistent with the speed-up in measured care once it was paid for, though practices’ achievement before 2004 was already high, so capitation did not produce the pure low action of the model. P3 and P5 hold only in part: QOF was all carrot and no stick. P4 fails clearly: GPs gained. P7 is in doubt, because the scheme paid heavily for care that was already being given and had no detectable effect on mortality. Two features lie outside the model. <em>Multitasking</em>: the GP’s job has many tasks, and paying for the measured ones draws effort away from the rest (Holmström and Milgrom 1991). <em>Manipulable measures</em>: the model assumes output is verifiable, but here the agent keeps the records the payment is based on.</p>
+<p><strong>Hospitals too.</strong> In 2008 the 24 NHS hospitals in the North West of England joined <em>Advancing Quality</em>, which paid bonuses to the hospitals that scored best on measured care for pneumonia, heart failure and heart attack. Sutton et al. (2012) estimate about 890 fewer deaths in the first 18 months, compared with hospitals elsewhere in England. Kristensen et al. (2014) find that the relative gain had disappeared after three and a half years, partly because care elsewhere caught up. Midway through, the bonuses were replaced with penalties for missing targets.</p>
+</section>
+<section id="case-2-progressive-insurance-changing-the-information">
+<h2><span class="section-number">3.6.2. </span>Case 2: Progressive Insurance, changing the information<a class="headerlink" href="#case-2-progressive-insurance-changing-the-information" title="Link to this heading">#</a></h2>
+<p>An insurer cannot see how you drive; it can see whether you crash. So the standard car-insurance policy punishes the bad <em>outcome</em>: a deductible on damage to your own car, and a surcharge at renewal after a claim. That is <a class="reference internal" href="sb.html#thm-ha-sb">Theorem 3.2</a>(a): partial insurance with a stick in the bad state.</p>
+<p>Progressive’s idea was to put a device in the car and price the <em>action</em>. A usage-based policy was piloted in Texas by 2002; in 2004 TripSense recorded mileage, time of day, speed and braking for 5,000 customers in Minnesota; in 2011 Snapshot launched nationally, setting a discount of up to 30% from six months of recorded driving.</p>
+<p>Jin and Vasserman (2021) study a major US insurer with over a million customers. Monitoring is offered once, to new customers, for about five months. The same drivers are about 30% safer while monitored than afterwards. Only 15–21% opt in, and those who do were safer to begin with. The insurer pays for consent with discounts, and drivers behave as if being monitored costs them about $113 per period. Total surplus rises by about $9.79 per person per year.</p>
+<p><strong>Mapping.</strong> Insurance is the same model with relabelled objects.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Car insurance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Principal (risk-neutral)</p></td>
+<td><p>The insurer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Agent (risk-averse)</p></td>
+<td><p>The driver</p></td>
+</tr>
+<tr class="row-even"><td><p>Hidden action <span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td><p>Careful or careless driving</p></td>
+</tr>
+<tr class="row-odd"><td><p>Good, bad state</p></td>
+<td><p>No accident, accident</p></td>
+</tr>
+<tr class="row-even"><td><p>Output <span class="math notranslate nohighlight">\(y\)</span></p></td>
+<td><p>Wealth before insurance: <span class="math notranslate nohighlight">\(W\)</span> or <span class="math notranslate nohighlight">\(W-L\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Wage <span class="math notranslate nohighlight">\(w\)</span></p></td>
+<td><p>Wealth after premium and payout</p></td>
+</tr>
+<tr class="row-even"><td><p>Principal’s payoff <span class="math notranslate nohighlight">\(y-w\)</span></p></td>
+<td><p>Premium, less any payout</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(w_g-w_b\)</span></p></td>
+<td><p>The part of the loss the driver keeps</p></td>
+</tr>
+<tr class="row-even"><td><p>Making <span class="math notranslate nohighlight">\(a\)</span> contractible</p></td>
+<td><p>The telematics device</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Telematics is a move from <a class="reference internal" href="sb.html#thm-ha-sb">Theorem 3.2</a>(a) back to <a class="reference internal" href="fb.html#thm-ha-fb">Theorem 3.1</a>.</p>
+<div class="proof example admonition" id="ex-ha-prog">
+<p class="admonition-title"><span class="caption-number">Example 3.3 </span> (Progressive in numbers)</p>
+<section class="example-content" id="proof-content">
+<p>Wealth is <span class="math notranslate nohighlight">\(W=100\)</span> and an accident costs <span class="math notranslate nohighlight">\(L=64\)</span>, so <span class="math notranslate nohighlight">\(y_g=100\)</span> and <span class="math notranslate nohighlight">\(y_b=36\)</span>. Let <span class="math notranslate nohighlight">\(\muh=0.9\)</span>, <span class="math notranslate nohighlight">\(\mul=0.7\)</span> (probabilities of <em>no</em> accident) and <span class="math notranslate nohighlight">\(c=0.4\)</span>. Uninsured, careful driving gives <span class="math notranslate nohighlight">\(0.9\cdot10+0.1\cdot6-0.4=9.2\)</span> and careless driving gives <span class="math notranslate nohighlight">\(8.8\)</span>, so <span class="math notranslate nohighlight">\(\uo=9.2\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Contract</p></th>
+<th class="head"><p>Premium</p></th>
+<th class="head"><p>Payout</p></th>
+<th class="head"><p>Loss kept</p></th>
+<th class="head"><p>Action</p></th>
+<th class="head"><p>Profit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Full cover, device (P1)</p></td>
+<td><p>7.84</p></td>
+<td><p>64.0</p></td>
+<td><p>0.0</p></td>
+<td><p>careful</p></td>
+<td><p>1.44</p></td>
+</tr>
+<tr class="row-odd"><td><p>Full cover, no device (P2)</p></td>
+<td><p>7.84</p></td>
+<td><p>64.0</p></td>
+<td><p>0.0</p></td>
+<td><p>careless</p></td>
+<td><p><span class="math notranslate nohighlight">\(-11.36\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Partial, no device (P3)</p></td>
+<td><p>3.96</p></td>
+<td><p>28.8</p></td>
+<td><p>35.2</p></td>
+<td><p>careful</p></td>
+<td><p>1.08</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>With the device, <span class="math notranslate nohighlight">\(z=\uo+c=9.6\)</span>, so final wealth is <span class="math notranslate nohighlight">\(92.16\)</span> and the premium is <span class="math notranslate nohighlight">\(7.84\)</span>. Without it, <span class="math notranslate nohighlight">\(c/\Dpi=2\)</span>, so <span class="math notranslate nohighlight">\(z_g^*=9.2+0.3\cdot2=9.8\)</span> (wealth <span class="math notranslate nohighlight">\(96.04\)</span>, premium <span class="math notranslate nohighlight">\(3.96\)</span>) and <span class="math notranslate nohighlight">\(z_b^*=9.2-0.7\cdot2=7.8\)</span> (wealth <span class="math notranslate nohighlight">\(60.84=36+\text{payout}-3.96\)</span>, payout <span class="math notranslate nohighlight">\(28.8\)</span>). Without the device the driver keeps 55% of the loss (P5). The device is worth <span class="math notranslate nohighlight">\(1.44-1.08=0.36=0.9\times0.1\times2^2\)</span> to the insurer (P6), exactly <a class="reference internal" href="welfare.html#equation-eq-ha-ac-sqrt">(3.6)</a>.</p>
+</section>
+</div><p><strong>Why so few drivers opt in.</strong> In the model the insurer keeps the whole <span class="math notranslate nohighlight">\(0.36\)</span> and every driver accepts, since (PC) binds either way. Suppose instead that a driver needs compensation <span class="math notranslate nohighlight">\(m\)</span> (in money) to put up with the device. Monitoring is worth offering if and only if <span class="math notranslate nohighlight">\(0.36-m\ge0\)</span>: for <span class="math notranslate nohighlight">\(m&lt;0.36\)</span> the device is used and the driver is paid <span class="math notranslate nohighlight">\(m\)</span>; for <span class="math notranslate nohighlight">\(m&gt;0.36\)</span> the deductible is cheaper. In the data the average driver requires about $113 per period, so only the drivers with the most to gain opt in. They can also take their business to a competitor, so they keep part of the gain: P4 fails here too.</p>
+</section>
+<section id="what-the-cases-teach">
+<h2><span class="section-number">3.6.3. </span>What the cases teach<a class="headerlink" href="#what-the-cases-teach" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Prediction</p></th>
+<th class="head"><p>NHS (QOF)</p></th>
+<th class="head"><p>Progressive</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P1</p></td>
+<td><p>Contractible action: full insurance</p></td>
+<td><p>Fits: many indicators pay for an action recorded (a check done)</p></td>
+<td><p>Holds: discount for driving, not outcomes</p></td>
+</tr>
+<tr class="row-odd"><td><p>P2</p></td>
+<td><p>Hidden and insured: low action</p></td>
+<td><p>In part: measured care sped up once paid for</p></td>
+<td><p>Holds: 30% safer when watched</p></td>
+</tr>
+<tr class="row-even"><td><p>P3</p></td>
+<td><p>Reward and penalty</p></td>
+<td><p>In part: reward only</p></td>
+<td><p>Holds: deductible, surcharge</p></td>
+</tr>
+<tr class="row-odd"><td><p>P4</p></td>
+<td><p>Agent no better off</p></td>
+<td><p><strong>Fails</strong>: partner pay <span class="math notranslate nohighlight">\(+58\%\)</span></p></td>
+<td><p><strong>Fails</strong>: drivers paid to opt in</p></td>
+</tr>
+<tr class="row-even"><td><p>P5</p></td>
+<td><p>Agent bears risk</p></td>
+<td><p>In part: upside only</p></td>
+<td><p>Holds</p></td>
+</tr>
+<tr class="row-odd"><td><p>P6</p></td>
+<td><p>Contractibility is valuable</p></td>
+<td><p>Fits: indicators taken from records already kept</p></td>
+<td><p>Holds: <span class="math notranslate nohighlight">\(+\$9.79\)</span> per person</p></td>
+</tr>
+<tr class="row-even"><td><p>P7</p></td>
+<td><p>High action only if worth it</p></td>
+<td><p><strong>In doubt</strong>: paid for care already given; no effect on mortality</p></td>
+<td><p>Fits: five months, once</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Holds: tested in the data. Fits: consistent with the data but not a direct test. In part: true of part of the prediction only.</p>
+<ol class="arabic simple">
+<li><p><strong>Incentives move what they measure.</strong> Paying for measured care raised measured care, and watching drivers made them drive more carefully (P2, P3).</p></li>
+<li><p><strong>The surplus-division result does not hold.</strong> P4 fails both times. Real principals do not make take-it-or-leave-it offers: the GP contract was negotiated with the doctors’ union, and drivers can go to another insurer. Floors on pay create rents (<a class="reference internal" href="gen.html#sec-ha-ll"><span class="std std-ref">Limited liability and rents</span></a>).</p></li>
+<li><p><strong>What is measured is not all that matters.</strong> When the agent has several tasks, or can influence the measure itself, paying for the measure can draw effort away from what the principal really wants (<a class="reference internal" href="gen.html#sec-ha-gen"><span class="std std-ref">Generalisations</span></a>).</p></li>
+<li><p><strong>Both cases run into hidden information.</strong> Which patients a practice records and excludes, and which drivers opt into monitoring, are about <em>what the agent knows</em>. That is adverse selection and signalling, the subjects of Chapters 4 and 5.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="welfare.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Welfare and the cost of hidden action</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="gen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>Generalisations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-nhs-family-doctors-paying-for-quality">3.6.1. Case 1: NHS family doctors, paying for quality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-progressive-insurance-changing-the-information">3.6.2. Case 2: Progressive Insurance, changing the information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-cases-teach">3.6.3. What the cases teach</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

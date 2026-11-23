@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Signalling lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  svg: { fontCache: 'global' },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code','input','output'] }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" defer></script>
+<style>
+/* Layout: a book page. Sticky contents rail on the left, one reading column (~68ch),
+   and a wider "lab" band for the interactive contract explorer. */
+:root{
+  --bg:#F5F6F8; --surface:#FFFFFF; --ink:#1A2130; --muted:#5A6375; --rule:#DCE0E7;
+  --accent:#22508F; --accent-soft:#E7EEF8;
+  --why:#0E7465; --why-soft:#E5F3F0;
+  --tool:#9A6110; --tool-soft:#FAF1E2;
+  --warn:#A3392E; --warn-soft:#FAEAE7;
+  --good:#2C7A47; --good-soft:#E6F3EA;
+  --f-text:"Literata", Georgia, "Times New Roman", serif;
+  --f-ui:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-num:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11151C; --surface:#181E27; --ink:#E5E8ED; --muted:#9AA3B3; --rule:#2B3340;
+  --accent:#8DB2EE; --accent-soft:#1D2A3E;
+  --why:#5CC5B2; --why-soft:#15302C;
+  --tool:#E2A84C; --tool-soft:#33291A;
+  --warn:#EC8A7D; --warn-soft:#3A1F1C;
+  --good:#71C48D; --good-soft:#1A3223; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11151C; --surface:#181E27; --ink:#E5E8ED; --muted:#9AA3B3; --rule:#2B3340;
+  --accent:#8DB2EE; --accent-soft:#1D2A3E;
+  --why:#5CC5B2; --why-soft:#15302C;
+  --tool:#E2A84C; --tool-soft:#33291A;
+  --warn:#EC8A7D; --warn-soft:#3A1F1C;
+  --good:#71C48D; --good-soft:#1A3223; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-text);font-size:17px;line-height:1.62;margin:0}
+.wrap{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;max-width:1180px;margin:0 auto;padding-inline:24px;padding-block:32px 96px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:20px;padding-inline:16px;padding-block:20px 72px}}
+
+/* contents rail */
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;font-family:var(--f-ui);font-size:13.5px;max-height:calc(100vh - 48px);overflow:auto}
+nav.toc .book{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+nav.toc .chap{font-weight:600;margin-bottom:14px;line-height:1.35}
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:s 0}
+nav.toc a{display:block;padding:5px 10px;border-radius:6px;color:var(--muted);text-decoration:none;border-left:2px solid transparent}
+nav.toc a:hover{color:var(--ink);background:var(--accent-soft)}
+nav.toc a.on{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft)}
+nav.toc .tools{margin-top:18px;padding-top:14px;border-top:1px solid var(--rule);display:grid;gap:8px}
+@media (max-width:900px){nav.toc{position:static;max-height:none}nav.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+main{min-width:0}
+.col{max-width:68ch}
+header.chapter{border-bottom:1px solid var(--rule);padding-bottom:24px;margin-bottom:8px}
+.eyebrow{font-family:var(--f-ui);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:clamp(30px,4.4vw,44px);line-height:1.12;margin:.2em 0 .35em;font-weight:700;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:27px;line-height:1.2;margin:2.4em 0 .5em;text-wrap:balance;scroll-margin-top:20px}
+h2 .num{font-family:var(--f-num);font-size:.6em;color:var(--muted);font-weight:400;margin-right:.6em;vertical-align:.15em}
+h3{font-size:20px;margin:1.8em 0 .4em;text-wrap:balance}
+p{margin:.7em 0}
+.lede{font-size:19px;color:var(--muted)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ui{font-family:var(--f-ui)}
+.small{font-size:14.5px}
+.muted{color:var(--muted)}
+mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;padding:2px 0;margin:.8em 0!important}
+
+/* formal blocks */
+.formal{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:16px 20px;margin:1.2em 0}
+.formal > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:4px}
+.thm{border-color:color-mix(in srgb,var(--accent) 45%,var(--rule))}
+.thm > .lab{color:var(--accent)}
+.defn > .lab{color:var(--muted)}
+.thm em,.thm i{font-style:italic}
+.toolbox{background:var(--tool-soft);border:1px solid color-mix(in srgb,var(--tool) 40%,transparent);border-radius:8px;padding:14px 18px;margin:1.2em 0}
+.toolbox > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--tool)}
+.pit{background:var(--warn-soft);border-radius:8px;padding:12px 18px;margin:1.2em 0}
+.pit > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--warn)}
+.strategy{border-left:3px solid var(--why);padding:4px 0 4px 16px;margin:1.2em 0}
+.strategy > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--why)}
+.adv{border:1px dashed color-mix(in srgb,var(--accent) 50%,transparent);border-radius:8px;padding:12px 18px;margin:1.2em 0;font-size:15.5px}
+
+/* toolkit cards */
+.tk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:1.2em 0}
+@media (max-width:700px){.tk{grid-template-columns:minmax(0,1fr)}}
+.tk > div{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--tool);border-radius:6px;padding:12px 14px;font-size:15px;min-width:0}
+.tk b{font-family:var(--f-ui);font-size:13.5px;display:block;margin-bottom:4px}
+.chip{display:inline-block;font-family:var(--f-ui);font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:1px 7px;border-radius:999px;background:var(--tool-soft);color:var(--tool);text-decoration:none;white-space:nowrap;vertical-align:.1em}
+.chip.why{background:var(--why-soft);color:var(--why)}
+
+/* proofs */
+.proof{background:var(--surface);border:1px solid var(--rule);border-radius:8px;margin:1.2em 0;overflow:hidden}
+.proof-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--rule);font-family:var(--f-ui);font-size:13.5px}
+.proof-head .t{font-weight:600}
+.proof-head .ctl{display:flex;gap:6px;flex-wrap:wrap}
+button{font-family:var(--f-ui);font-size:13px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:6px;padding:5px 11px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.primary:hover{color:var(--surface);filter:brightness(1.08)}
+button:disabled{opacity:.45;cursor:default}
+.pstep{padding:12px 16px 14px;border-bottom:1px solid var(--rule)}
+.pstep:last-of-type{border-bottom:0}
+.pstep > h4{font-family:var(--f-ui);font-size:14px;margin:0 0 4px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.pstep > h4 .n{font-family:var(--f-num);color:var(--muted);font-weight:400}
+.pstep.locked > :not(h4){display:none}
+.pstep.locked > h4{color:var(--muted);font-weight:500}
+.pstep.locked > h4::after{content:"hidden";font-family:var(--f-ui);font-weight:400;font-size:11.5px;color:var(--muted);border:1px solid var(--rule);border-radius:999px;padding:0 6px}
+.why{background:var(--why-soft);border-radius:6px;padding:8px 12px;margin:.6em 0 .2em;font-size:15px}
+.why::before{content:"Why this step? ";font-family:var(--f-ui);font-weight:600;font-size:12.5px;color:var(--why)}
+.qed{text-align:right;color:var(--muted);padding:0 16px 10px;font-size:15px}
+details.think{margin:.6em 0;font-size:15.5px}
+details.think > summary{font-family:var(--f-ui);font-size:13px;color:var(--why);cursor:pointer;font-weight:600}
+
+/* tables */
+.tbl{overflow-x:auto;margin:1em 0}
+table{border-collapse:collapse;font-size:15px;width:100%}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-ui);font-size:12.5px;letter-spacing:.03em;color:var(--muted);font-weight:600}
+td.n,th.n{text-align:right;font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:14px;white-space:nowrap}
+.verdict{font-family:var(--f-ui);font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.v-hold{background:var(--good-soft);color:var(--good)}
+.v-fit{background:var(--accent-soft);color:var(--accent)}
+.v-part{background:var(--tool-soft);color:var(--tool)}
+.v-fail{background:var(--warn-soft);color:var(--warn)}
+
+/* lab */
+.lab-band{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;margin:1.4em 0}
+.lab-grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:start}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--f-ui);font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:18px;height:0;border-top:2px solid;vertical-align:middle;margin-right:6px}
+#labTable td:first-child{min-width:11em}
+@media (max-width:820px){.lab-grid{grid-template-columns:minmax(0,1fr)}}
+.ctrls{display:grid;gap:12px;align-content:start;font-family:var(--f-ui);font-size:13.5px;min-width:0}
+.ctrl label{display:flex;justify-content:space-between;gap:8px}
+.ctrl label output{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.ctrl input[type=range]{width:100%;accent-color:var(--accent)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+.lab-out{min-width:0;display:grid;gap:14px}
+.lab-svg{width:100%;height:auto;display:block;background:var(--bg);border-radius:8px}
+.lab-svg text{font-family:var(--f-ui);font-size:11px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{border:1px solid var(--rule);border-radius:8px;padding:10px 12px;font-family:var(--f-ui);min-width:0}
+.kpi .k{font-size:11.5px;color:var(--muted);letter-spacing:.03em}
+.kpi .v{font-family:var(--f-num);font-size:18px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;margin-top:2px}
+.pill{display:inline-block;font-family:var(--f-ui);font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px}
+.p-high{background:var(--good-soft);color:var(--good)}
+.p-low{background:var(--warn-soft);color:var(--warn)}
+.msg{font-family:var(--f-ui);font-size:13px;color:var(--warn)}
+.ruler{font-family:var(--f-ui);font-size:12px}
+
+/* exercises */
+.ex{border-top:1px solid var(--rule);padding:16px 0}
+.ex-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-family:var(--f-ui);font-size:14px}
+.ex-h b{font-size:15px}
+.tag{font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.case{background:var(--tool-soft);color:var(--tool)}
+.tag.adv{background:var(--why-soft);color:var(--why)}
+.done{font-size:12px;color:var(--good);font-weight:600}
+.hints{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.hint{background:var(--bg);border-radius:6px;padding:8px 12px;font-size:15px}
+.hint::before{content:attr(data-label) " ";font-family:var(--f-ui);font-size:12px;font-weight:600;color:var(--muted)}
+.check{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;font-family:var(--f-ui);font-size:13.5px}
+.check input{font-family:var(--f-num);font-size:14px;width:9em;padding:5px 8px;border:1px solid var(--rule);border-radius:6px;background:var(--bg);color:var(--ink)}
+.check .res{font-weight:600}
+.res.ok{color:var(--good)} .res.no{color:var(--warn)}
+.filter{display:flex;flex-wrap:wrap;gap:6px;margin:.8em 0}
+.filter button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+ol.errata{padding-left:1.4em;font-size:15.5px}
+ol.errata li{margin:.4em 0}
+footer{margin-top:4em;padding-top:1em;border-top:1px solid var(--rule);font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.pstep.reveal{animation:fade .35s ease}@keyframes fade{from{opacity:.25;transform:translateY(3px)}to{opacity:1;transform:none}}}
+.tk.tk4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:700px){.tk.tk4{grid-template-columns:minmax(0,1fr)}}
+.fig{margin:1.4em 0}
+.fig figcaption{margin-top:6px}
+#lemonBar{margin-top:10px}
+#insLab .lab-grid{grid-template-columns:minmax(0,1fr)}
+#insLab .cards{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+</style>
+<!-- ie-theme -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,500&family=Google+Sans+Flex:wght@400;500;600&display=swap');
+:root{
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#2F3034; --muted:#6D6E71; --rule:#D6D6D6;
+  --accent:#8C2F5A; --accent-soft:#FAF2F5;
+  --why:#1A7F6E; --why-soft:#F1F7F5; --tool:#9A6110; --tool-soft:#FBF6EE;
+  --warn:#A3392E; --warn-soft:#FBF1EF; --good:#2C7A47; --good-soft:#F0F7F2;
+  --f-text:"Roboto Serif", Georgia, "Times New Roman", serif;
+  --f-ui:"Google Sans Flex", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+body{font-weight:300; letter-spacing:.01em}
+b, strong, th{font-weight:600}
+h1, h2, h3, h4{font-family:var(--f-text); font-weight:500; letter-spacing:-.01em}
+a{text-decoration:none}
+th{background:#18181B; color:#fff; font-family:var(--f-ui); font-weight:500}
+</style>
+<!-- /ie-theme -->
+
+
+<style>
+html,body{background:var(--bg)}
+body{margin:0;padding:12px}
+.labpage{max-width:960px;margin:0 auto}
+.labpage h1{font-size:20px;margin:0 0 4px}
+.labpage .desc{margin:0 0 12px;font-size:14px}
+.labpage .lab-band{margin:0;max-width:none}
+.labpage .lab-grid{grid-template-columns:minmax(0,1fr)!important}
+.labpage .lab-svg{max-width:640px}
+.lab-hidden{display:none}
+</style>
+
+<body data-lab="signalling">
+<main class="labpage">
+<h1>Signalling lab</h1>
+<p class="desc muted ui">Choose the environment, then a signal. The lab says whether it is an equilibrium, which constraint fails if not, and who gains or loses.</p>
+<div class="lab-band" id="lab">
+  <div class="lab-grid" style="grid-template-columns:minmax(0,1fr)">
+    <div class="ctrls">
+      <p class="small ui" style="margin:0"><b>Signalling lab.</b> Costs \(c(a;\theta_l)=\kappa a^2\) and \(c(a;\theta_h)=a^2\). Choose the environment, then the high type's signal (separating) or the common signal (pooling).</p>
+      <div class="presets" role="group" aria-label="Presets">
+        <button type="button" data-spreset="run">Example 5.4</button>
+        <button type="button" data-spreset="easy">Easier degree (κ = 1.5)</button>
+        <button type="button" data-spreset="many">Mostly high types (μ₀ = 0.8)</button>
+        <button type="button" data-spreset="pool">Degree inflation (pooling)</button>
+      </div>
+      <div class="filter" role="group" aria-label="Equilibrium type" id="sgMode"><button type="button" data-mode="sep" aria-pressed="true">Separating</button><button type="button" data-mode="pool" aria-pressed="false">Pooling</button></div>
+      <div class="ctrl"><label for="sl"><span>\(\theta_l\)</span><output id="o_sl"></output></label><input id="sl" type="range" min="5" max="35" step="1"></div>
+      <div class="ctrl"><label for="sh"><span>\(\theta_h\)</span><output id="o_sh"></output></label><input id="sh" type="range" min="20" max="60" step="1"></div>
+      <div class="ctrl"><label for="sm"><span>\(\mu_0\): share of high types</span><output id="o_sm"></output></label><input id="sm" type="range" min="0.05" max="0.95" step="0.05"></div>
+      <div class="ctrl"><label for="sk"><span>\(\kappa\): low type's cost multiple</span><output id="o_sk"></output></label><input id="sk" type="range" min="1.05" max="4" step="0.05"></div>
+      <div class="ctrl"><label for="sa"><span>signal \(a\) (years)</span><output id="o_sa"></output></label><input id="sa" type="range" min="0" max="7" step="0.01"></div>
+    </div>
+    <div class="lab-out">
+      <svg class="lab-svg" id="sgSvg" viewBox="0 0 520 320" role="img" aria-label="Wage schedule and indifference curves"></svg>
+      <div class="legend"><span><i style="border-color:var(--ink)"></i>wage schedule w(a)</span><span><i style="border-color:var(--warn)"></i>low type's indifference curve</span><span><i style="border-color:var(--accent)"></i>high type's indifference curve</span></div>
+      <div id="sgMsg" class="small ui" aria-live="polite"></div>
+      <div class="cards" id="sgCards"></div>
+    </div>
+  </div>
+</div>
+</main>
+<script>
+(function(){
+/* ---------- shared svg helpers ---------- */
+  var NS='http://www.w3.org/2000/svg';
+  function mk(tag, attrs, parent){ var e=document.createElementNS(NS,tag); for (var a in attrs) e.setAttribute(a, attrs[a]); parent.appendChild(e); return e; }
+  function txt(parent, x, y, s, attrs){ var a={x:x,y:y}; for (var k in (attrs||{})) a[k]=attrs[k]; var t=mk('text',a,parent); t.textContent=s; return t; }
+  function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+  function col(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function f1(x){ return (Math.round(x*10)/10).toFixed(1); }
+  function f2(x){ return (Math.round(x*100)/100).toFixed(2); }
+  function kpi(k,v,s){ return '<div class="kpi"><div class="k">'+k+'</div><div class="v">'+v+'</div>'+(s?'<div class="s muted">'+s+'</div>':'')+'</div>'; }
+  function axes(svg,W,H,L,R,T,B){
+    mk('line',{x1:L,y1:H-B,x2:W-R,y2:H-B,stroke:col('--muted'),'stroke-width':1},svg);
+    mk('line',{x1:L,y1:T,x2:L,y2:H-B,stroke:col('--muted'),'stroke-width':1},svg);
+  }
+
+  /* ---------- signalling lab ---------- */
+  var SP={ run:{sl:20,sh:38,sm:0.5,sk:2,sa:3,mode:'sep'}, easy:{sl:20,sh:38,sm:0.5,sk:1.5,sa:3.46,mode:'sep'},
+           many:{sl:20,sh:38,sm:0.8,sk:2,sa:3,mode:'sep'}, pool:{sl:20,sh:38,sm:0.5,sk:2,sa:2.12,mode:'pool'} };
+  var sids=['sl','sh','sm','sk','sa'], sel={}, mode='sep';
+  sids.forEach(function(k){ sel[k]=document.getElementById(k); sel[k].addEventListener('input', sigLab); });
+  function setMode(m){ mode=m; document.querySelectorAll('#sgMode button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.mode===m?'true':'false'); }); }
+  document.querySelectorAll('#sgMode button').forEach(function(b){ b.addEventListener('click', function(){ setMode(b.dataset.mode); sigLab(); }); });
+  document.querySelectorAll('[data-spreset]').forEach(function(b){ b.addEventListener('click', function(){ var p=SP[b.dataset.spreset]; sids.forEach(function(k){ sel[k].value=p[k]; }); setMode(p.mode); sigLab(); }); });
+
+  function sigLab(){
+    var v={}; sids.forEach(function(k){ v[k]=parseFloat(sel[k].value); });
+    if (v.sh<=v.sl+1){ v.sh=v.sl+1; sel.sh.value=v.sh; }
+    document.getElementById('o_sl').textContent=v.sl;
+    document.getElementById('o_sh').textContent=v.sh;
+    document.getElementById('o_sm').textContent=f2(v.sm);
+    document.getElementById('o_sk').textContent=f2(v.sk);
+    document.getElementById('o_sa').textContent=f2(v.sa);
+    var tl=v.sl, th=v.sh, mu=v.sm, k=v.sk, a=v.sa;
+    var D=th-tl, Et=mu*th+(1-mu)*tl;
+    var alo=Math.sqrt(D/k), ahi=Math.sqrt(D), apmax=Math.sqrt((Et-tl)/k);
+    var cl=function(z){return k*z*z;}, ch=function(z){return z*z;};
+    var ok, msg, wHigh, Ul, Uh, SW;
+    if (mode==='sep'){
+      wHigh=th; Ul=tl; Uh=th-ch(a); SW=Et-mu*ch(a);
+      var lowOK = cl(a)>=D-1e-9, highOK = ch(a)<=D+1e-9;
+      ok = lowOK && highOK && a>0;
+      if (a<=0) msg='At a = 0 both types look the same: not separating.';
+      else if (!lowOK) msg='<b>Not an equilibrium:</b> the low type would copy. '+f2(a)+' years cost her '+f1(cl(a))+', less than the wage gain '+f1(D)+'. Raise the signal to at least '+f2(alo)+'.';
+      else if (!highOK) msg='<b>Not an equilibrium:</b> the high type would drop out. '+f2(a)+' years cost her '+f1(ch(a))+', more than the wage gain '+f1(D)+'.';
+      else msg='<b>Separating equilibrium.</b> '+(Math.abs(a-alo)<0.02?'This is the least-cost one: the low type is just indifferent, and it passes the intuitive criterion.':'Any signal in ['+f2(alo)+', '+f2(ahi)+'] separates. This one wastes '+f1(ch(a)-ch(alo))+' more than the least-cost signal '+f2(alo)+', and fails the intuitive criterion.');
+    } else {
+      wHigh=Et; Ul=Et-cl(a); Uh=Et-ch(a); SW=Et-mu*ch(a)-(1-mu)*cl(a);
+      ok = cl(a)<=Et-tl+1e-9;
+      msg = ok ? '<b>Pooling equilibrium.</b> Both types buy '+f2(a)+' years and are paid the average '+f1(Et)+'. Skipping it would be read as "low type" and paid '+f1(tl)+'. '+(a>0?'It fails the intuitive criterion.':'This is the no-signal outcome.')
+               : '<b>Not an equilibrium:</b> the low type would skip the signal. Pooling needs κa² ≤ '+f1(Et-tl)+', i.e. a ≤ '+f2(apmax)+'.';
+    }
+    document.getElementById('sgMsg').innerHTML=msg;
+
+    // chart
+    var svg=document.getElementById('sgSvg'); clear(svg);
+    var W=520,H=320,L=62,R=14,T=14,B=34;
+    var xmax=Math.max(ahi*1.25, a+1, 2), ylo=tl-0.25*D, yhi=th+0.3*D;
+    var X=function(z){return L+z/xmax*(W-L-R);}, Y=function(w){return H-B-(w-ylo)/(yhi-ylo)*(H-T-B);};
+    axes(svg,W,H,L,R,T,B);
+    // band
+    var b0=mode==='sep'?alo:0, b1=mode==='sep'?ahi:apmax;
+    mk('rect',{x:X(b0),y:T,width:Math.max(0,X(Math.min(b1,xmax))-X(b0)),height:H-T-B,fill:col('--good'),'fill-opacity':0.10},svg);
+    txt(svg,(X(b0)+X(Math.min(b1,xmax)))/2,T+12,mode==='sep'?'separating band':'pooling range',{'text-anchor':'middle',fill:col('--good')});
+    // wage schedule
+    mk('line',{x1:X(0),y1:Y(tl),x2:X(Math.min(a,xmax)),y2:Y(tl),stroke:col('--ink'),'stroke-width':2.4},svg);
+    mk('line',{x1:X(Math.min(a,xmax)),y1:Y(wHigh),x2:X(xmax),y2:Y(wHigh),stroke:col('--ink'),'stroke-width':2.4},svg);
+    // indifference curves through equilibrium points
+    function curve(U,c,colr){ var p=[]; for (var i=0;i<=120;i++){ var z=xmax*i/120, w=U+c(z); if(w>yhi) break; p.push(X(z)+','+Y(w)); } mk('polyline',{points:p.join(' '),fill:'none',stroke:colr,'stroke-width':1.8},svg); }
+    curve(Ul,cl,col('--warn')); curve(Uh,ch,col('--accent'));
+    // equilibrium points
+    if (mode==='sep'){ mk('circle',{cx:X(0),cy:Y(tl),r:5,fill:col('--warn')},svg); mk('circle',{cx:X(a),cy:Y(th),r:5,fill:col('--accent')},svg); }
+    else { mk('circle',{cx:X(a),cy:Y(Et),r:5,fill:col('--why')},svg); }
+    [[tl,'θl '+tl],[th,'θh '+th],[Et,'avg '+f1(Et)]].forEach(function(p){ txt(svg,L-6,Y(p[0])+4,p[1],{'text-anchor':'end',fill:col('--muted'),'font-size':'10'}); mk('line',{x1:L,y1:Y(p[0]),x2:W-R,y2:Y(p[0]),stroke:col('--rule'),'stroke-width':0.6,'stroke-dasharray':'2 4'},svg); });
+    for (var t=0;t<=Math.floor(xmax);t++) txt(svg,X(t),H-B+14,String(t),{'text-anchor':'middle',fill:col('--muted')});
+    txt(svg,W-R,H-6,'signal a (years)',{'text-anchor':'end',fill:col('--muted')});
+    txt(svg,L+6,T+26,'wage',{fill:col('--muted')});
+
+    var sub = function(x){ return ok?x:'—'; };
+    document.getElementById('sgCards').innerHTML =
+      kpi('High type gets', ok?f1(Uh):'—', 'no signal: '+f1(Et)+'; public: '+th) +
+      kpi('Low type gets', ok?f1(Ul):'—', 'no signal: '+f1(Et)+'; public: '+tl) +
+      kpi('Total surplus', ok?f2(SW):'—', 'without signalling: '+f1(Et)) +
+      kpi('Least-cost separating signal', f2(alo), 'band up to '+f2(ahi)) +
+      kpi('Largest pooling signal', f2(apmax), 'κa² = average − θl');
+  }
+
+  function redrawAll(){ sigLab(); }
+  var s0=SP.run; sids.forEach(function(k){ sel[k].value=s0[k]; });
+  redrawAll();
+  if (window.matchMedia) { var mq=window.matchMedia('(prefers-color-scheme: dark)'); if(mq.addEventListener) mq.addEventListener('change', redrawAll); }
+  new MutationObserver(redrawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+  
+})();
+</script>
+
+<script>
+(function(){
+  function send(){
+    var m=document.querySelector('.labpage'); var h=Math.ceil(m.getBoundingClientRect().height)+28;
+    try{ parent.postMessage({infoeconLab:document.body.dataset.lab,height:h},'*'); }catch(e){}
+  }
+  window.addEventListener('load',send);
+  if (window.ResizeObserver) new ResizeObserver(send).observe(document.body);
+  setTimeout(send,1500);
+})();
+</script>
+</body>
+</html>

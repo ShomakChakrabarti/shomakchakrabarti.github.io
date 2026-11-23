@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Risk and insurance lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  svg: { fontCache: 'global' },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code','input','output'] }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" defer></script>
+<style>
+/* Layout: a book page. Sticky contents rail on the left, one reading column (~68ch),
+   and a wider "lab" band for the interactive contract explorer. */
+:root{
+  --bg:#F5F6F8; --surface:#FFFFFF; --ink:#1A2130; --muted:#5A6375; --rule:#DCE0E7;
+  --accent:#22508F; --accent-soft:#E7EEF8;
+  --why:#0E7465; --why-soft:#E5F3F0;
+  --tool:#9A6110; --tool-soft:#FAF1E2;
+  --warn:#A3392E; --warn-soft:#FAEAE7;
+  --good:#2C7A47; --good-soft:#E6F3EA;
+  --f-text:"Literata", Georgia, "Times New Roman", serif;
+  --f-ui:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-num:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11151C; --surface:#181E27; --ink:#E5E8ED; --muted:#9AA3B3; --rule:#2B3340;
+  --accent:#8DB2EE; --accent-soft:#1D2A3E;
+  --why:#5CC5B2; --why-soft:#15302C;
+  --tool:#E2A84C; --tool-soft:#33291A;
+  --warn:#EC8A7D; --warn-soft:#3A1F1C;
+  --good:#71C48D; --good-soft:#1A3223; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11151C; --surface:#181E27; --ink:#E5E8ED; --muted:#9AA3B3; --rule:#2B3340;
+  --accent:#8DB2EE; --accent-soft:#1D2A3E;
+  --why:#5CC5B2; --why-soft:#15302C;
+  --tool:#E2A84C; --tool-soft:#33291A;
+  --warn:#EC8A7D; --warn-soft:#3A1F1C;
+  --good:#71C48D; --good-soft:#1A3223; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-text);font-size:17px;line-height:1.62;margin:0}
+.wrap{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;max-width:1180px;margin:0 auto;padding-inline:24px;padding-block:32px 96px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:20px;padding-inline:16px;padding-block:20px 72px}}
+
+/* contents rail */
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;font-family:var(--f-ui);font-size:13.5px;max-height:calc(100vh - 48px);overflow:auto}
+nav.toc .book{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+nav.toc .chap{font-weight:600;margin-bottom:14px;line-height:1.35}
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:s 0}
+nav.toc a{display:block;padding:5px 10px;border-radius:6px;color:var(--muted);text-decoration:none;border-left:2px solid transparent}
+nav.toc a:hover{color:var(--ink);background:var(--accent-soft)}
+nav.toc a.on{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft)}
+nav.toc .tools{margin-top:18px;padding-top:14px;border-top:1px solid var(--rule);display:grid;gap:8px}
+@media (max-width:900px){nav.toc{position:static;max-height:none}nav.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+
+main{min-width:0}
+.col{max-width:68ch}
+header.chapter{border-bottom:1px solid var(--rule);padding-bottom:24px;margin-bottom:8px}
+.eyebrow{font-family:var(--f-ui);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:clamp(30px,4.4vw,44px);line-height:1.12;margin:.2em 0 .35em;font-weight:700;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:27px;line-height:1.2;margin:2.4em 0 .5em;text-wrap:balance;scroll-margin-top:20px}
+h2 .num{font-family:var(--f-num);font-size:.6em;color:var(--muted);font-weight:400;margin-right:.6em;vertical-align:.15em}
+h3{font-size:20px;margin:1.8em 0 .4em;text-wrap:balance}
+p{margin:.7em 0}
+.lede{font-size:19px;color:var(--muted)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ui{font-family:var(--f-ui)}
+.small{font-size:14.5px}
+.muted{color:var(--muted)}
+mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;padding:2px 0;margin:.8em 0!important}
+
+/* formal blocks */
+.formal{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:16px 20px;margin:1.2em 0}
+.formal > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:4px}
+.thm{border-color:color-mix(in srgb,var(--accent) 45%,var(--rule))}
+.thm > .lab{color:var(--accent)}
+.defn > .lab{color:var(--muted)}
+.thm em,.thm i{font-style:italic}
+.toolbox{background:var(--tool-soft);border:1px solid color-mix(in srgb,var(--tool) 40%,transparent);border-radius:8px;padding:14px 18px;margin:1.2em 0}
+.toolbox > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--tool)}
+.pit{background:var(--warn-soft);border-radius:8px;padding:12px 18px;margin:1.2em 0}
+.pit > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--warn)}
+.strategy{border-left:3px solid var(--why);padding:4px 0 4px 16px;margin:1.2em 0}
+.strategy > .lab{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--why)}
+.adv{border:1px dashed color-mix(in srgb,var(--accent) 50%,transparent);border-radius:8px;padding:12px 18px;margin:1.2em 0;font-size:15.5px}
+
+/* toolkit cards */
+.tk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:1.2em 0}
+@media (max-width:700px){.tk{grid-template-columns:minmax(0,1fr)}}
+.tk > div{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--tool);border-radius:6px;padding:12px 14px;font-size:15px;min-width:0}
+.tk b{font-family:var(--f-ui);font-size:13.5px;display:block;margin-bottom:4px}
+.chip{display:inline-block;font-family:var(--f-ui);font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:1px 7px;border-radius:999px;background:var(--tool-soft);color:var(--tool);text-decoration:none;white-space:nowrap;vertical-align:.1em}
+.chip.why{background:var(--why-soft);color:var(--why)}
+
+/* proofs */
+.proof{background:var(--surface);border:1px solid var(--rule);border-radius:8px;margin:1.2em 0;overflow:hidden}
+.proof-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--rule);font-family:var(--f-ui);font-size:13.5px}
+.proof-head .t{font-weight:600}
+.proof-head .ctl{display:flex;gap:6px;flex-wrap:wrap}
+button{font-family:var(--f-ui);font-size:13px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:6px;padding:5px 11px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.primary:hover{color:var(--surface);filter:brightness(1.08)}
+button:disabled{opacity:.45;cursor:default}
+.pstep{padding:12px 16px 14px;border-bottom:1px solid var(--rule)}
+.pstep:last-of-type{border-bottom:0}
+.pstep > h4{font-family:var(--f-ui);font-size:14px;margin:0 0 4px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.pstep > h4 .n{font-family:var(--f-num);color:var(--muted);font-weight:400}
+.pstep.locked > :not(h4){display:none}
+.pstep.locked > h4{color:var(--muted);font-weight:500}
+.pstep.locked > h4::after{content:"hidden";font-family:var(--f-ui);font-weight:400;font-size:11.5px;color:var(--muted);border:1px solid var(--rule);border-radius:999px;padding:0 6px}
+.why{background:var(--why-soft);border-radius:6px;padding:8px 12px;margin:.6em 0 .2em;font-size:15px}
+.why::before{content:"Why this step? ";font-family:var(--f-ui);font-weight:600;font-size:12.5px;color:var(--why)}
+.qed{text-align:right;color:var(--muted);padding:0 16px 10px;font-size:15px}
+details.think{margin:.6em 0;font-size:15.5px}
+details.think > summary{font-family:var(--f-ui);font-size:13px;color:var(--why);cursor:pointer;font-weight:600}
+
+/* tables */
+.tbl{overflow-x:auto;margin:1em 0}
+table{border-collapse:collapse;font-size:15px;width:100%}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-ui);font-size:12.5px;letter-spacing:.03em;color:var(--muted);font-weight:600}
+td.n,th.n{text-align:right;font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:14px;white-space:nowrap}
+.verdict{font-family:var(--f-ui);font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.v-hold{background:var(--good-soft);color:var(--good)}
+.v-fit{background:var(--accent-soft);color:var(--accent)}
+.v-part{background:var(--tool-soft);color:var(--tool)}
+.v-fail{background:var(--warn-soft);color:var(--warn)}
+
+/* lab */
+.lab-band{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;margin:1.4em 0}
+.lab-grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:start}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--f-ui);font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:18px;height:0;border-top:2px solid;vertical-align:middle;margin-right:6px}
+#labTable td:first-child{min-width:11em}
+@media (max-width:820px){.lab-grid{grid-template-columns:minmax(0,1fr)}}
+.ctrls{display:grid;gap:12px;align-content:start;font-family:var(--f-ui);font-size:13.5px;min-width:0}
+.ctrl label{display:flex;justify-content:space-between;gap:8px}
+.ctrl label output{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.ctrl input[type=range]{width:100%;accent-color:var(--accent)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+.lab-out{min-width:0;display:grid;gap:14px}
+.lab-svg{width:100%;height:auto;display:block;background:var(--bg);border-radius:8px}
+.lab-svg text{font-family:var(--f-ui);font-size:11px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{border:1px solid var(--rule);border-radius:8px;padding:10px 12px;font-family:var(--f-ui);min-width:0}
+.kpi .k{font-size:11.5px;color:var(--muted);letter-spacing:.03em}
+.kpi .v{font-family:var(--f-num);font-size:18px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;margin-top:2px}
+.pill{display:inline-block;font-family:var(--f-ui);font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px}
+.p-high{background:var(--good-soft);color:var(--good)}
+.p-low{background:var(--warn-soft);color:var(--warn)}
+.msg{font-family:var(--f-ui);font-size:13px;color:var(--warn)}
+.ruler{font-family:var(--f-ui);font-size:12px}
+
+/* exercises */
+.ex{border-top:1px solid var(--rule);padding:16px 0}
+.ex-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-family:var(--f-ui);font-size:14px}
+.ex-h b{font-size:15px}
+.tag{font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.case{background:var(--tool-soft);color:var(--tool)}
+.tag.adv{background:var(--why-soft);color:var(--why)}
+.done{font-size:12px;color:var(--good);font-weight:600}
+.hints{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.hint{background:var(--bg);border-radius:6px;padding:8px 12px;font-size:15px}
+.hint::before{content:attr(data-label) " ";font-family:var(--f-ui);font-size:12px;font-weight:600;color:var(--muted)}
+.check{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;font-family:var(--f-ui);font-size:13.5px}
+.check input{font-family:var(--f-num);font-size:14px;width:9em;padding:5px 8px;border:1px solid var(--rule);border-radius:6px;background:var(--bg);color:var(--ink)}
+.check .res{font-weight:600}
+.res.ok{color:var(--good)} .res.no{color:var(--warn)}
+.filter{display:flex;flex-wrap:wrap;gap:6px;margin:.8em 0}
+.filter button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+ol.errata{padding-left:1.4em;font-size:15.5px}
+ol.errata li{margin:.4em 0}
+footer{margin-top:4em;padding-top:1em;border-top:1px solid var(--rule);font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.pstep.reveal{animation:fade .35s ease}@keyframes fade{from{opacity:.25;transform:translateY(3px)}to{opacity:1;transform:none}}}
+.tk.tk4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:700px){.tk.tk4{grid-template-columns:minmax(0,1fr)}}
+.fig{margin:1.4em 0}
+.fig figcaption{margin-top:6px}
+#lemonBar{margin-top:10px}
+#insLab .lab-grid{grid-template-columns:minmax(0,1fr)}
+#insLab .cards{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+</style>
+<!-- ie-theme -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,500;0,8..144,600;1,8..144,300;1,8..144,500&family=Google+Sans+Flex:wght@400;500;600&display=swap');
+:root{
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#2F3034; --muted:#6D6E71; --rule:#D6D6D6;
+  --accent:#8C2F5A; --accent-soft:#FAF2F5;
+  --why:#1A7F6E; --why-soft:#F1F7F5; --tool:#9A6110; --tool-soft:#FBF6EE;
+  --warn:#A3392E; --warn-soft:#FBF1EF; --good:#2C7A47; --good-soft:#F0F7F2;
+  --f-text:"Roboto Serif", Georgia, "Times New Roman", serif;
+  --f-ui:"Google Sans Flex", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+body{font-weight:300; letter-spacing:.01em}
+b, strong, th{font-weight:600}
+h1, h2, h3, h4{font-family:var(--f-text); font-weight:500; letter-spacing:-.01em}
+a{text-decoration:none}
+th{background:#18181B; color:#fff; font-family:var(--f-ui); font-weight:500}
+</style>
+<!-- /ie-theme -->
+
+
+<style>
+html,body{background:var(--bg)}
+body{margin:0;padding:12px}
+.labpage{max-width:960px;margin:0 auto}
+.labpage h1{font-size:20px;margin:0 0 4px}
+.labpage .desc{margin:0 0 12px;font-size:14px}
+.labpage .lab-band{margin:0;max-width:none}
+.labpage .lab-grid{grid-template-columns:minmax(0,1fr)!important}
+.labpage .lab-svg{max-width:640px}
+.lab-hidden{display:none}
+</style>
+
+<body data-lab="insurance">
+<main class="labpage">
+<h1>Risk and insurance lab</h1>
+<p class="desc muted ui">Choose risk aversion, wealth, the loss and its probability, and the price of cover. See the certainty equivalent, the risk premium and the optimal cover.</p>
+<div class="lab-band" id="lab">
+  <div class="lab-grid" style="grid-template-columns:minmax(0,1fr)">
+    <div class="ctrls">
+      <p class="small ui" style="margin:0"><b>Risk and insurance lab.</b> Utility \(u(x)=\frac{x^{1-\gamma_r}}{1-\gamma_r}\) (log at \(\gamma_r=1\)). You face a loss \(l\) with probability \(q\) and can buy cover at price \(\gamma\) per pound.</p>
+      <div class="presets" role="group" aria-label="Presets">
+        <button type="button" data-cpreset="run">Example 2.5</button>
+        <button type="button" data-cpreset="load">Loaded (γ = 0.30)</button>
+        <button type="button" data-cpreset="neutral">Nearly risk neutral</button>
+        <button type="button" data-cpreset="phone">Phone (wealth 300)</button>
+      </div>
+      <div class="ctrl"><label for="cr"><span>\(\gamma_r\): relative risk aversion</span><output id="o_cr"></output></label><input id="cr" type="range" min="0.05" max="5" step="0.05"></div>
+      <div class="ctrl"><label for="cx"><span>\(x\): wealth</span><output id="o_cx"></output></label><input id="cx" type="range" min="70" max="400" step="1"></div>
+      <div class="ctrl"><label for="cl"><span>\(l\): loss</span><output id="o_cl"></output></label><input id="cl" type="range" min="5" max="90" step="1"></div>
+      <div class="ctrl"><label for="cq"><span>\(q\): probability of loss</span><output id="o_cq"></output></label><input id="cq" type="range" min="0.02" max="0.6" step="0.01"></div>
+      <div class="ctrl"><label for="cg"><span>\(\gamma\): price per pound of cover</span><output id="o_cg"></output></label><input id="cg" type="range" min="0.02" max="0.8" step="0.005"></div>
+    </div>
+    <div class="lab-out">
+      <svg class="lab-svg" id="cuSvg" viewBox="0 0 520 300" role="img" aria-label="Utility curve, chord, certainty equivalent"></svg>
+      <div class="legend"><span><i style="border-color:var(--accent)"></i>utility u(x)</span><span><i style="border-color:var(--muted)"></i>chord: expected utility</span><span><i style="border-color:var(--warn)"></i>certainty equivalent</span><span><i style="border-color:var(--why)"></i>mean</span></div>
+      <div class="cards" id="cuCards"></div>
+      <svg class="lab-svg" id="cuV" viewBox="0 0 520 200" role="img" aria-label="Expected utility as a function of cover"></svg>
+      <div class="legend"><span><i style="border-color:var(--accent)"></i>certainty equivalent of the insured position, by cover c</span><span><i style="border-color:var(--why)"></i>optimal cover</span></div>
+    </div>
+  </div>
+</div>
+<div class="lab-hidden" aria-hidden="true"><div class="lab-band" id="allais">
+  <div class="ui small" style="display:grid;gap:12px">
+    <div><b>First choice.</b> A: 2500 w.p. 0.33, 2400 w.p. 0.66, 0 w.p. 0.01 &nbsp;·&nbsp; B: 2400 for sure
+      <div class="filter" role="group" aria-label="First choice"><button type="button" data-al="1A" aria-pressed="false">A</button><button type="button" data-al="1B" aria-pressed="false">B</button></div></div>
+    <div><b>Second choice.</b> C: 2500 w.p. 0.33, else 0 &nbsp;·&nbsp; D: 2400 w.p. 0.34, else 0
+      <div class="filter" role="group" aria-label="Second choice"><button type="button" data-al="2C" aria-pressed="false">C</button><button type="button" data-al="2D" aria-pressed="false">D</button></div></div>
+    <div id="alOut" aria-live="polite" class="muted">Make both choices.</div>
+  </div>
+</div></div>
+</main>
+<script>
+(function(){
+/* ---------- shared svg helpers ---------- */
+  var NS='http://www.w3.org/2000/svg';
+  function mk(tag, attrs, parent){ var e=document.createElementNS(NS,tag); for (var a in attrs) e.setAttribute(a, attrs[a]); parent.appendChild(e); return e; }
+  function txt(parent, x, y, s, attrs){ var a={x:x,y:y}; for (var k in (attrs||{})) a[k]=attrs[k]; var t=mk('text',a,parent); t.textContent=s; return t; }
+  function clear(svg){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+  function col(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function f1(x){ return (Math.round(x*10)/10).toFixed(1); }
+  function f2(x){ return (Math.round(x*100)/100).toFixed(2); }
+  function f3(x){ return (Math.round(x*1000)/1000).toFixed(3); }
+  function kpi(k,v,s){ return '<div class="kpi"><div class="k">'+k+'</div><div class="v">'+v+'</div>'+(s?'<div class="s muted">'+s+'</div>':'')+'</div>'; }
+  function axes(svg,W,H,L,R,T,B){
+    mk('line',{x1:L,y1:H-B,x2:W-R,y2:H-B,stroke:col('--muted'),'stroke-width':1},svg);
+    mk('line',{x1:L,y1:T,x2:L,y2:H-B,stroke:col('--muted'),'stroke-width':1},svg);
+  }
+
+  /* ---------- figure 2.1: probability triangle ---------- */
+  function drawTri(){
+    var svg=document.getElementById('triSvg'); if(!svg) return; clear(svg);
+    var O={x:70,y:270}, S=230;                       // origin and side length in px
+    function P(p1,p3){ return [O.x+p1*S, O.y-p3*S]; }
+    var a=P(0,0), b=P(1,0), c=P(0,1);
+    mk('polygon',{points:[a,b,c].map(function(p){return p.join(',');}).join(' '),fill:'none',stroke:col('--ink'),'stroke-width':1.3},svg);
+    txt(svg,b[0]+6,b[1]+4,'π₁ (worst)',{fill:col('--muted')});
+    txt(svg,c[0]-10,c[1]-8,'π₃ (best)',{fill:col('--muted')});
+    var s=0.8;                                         // slope of indifference lines
+    [0.12,0.32,0.52,0.72].forEach(function(k){
+      var p1e=(1-k)/(1+s), q=P(0,k), r=P(p1e,k+s*p1e);
+      mk('line',{x1:q[0],y1:q[1],x2:r[0],y2:r[1],stroke:col('--accent'),'stroke-width':1.2},svg);
+    });
+    var pts={A:[0.01,0.33],B:[0,0],C:[0.67,0.33],D:[0.66,0]};
+    mk('line',{x1:P(0,0)[0],y1:P(0,0)[1],x2:P(.01,.33)[0],y2:P(.01,.33)[1],stroke:col('--warn'),'stroke-width':2,'stroke-dasharray':'4 3'},svg);
+    mk('line',{x1:P(.66,0)[0],y1:P(.66,0)[1],x2:P(.67,.33)[0],y2:P(.67,.33)[1],stroke:col('--warn'),'stroke-width':2,'stroke-dasharray':'4 3'},svg);
+    Object.keys(pts).forEach(function(k){ var p=P(pts[k][0],pts[k][1]); mk('circle',{cx:p[0],cy:p[1],r:4.5,fill:col('--warn')},svg); txt(svg,p[0]+(k==='A'||k==='B'?-16:8),p[1]+(k==='B'||k==='D'?16:-6),k,{fill:col('--warn'),'font-weight':600}); });
+    var m=P(0.45,0.2), tip=[m[0]-26,m[1]-30];
+    mk('line',{x1:m[0],y1:m[1],x2:tip[0],y2:tip[1],stroke:col('--why'),'stroke-width':1.8},svg);
+    mk('polygon',{points:[tip,[tip[0]+3,tip[1]+11],[tip[0]+10,tip[1]+5]].map(function(p){return p.join(',');}).join(' '),fill:col('--why')},svg);
+    txt(svg,tip[0]-4,tip[1]-4,'better',{fill:col('--why'),'text-anchor':'end'});
+    txt(svg,330,70,'indifference lines are',{fill:col('--muted')});
+    txt(svg,330,86,'straight and parallel',{fill:col('--muted')});
+    txt(svg,330,118,'BA ∥ DC: the Allais pairs',{fill:col('--warn')});
+  }
+
+  /* ---------- risk and insurance lab ---------- */
+  var CP={ run:{cr:0.5,cx:100,cl:64,cq:0.25,cg:0.25}, load:{cr:0.5,cx:100,cl:64,cq:0.25,cg:0.30},
+           neutral:{cr:0.1,cx:100,cl:64,cq:0.25,cg:0.27}, phone:{cr:1,cx:300,cl:90,cq:0.1,cg:0.105} };
+  var cids=['cr','cx','cl','cq','cg'], cel={};
+  cids.forEach(function(k){ cel[k]=document.getElementById(k); cel[k].addEventListener('input', insLab); });
+  document.querySelectorAll('[data-cpreset]').forEach(function(b){ b.addEventListener('click', function(){ var p=CP[b.dataset.cpreset]; cids.forEach(function(k){ cel[k].value=p[k]; }); insLab(); }); });
+
+  function U(x,g){ return Math.abs(g-1)<1e-9 ? Math.log(x) : Math.pow(x,1-g)/(1-g); }
+  function Uinv(v,g){ return Math.abs(g-1)<1e-9 ? Math.exp(v) : Math.pow(v*(1-g),1/(1-g)); }
+
+  function insLab(){
+    var v={}; cids.forEach(function(k){ v[k]=parseFloat(cel[k].value); });
+    if (v.cl>=v.cx-1) v.cl=v.cx-1;
+    document.getElementById('o_cr').textContent=f2(v.cr)+(Math.abs(v.cr-1)<1e-9?' (log)':'');
+    document.getElementById('o_cx').textContent=v.cx;
+    document.getElementById('o_cl').textContent=v.cl;
+    document.getElementById('o_cq').textContent=f2(v.cq);
+    document.getElementById('o_cg').textContent=f3(v.cg)+(Math.abs(v.cg-v.cq)<0.003?' (fair)':'');
+    var g=v.cr, x=v.cx, l=v.cl, q=v.cq, pr=v.cg;
+    var lo=x-l, mean=x-q*l, EU=(1-q)*U(x,g)+q*U(lo,g), CE=Uinv(EU,g), RP=mean-CE;
+    // expected utility with cover c
+    function V(c){ return (1-q)*U(x-pr*c,g)+q*U(x-l+(1-pr)*c,g); }
+    var cmax=Math.min(1.3*l,(x-1)/pr), best=0, bv=V(0), N=1300;
+    for (var i=1;i<=N;i++){ var c=cmax*i/N, val=V(c); if(val>bv){bv=val;best=c;} }
+
+    // chart 1: utility, chord, CE
+    var svg=document.getElementById('cuSvg'); clear(svg);
+    var W=520,H=300,L=46,R=14,T=14,B=34;
+    var xa=Math.max(1,lo-0.25*l), xb=x+0.15*l, ua=U(xa,g), ub=U(xb,g);
+    var X=function(z){return L+(z-xa)/(xb-xa)*(W-L-R);}, Y=function(u){return H-B-(u-ua)/(ub-ua)*(H-T-B);};
+    axes(svg,W,H,L,R,T,B);
+    var pts=[]; for (i=0;i<=120;i++){ var z=xa+(xb-xa)*i/120; pts.push(X(z)+','+Y(U(z,g))); }
+    mk('polyline',{points:pts.join(' '),fill:'none',stroke:col('--accent'),'stroke-width':2.4},svg);
+    mk('line',{x1:X(lo),y1:Y(U(lo,g)),x2:X(x),y2:Y(U(x,g)),stroke:col('--muted'),'stroke-width':1.4},svg);
+    [[lo,'x−l'],[x,'x']].forEach(function(p){ mk('line',{x1:X(p[0]),y1:H-B,x2:X(p[0]),y2:Y(U(p[0],g)),stroke:col('--rule'),'stroke-dasharray':'3 3'},svg); txt(svg,X(p[0]),H-B+14,f1(p[0]),{'text-anchor':'middle',fill:col('--muted')}); });
+    mk('line',{x1:X(mean),y1:H-B,x2:X(mean),y2:Y(EU),stroke:col('--why'),'stroke-dasharray':'4 3'},svg);
+    mk('line',{x1:X(CE),y1:H-B,x2:X(CE),y2:Y(EU),stroke:col('--warn'),'stroke-dasharray':'4 3'},svg);
+    mk('line',{x1:X(CE),y1:Y(EU),x2:X(mean),y2:Y(EU),stroke:col('--warn'),'stroke-width':1.2},svg);
+    mk('circle',{cx:X(mean),cy:Y(EU),r:4.5,fill:col('--why')},svg);
+    mk('circle',{cx:X(CE),cy:Y(EU),r:4.5,fill:col('--warn')},svg);
+    txt(svg,X(mean)+6,Y(EU)+16,'mean '+f1(mean),{fill:col('--why')});
+    txt(svg,X(CE)-6,Y(EU)-8,'CE '+f1(CE),{fill:col('--warn'),'text-anchor':'end'});
+    txt(svg,W-R,H-6,'wealth',{'text-anchor':'end',fill:col('--muted')});
+    txt(svg,L+6,T+10,'utility',{fill:col('--muted')});
+
+    // chart 2: certainty equivalent of the insured position as a function of cover
+    var s2=document.getElementById('cuV'); clear(s2);
+    var W2=520,H2=200,L2=46,R2=14,T2=12,B2=30;
+    var ces=[], cmin=1e9, cmx=-1e9;
+    for (i=0;i<=200;i++){ var cc=cmax*i/200, ce=Uinv(V(cc),g); ces.push([cc,ce]); cmin=Math.min(cmin,ce); cmx=Math.max(cmx,ce); }
+    var pad=Math.max(0.5,(cmx-cmin)*0.12);
+    var X2=function(c){return L2+c/cmax*(W2-L2-R2);}, Y2=function(z){return H2-B2-(z-(cmin-pad))/(cmx+pad-(cmin-pad))*(H2-T2-B2);};
+    axes(s2,W2,H2,L2,R2,T2,B2);
+    mk('polyline',{points:ces.map(function(p){return X2(p[0])+','+Y2(p[1]);}).join(' '),fill:'none',stroke:col('--accent'),'stroke-width':2.2},s2);
+    mk('line',{x1:X2(l),y1:T2,x2:X2(l),y2:H2-B2,stroke:col('--rule'),'stroke-dasharray':'3 3'},s2);
+    txt(s2,X2(l),H2-B2+13,'full cover '+f1(l),{'text-anchor':'middle',fill:col('--muted')});
+    mk('line',{x1:X2(best),y1:T2,x2:X2(best),y2:H2-B2,stroke:col('--why'),'stroke-width':1.6},s2);
+    mk('circle',{cx:X2(best),cy:Y2(Uinv(bv,g)),r:4.5,fill:col('--why')},s2);
+    txt(s2,X2(best)+(best>cmax*0.7?-6:6),T2+12,'c* = '+f1(best),{fill:col('--why'),'text-anchor':best>cmax*0.7?'end':'start','font-weight':600});
+    txt(s2,L2-6,Y2(cmin)+4,f1(cmin),{'text-anchor':'end',fill:col('--muted')});
+    txt(s2,L2-6,Y2(cmx)+4,f1(cmx),{'text-anchor':'end',fill:col('--muted')});
+    txt(s2,W2-R2,H2-4,'cover c',{'text-anchor':'end',fill:col('--muted')});
+
+    var fair=Math.abs(pr-q)<0.003, verdict;
+    if (best<0.01*l) verdict='buys no cover';
+    else if (best>0.995*l && best<1.005*l) verdict='full cover';
+    else if (best<l) verdict='partial: deductible '+f1(l-best);
+    else verdict='over-insures';
+    document.getElementById('cuCards').innerHTML =
+      kpi('Certainty equivalent', f1(CE), 'mean '+f1(mean)) +
+      kpi('Risk premium', f2(RP), 'mean − CE') +
+      kpi('Most she pays for full cover', f1(x-CE), 'fair premium '+f1(q*l)) +
+      kpi('Optimal cover at γ = '+f3(pr), f1(best), verdict) +
+      kpi('Loading', (pr/q*100-100).toFixed(0)+'%', fair?'actuarially fair':'price over expected payout');
+  }
+
+  /* ---------- Allais widget ---------- */
+  var choice={};
+  document.querySelectorAll('[data-al]').forEach(function(b){ b.addEventListener('click', function(){
+    var k=b.dataset.al, row=k[0];
+    document.querySelectorAll('[data-al^="'+row+'"]').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+    choice[row]=k[1];
+    var out=document.getElementById('alOut');
+    if(!choice['1']||!choice['2']){ out.textContent='Now make the other choice.'; return; }
+    var consistent=(choice['1']==='B'&&choice['2']==='D')||(choice['1']==='A'&&choice['2']==='C');
+    out.innerHTML = consistent
+      ? '<b>Consistent with expected utility.</b> You chose '+choice['1']+' and '+choice['2']+': for some u, both choices maximise expected utility. Most people do not choose this way.'
+      : '<b>Not consistent with any expected-utility maximiser.</b> You chose '+choice['1']+' and '+choice['2']+'. '+(choice['1']==='B'?'This is the common pattern (82% chose B, 83% C): the certainty of B is worth more than the arithmetic says.':'An unusual pattern: you took the risk when certainty was available, and certainty-like option D when it was not.')+' Proposition 2.20 shows why.';
+  }); });
+
+  function redrawAll(){ drawTri(); insLab(); }
+  var c0=CP.run; cids.forEach(function(k){ cel[k].value=c0[k]; });
+  redrawAll();
+  if (window.matchMedia) { var mq=window.matchMedia('(prefers-color-scheme: dark)'); if(mq.addEventListener) mq.addEventListener('change', redrawAll); }
+  new MutationObserver(redrawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+  
+})();
+</script>
+
+<script>
+(function(){
+  function send(){
+    var m=document.querySelector('.labpage'); var h=Math.ceil(m.getBoundingClientRect().height)+28;
+    try{ parent.postMessage({infoeconLab:document.body.dataset.lab,height:h},'*'); }catch(e){}
+  }
+  window.addEventListener('load',send);
+  if (window.ResizeObserver) new ResizeObserver(send).observe(document.body);
+  setTimeout(send,1500);
+})();
+</script>
+</body>
+</html>

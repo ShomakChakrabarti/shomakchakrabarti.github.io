@@ -1,0 +1,64 @@
+/* Course-material protection for the Information Economics textbook.
+   Deterrence only: none of this can stop a determined user, and it is
+   written so that it does not get in the way of screen readers,
+   magnifiers or keyboard users.
+
+   1. Watermark. A faint repeated line behind the text. It is a CSS
+      background image, so assistive technology ignores it, and it is
+      light enough not to affect text contrast.
+   3. Selection. Text cannot be selected (inputs excepted).
+   2. Printing. Every page prints as a single notice instead of the
+      content, whether printed one page at a time or with Save as PDF. */
+
+/* ---------- 1. Watermark ---------- */
+.bd-article-container,
+.bd-article {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='260'%3E%3Ctext x='20' y='150' transform='rotate(-24 260 130)' font-family='Georgia,serif' font-size='17' fill='%238C2F5A' fill-opacity='0.055'%3EECON20512 %C2%B7 enrolled students only %C2%B7 not for AI tools%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+/* personalised line, filled in by protect.js when a name is supplied */
+.ie-wm-name {
+  position: fixed; right: 1rem; bottom: 3.2rem; z-index: 1;
+  font: 0.72rem var(--ie-sans, system-ui, sans-serif);
+  color: #6D6E71; opacity: 0.7; pointer-events: none; user-select: none;
+}
+/* the notice protect.js shows when someone tries to print */
+.ie-print-notice {
+  position: fixed; left: 50%; top: 1.2rem; transform: translateX(-50%);
+  z-index: 2000; max-width: 34rem; padding: 0.9rem 1.1rem;
+  background: #fff; color: #2F3034; border: 1px solid #8C2F5A;
+  border-left: 4px solid #8C2F5A; border-radius: 4px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  font: 0.95rem/1.45 var(--ie-sans, system-ui, sans-serif);
+}
+.ie-print-notice[hidden] { display: none; }
+.ie-print-notice button {
+  margin-top: 0.6rem; padding: 0.3rem 0.8rem; font: inherit;
+  border: 1px solid #8C2F5A; background: #fff; color: #8C2F5A; border-radius: 3px; cursor: pointer;
+}
+.ie-print-notice button:focus-visible { outline: 3px solid #1A7F6E; outline-offset: 2px; }
+
+/* ---------- 3. Text selection ----------
+   Selection is switched off for the page; the search box and any other
+   input stay selectable so that typing still works. */
+html, body, .bd-page-width, .bd-main, .bd-article, .bd-sidebar-primary, .bd-sidebar-secondary {
+  -webkit-user-select: none; -moz-user-select: none; user-select: none;
+  -webkit-touch-callout: none;
+}
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text; -moz-user-select: text; user-select: text;
+}
+
+/* ---------- 2. Printing ---------- */
+@media print {
+  @page { margin: 2cm; }
+  html, body { background: #fff !important; }
+  body > * { display: none !important; }
+  body::before {
+    display: block !important;
+    content: "Information Economics (ECON20512): printing is disabled.\A\AThese materials are for students enrolled on ECON20512 and are read online. They may not be printed, saved as PDF, or uploaded to ChatGPT or any other AI tool.";
+    white-space: pre-wrap;
+    font: 13pt/1.5 Georgia, "Times New Roman", serif;
+    color: #2F3034;
+  }
+}

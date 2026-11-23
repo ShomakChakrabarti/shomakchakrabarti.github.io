@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.2. The model &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch4/model';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.3. Benchmarks: symmetric information" href="bench.html" />
+    <link rel="prev" title="4.1. Introduction" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch3/index.html">3. Hidden actions: moral hazard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">4. Hidden information: adverse selection</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model-in-one-paragraph">4.2.1. The model in one paragraph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#players-and-the-good">4.2.2. Players and the good</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information">4.2.3. Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#payoffs">4.2.4. Payoffs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-supply-and-prices">4.2.5. Demand, supply and prices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">4.2.6. Timing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency">4.2.7. Efficiency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">4.2.8. Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-ingredients-of-adverse-selection">4.2.9. The three ingredients of adverse selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-running-example">4.2.10. A running example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-model">
+<span id="sec-ad-model"></span><h1><span class="section-number">4.2. </span>The model<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h1>
+<section id="the-model-in-one-paragraph">
+<h2><span class="section-number">4.2.1. </span>The model in one paragraph<a class="headerlink" href="#the-model-in-one-paragraph" title="Link to this heading">#</a></h2>
+<p>A market has many buyers and many sellers of a good whose quality varies from unit to unit. Each seller owns one unit and knows its quality. Each buyer wants one unit and does not know the quality of any particular unit, only how quality is distributed. A buyer values a unit of quality <span class="math notranslate nohighlight">\(\theta\)</span> at <span class="math notranslate nohighlight">\(k\theta\)</span>; its owner values keeping it at <span class="math notranslate nohighlight">\(\theta\)</span>; since <span class="math notranslate nohighlight">\(k&gt;1\)</span>, every unit is worth more to a buyer than to its owner. There are more buyers than sellers. Trade happens at a market price. We ask what that price is, and which units are traded.</p>
+</section>
+<section id="players-and-the-good">
+<h2><span class="section-number">4.2.2. </span>Players and the good<a class="headerlink" href="#players-and-the-good" title="Link to this heading">#</a></h2>
+<p>There are many identical buyers and many sellers. Each seller owns exactly one unit of the good. Units differ in <em>quality</em> <span class="math notranslate nohighlight">\(\theta\in[0,1]\)</span>, where <span class="math notranslate nohighlight">\(0\)</span> is the worst possible unit and <span class="math notranslate nohighlight">\(1\)</span> the best. Across sellers, quality is spread evenly:</p>
+<div class="proof assumption admonition" id="as-ad-unif">
+<p class="admonition-title"><span class="caption-number">Assumption 4.1 </span> (Uniform quality)</p>
+<section class="assumption-content" id="proof-content">
+<p>The qualities of the units owned by sellers are uniformly distributed on <span class="math notranslate nohighlight">\([0,1]\)</span>. Buyers know this distribution.</p>
+</section>
+</div><p>The uniform distribution is chosen because it makes the conditional expectations in this chapter easy to compute; <a class="reference internal" href="gen.html#sec-ad-gen"><span class="std std-ref">Generalisations</span></a> shows which results depend on it. Think of <span class="math notranslate nohighlight">\(\theta\)</span> as an index of everything about the unit that matters to its user: for a car, the state of its engine, gearbox and body; for an insurance contract, the health of the insured.</p>
+</section>
+<section id="information">
+<h2><span class="section-number">4.2.3. </span>Information<a class="headerlink" href="#information" title="Link to this heading">#</a></h2>
+<p>Each seller observes the quality of his own unit. Buyers do not observe the quality of any unit before buying it. A buyer who considers a unit therefore forms an expectation of its quality, using the uniform distribution and anything he can infer from the market, for example from the fact that the unit is being offered at a given price.</p>
+<p>We compare three <em>information structures</em>:</p>
+<ul class="simple">
+<li><p><strong>(i)</strong> quality is <em>public</em>: everyone observes <span class="math notranslate nohighlight">\(\theta\)</span>;</p></li>
+<li><p><strong>(ii)</strong> quality is <em>unknown to all</em>: nobody observes <span class="math notranslate nohighlight">\(\theta\)</span> before trade;</p></li>
+<li><p><strong>(iii)</strong> quality is <em>private</em>: sellers observe <span class="math notranslate nohighlight">\(\theta\)</span>, buyers do not.</p></li>
+</ul>
+<p>Cases (i) and (ii) are benchmarks with symmetric information. Case (iii) is adverse selection. Comparing them isolates the effect of the <em>asymmetry</em>, as opposed to the effect of how much is known in total.</p>
+</section>
+<section id="payoffs">
+<h2><span class="section-number">4.2.4. </span>Payoffs<a class="headerlink" href="#payoffs" title="Link to this heading">#</a></h2>
+<div class="proof assumption admonition" id="as-ad-pay">
+<p class="admonition-title"><span class="caption-number">Assumption 4.2 </span> (Payoffs)</p>
+<section class="assumption-content" id="proof-content">
+<p>Everyone is risk-neutral. If a unit of quality <span class="math notranslate nohighlight">\(\theta\)</span> is traded at price <span class="math notranslate nohighlight">\(p\)</span>:</p>
+<ul class="simple">
+<li><p>the buyer gets <span class="math notranslate nohighlight">\(k\theta-p\)</span>, where <span class="math notranslate nohighlight">\(k&gt;1\)</span> is a fixed parameter;</p></li>
+<li><p>the seller gets <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ul>
+<p>If a buyer does not trade he gets <span class="math notranslate nohighlight">\(0\)</span>. If a seller does not trade he keeps his unit, which is worth <span class="math notranslate nohighlight">\(\theta\)</span> to him.</p>
+</section>
+</div><p><strong>Interpreting <span class="math notranslate nohighlight">\(k\)</span>.</strong> The parameter <span class="math notranslate nohighlight">\(k&gt;1\)</span> measures the <em>gains from trade</em>: a unit is worth <span class="math notranslate nohighlight">\(k\)</span> times as much to a buyer as to its current owner. A buyer may need a car more than the seller, who is upgrading or moving away; an insurer pools risks that an individual cannot. Large <span class="math notranslate nohighlight">\(k\)</span> means trade is very valuable; <span class="math notranslate nohighlight">\(k\)</span> close to <span class="math notranslate nohighlight">\(1\)</span> means the units are worth almost the same to both sides. We will see that whether the market survives adverse selection depends on how large <span class="math notranslate nohighlight">\(k\)</span> is.</p>
+<p><strong>Interpreting the seller’s outside option.</strong> The most important assumption in the chapter is that the seller’s outside option is <span class="math notranslate nohighlight">\(\theta\)</span>: it <em>rises with the quality of his unit</em>. An owner of a good car can keep driving a good car; an owner of a bad one is keeping a bad one. This is what makes the decision to sell informative: at any price, the owners who sell are the ones whose units are worth least to themselves. In <a class="reference internal" href="remedies.html#sec-ad-oo"><span class="std std-ref">Equalising outside options</span></a> we replace <span class="math notranslate nohighlight">\(\theta\)</span> by a constant and show that the whole problem disappears.</p>
+<p><strong>Why risk neutrality?</strong> Risk aversion is not the issue in this chapter, so we remove it. Buyers care only about the <em>expected</em> quality of what they buy. That isolates the selection effect: any loss we find comes from units not being traded, not from anyone bearing risk.</p>
+</section>
+<section id="demand-supply-and-prices">
+<h2><span class="section-number">4.2.5. </span>Demand, supply and prices<a class="headerlink" href="#demand-supply-and-prices" title="Link to this heading">#</a></h2>
+<div class="proof assumption admonition" id="as-ad-size">
+<p class="admonition-title"><span class="caption-number">Assumption 4.3 </span> (Market size)</p>
+<section class="assumption-content" id="proof-content">
+<p>Each seller supplies at most one unit; each buyer demands at most one unit. For every quality level there are more buyers than sellers.</p>
+</section>
+</div><p>Buyers are on the <em>long side</em> of the market. Competition among them for the scarce units drives the price up to the most that buyers are willing to pay. That is why, in every equilibrium below, buyers end up with no surplus and sellers capture all the gains from trade. The assumption simplifies the analysis; reversing it would change who gets the surplus, not which units are traded.</p>
+<p>A <em>price</em> is a function <span class="math notranslate nohighlight">\(p:[0,1]\to\R_+\)</span> that says what a unit of each quality sells for. When buyers can see quality, the price can differ across qualities. When they cannot, it cannot: two units that look identical to buyers must sell at the same price (<a class="reference internal" href="asym.html#lem-ad-lop">Lemma 4.1</a>).</p>
+</section>
+<section id="timing">
+<h2><span class="section-number">4.2.6. </span>Timing<a class="headerlink" href="#timing" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../_images/adverse-selection-figure-1.svg"><img alt="../_images/adverse-selection-figure-1.svg" class="align-center" src="../_images/adverse-selection-figure-1.svg" style="width: 100%;" />
+</a>
+</section>
+<section id="efficiency">
+<h2><span class="section-number">4.2.7. </span>Efficiency<a class="headerlink" href="#efficiency" title="Link to this heading">#</a></h2>
+<p>Before defining equilibrium, it helps to know what a good outcome looks like. Since every unit is worth <span class="math notranslate nohighlight">\(k\theta\)</span> to a buyer and only <span class="math notranslate nohighlight">\(\theta\)</span> to its owner, moving a unit from a seller to a buyer creates surplus <span class="math notranslate nohighlight">\((k-1)\theta\ge0\)</span>, strictly positive for every <span class="math notranslate nohighlight">\(\theta&gt;0\)</span>.</p>
+<div class="proof definition admonition" id="def-ad-eff">
+<p class="admonition-title"><span class="caption-number">Definition 4.2 </span> (Efficiency)</p>
+<section class="definition-content" id="proof-content">
+<p>An outcome is <em>efficient</em> if every unit with <span class="math notranslate nohighlight">\(\theta&gt;0\)</span> is traded. Total surplus is then</p>
+<div class="math notranslate nohighlight">
+\[
+W^{\FB}=\int_0^1 (k-1)\theta\,d\theta=\frac{k-1}{2}.
+\]</div>
+</section>
+</div><p>Remember that trade is voluntary: nobody can be forced to buy or sell. Efficiency therefore requires a price at which every seller is willing to sell and every buyer is willing to buy.</p>
+</section>
+<section id="equilibrium">
+<h2><span class="section-number">4.2.8. </span>Equilibrium<a class="headerlink" href="#equilibrium" title="Link to this heading">#</a></h2>
+<p>We use a simple notion of competitive equilibrium that captures the excess-demand logic above.</p>
+<div class="proof definition admonition" id="def-ad-eq">
+<p class="admonition-title"><span class="caption-number">Definition 4.3 </span> (Market equilibrium)</p>
+<section class="definition-content" id="proof-content">
+<p>Fix an information structure and a set of units that buyers cannot tell apart (all units, or all units of a given quality if quality is public). At a candidate price <span class="math notranslate nohighlight">\(p\)</span>:</p>
+<ul class="simple">
+<li><p><strong>(a)</strong> the units <em>offered</em> are those whose sellers weakly prefer selling at <span class="math notranslate nohighlight">\(p\)</span> to keeping the unit, given what the seller knows;</p></li>
+<li><p><strong>(b)</strong> <span class="math notranslate nohighlight">\(p\)</span> is <em>acceptable to buyers</em> if some unit is offered and a buyer’s expected value of a unit drawn from those offered is at least <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ul>
+<p>The <em>equilibrium price</em> is the highest price acceptable to buyers. If no price is acceptable, there is no trade.</p>
+</section>
+</div><div class="proof remark admonition" id="adverse-selection-remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 4.1 </span> (Why the highest acceptable price?)</p>
+<section class="remark-content" id="proof-content">
+<p>Suppose units trade at an acceptable price <span class="math notranslate nohighlight">\(p\)</span>, but some higher price <span class="math notranslate nohighlight">\(\tilde p\)</span> is also acceptable. Because buyers outnumber sellers, some buyers are not served at <span class="math notranslate nohighlight">\(p\)</span>. A seller could ask <span class="math notranslate nohighlight">\(\tilde p\)</span>: buyers who were not served would accept, since <span class="math notranslate nohighlight">\(\tilde p\)</span> is acceptable, and the seller would be strictly better off. So <span class="math notranslate nohighlight">\(p\)</span> cannot be an equilibrium. This is the argument in the lecture slides (T2), applied once and for all. In <a class="reference internal" href="gen.html#sec-ad-gen"><span class="std std-ref">Generalisations</span></a> we discuss what happens when buyers’ willingness to pay is not monotone in the price, which can create several candidate equilibria.</p>
+</section>
+</div></section>
+<section id="the-three-ingredients-of-adverse-selection">
+<span id="sec-ad-ingredients"></span><h2><span class="section-number">4.2.9. </span>The three ingredients of adverse selection<a class="headerlink" href="#the-three-ingredients-of-adverse-selection" title="Link to this heading">#</a></h2>
+<p>As with moral hazard in Chapter 3, the problem needs several ingredients at once. Remove any one and the market is efficient.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ingredient</p></th>
+<th class="head"><p>What happens without it</p></th>
+<th class="head"><p>Where it is shown</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>One side knows more than the other</p></td>
+<td><p>Quality public or unknown to all: every unit trades</p></td>
+<td><p><a class="reference internal" href="bench.html#prop-ad-public">Proposition 4.1</a> and <a class="reference internal" href="bench.html#prop-ad-none">Proposition 4.2</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>The informed side’s outside option rises with quality</p></td>
+<td><p>Selling reveals nothing; the market pools all units</p></td>
+<td><p><a class="reference internal" href="remedies.html#prop-ad-oo">Proposition 4.5</a></p></td>
+</tr>
+<tr class="row-even"><td><p>No credible way to verify quality</p></td>
+<td><p>Verified units trade at prices that reflect quality</p></td>
+<td><p><a class="reference internal" href="remedies.html#prop-ad-floor">Proposition 4.6</a>, Chapter 5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There is a fourth, quantitative condition: gains from trade must be small relative to how much quality varies. In our model that is <span class="math notranslate nohighlight">\(k&lt;2\)</span> (<a class="reference internal" href="asym.html#prop-ad-bigk">Proposition 4.3</a>).</p>
+</section>
+<section id="a-running-example">
+<h2><span class="section-number">4.2.10. </span>A running example<a class="headerlink" href="#a-running-example" title="Link to this heading">#</a></h2>
+<div class="proof example admonition" id="ex-ad-run">
+<p class="admonition-title"><span class="caption-number">Example 4.1 </span> (Used cars)</p>
+<section class="example-content" id="proof-content">
+<p>Take <span class="math notranslate nohighlight">\(k=1.5\)</span>: a car is worth 50% more to the buyer than to the current owner. Quality <span class="math notranslate nohighlight">\(\theta\)</span> is uniform on <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
+<ul class="simple">
+<li><p>Efficient surplus is <span class="math notranslate nohighlight">\((k-1)/2=0.25\)</span> per seller.</p></li>
+<li><p>The average car is worth <span class="math notranslate nohighlight">\(\E[\theta]=0.5\)</span> to its owner and <span class="math notranslate nohighlight">\(k\E[\theta]=0.75\)</span> to a buyer.</p></li>
+<li><p>If only cars of quality up to <span class="math notranslate nohighlight">\(p\)</span> are offered, the average car on offer has quality <span class="math notranslate nohighlight">\(p/2\)</span> and is worth <span class="math notranslate nohighlight">\(0.75p\)</span> to a buyer.</p></li>
+</ul>
+<p>The last line already contains the whole story: whatever the price, buyers value the cars on offer at only three quarters of it.</p>
+</section>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.1. </span>Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="bench.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Benchmarks: symmetric information</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model-in-one-paragraph">4.2.1. The model in one paragraph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#players-and-the-good">4.2.2. Players and the good</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information">4.2.3. Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#payoffs">4.2.4. Payoffs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-supply-and-prices">4.2.5. Demand, supply and prices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">4.2.6. Timing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficiency">4.2.7. Efficiency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">4.2.8. Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-ingredients-of-adverse-selection">4.2.9. The three ingredients of adverse selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-running-example">4.2.10. A running example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

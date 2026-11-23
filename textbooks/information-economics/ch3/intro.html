@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.1. Introduction &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch3/intro';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2. The model" href="model.html" />
+    <link rel="prev" title="3. Hidden actions: moral hazard" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Hidden actions: moral hazard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-family-doctor-a-driver-and-a-tenant">3.1.1. A family doctor, a driver and a tenant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-moral-hazard-means">3.1.2. What “moral hazard” means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-action-and-hidden-information">3.1.3. Hidden action and hidden information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-trade-off-insurance-versus-incentives">3.1.4. The central trade-off: insurance versus incentives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-learn">3.1.5. What you will learn</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<span id="sec-ha-intro"></span><h1><span class="section-number">3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<section id="a-family-doctor-a-driver-and-a-tenant">
+<h2><span class="section-number">3.1.1. </span>A family doctor, a driver and a tenant<a class="headerlink" href="#a-family-doctor-a-driver-and-a-tenant" title="Link to this heading">#</a></h2>
+<p>In 2003 the NHS paid a family doctor (GP) in England mainly according to how many patients were registered with his practice. Whether his patients with diabetes had their blood sugar checked and controlled, whether those with high blood pressure had it brought down, whether a patient who had survived a heart attack was on the right drugs: none of this changed his income. The NHS could see some of the results, such as how many of the practice’s patients had their condition under control. What it could not see was <em>why</em> the results were what they were. Poor results might mean the practice rarely called patients in for reviews or adjusted their treatment. They might equally mean an older, poorer or sicker list of patients, patients who did not take their medicines, or a hard winter. In 2004 the NHS rewrote the contract to pay for results; <a class="reference internal" href="cases.html#sec-ha-cases"><span class="std std-ref">The model meets the data: two cases</span></a> shows what happened.</p>
+<p>A car owner who buys comprehensive insurance faces the same structure from the other side. The insurer sees whether she crashes. It does not see how fast she drove, how often she checked her mirrors or whether she drove home tired. A crash might be the result of careless driving or of plain bad luck.</p>
+<p>A landowner who lets a field to a tenant farmer sees the harvest at the end of the season but not the hours that went into weeding, irrigation and pest control. A poor harvest might be a lazy season or a dry one.</p>
+<p>These three situations share a structure that this chapter studies.</p>
+<ul class="simple">
+<li><p>One party, the <em>principal</em>, needs another, the <em>agent</em>, to take an action on her behalf: work fast, drive carefully, tend the field.</p></li>
+<li><p>The action is costly to the agent, so left to himself he would rather take less of it.</p></li>
+<li><p>The principal cannot observe the action, or cannot prove in court what it was. So the contract cannot simply say “work hard”.</p></li>
+<li><p>The principal <em>can</em> observe an outcome that the action influences: patients’ test results, an accident claim, the harvest. But the outcome is also affected by chance, so it is only a noisy signal of the action.</p></li>
+</ul>
+</section>
+<section id="what-moral-hazard-means">
+<h2><span class="section-number">3.1.2. </span>What “moral hazard” means<a class="headerlink" href="#what-moral-hazard-means" title="Link to this heading">#</a></h2>
+<p>The name comes from the insurance industry, where it described the worry that being insured makes people less careful. Economists took up the term in the 1960s, when Arrow (1963) and Pauly (1968) pointed out that this is not a matter of morals at all: it is the ordinary response of a rational person to a contract that shields him from the consequences of his actions. Holmström (1979) and Grossman and Hart (1983) turned the idea into the principal–agent model that we study here.</p>
+<div class="proof definition admonition" id="hidden-actions-definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 3.1 </span> (Moral hazard)</p>
+<section class="definition-content" id="proof-content">
+<p><em>Moral hazard</em> is a situation in which, after a contract has been signed, one party takes an action that affects the other party’s payoff and that the other party cannot observe or verify. It is also called the problem of <em>hidden action</em>.</p>
+</section>
+</div><p>Moral hazard is everywhere economic activity is delegated. The table below lists some of the most studied cases. In each row, ask yourself what the outcome is, and why it is only a noisy measure of the action.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Principal / agent</p></th>
+<th class="head"><p>Hidden action</p></th>
+<th class="head"><p>Observable outcome</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Employment</p></td>
+<td><p>Firm / worker</p></td>
+<td><p>Effort, pace, care</p></td>
+<td><p>Output, sales</p></td>
+</tr>
+<tr class="row-odd"><td><p>Insurance</p></td>
+<td><p>Insurer / policyholder</p></td>
+<td><p>Care, precaution</p></td>
+<td><p>Whether a claim is made</p></td>
+</tr>
+<tr class="row-even"><td><p>Health care</p></td>
+<td><p>NHS / GP practice, or insurer / patient</p></td>
+<td><p>Diligence in managing patients; use of care</p></td>
+<td><p>Patients’ test results; medical bills</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lending</p></td>
+<td><p>Bank / borrower</p></td>
+<td><p>Diligence, choice of project</p></td>
+<td><p>Whether the loan is repaid</p></td>
+</tr>
+<tr class="row-even"><td><p>Agriculture</p></td>
+<td><p>Landlord / tenant</p></td>
+<td><p>Cultivation effort</p></td>
+<td><p>The harvest</p></td>
+</tr>
+<tr class="row-odd"><td><p>Corporate governance</p></td>
+<td><p>Shareholders / manager</p></td>
+<td><p>Effort, choice of investments</p></td>
+<td><p>Profit, share price</p></td>
+</tr>
+<tr class="row-even"><td><p>Procurement</p></td>
+<td><p>Government / contractor</p></td>
+<td><p>Cost-reducing effort</p></td>
+<td><p>Final cost of the project</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hidden-action-and-hidden-information">
+<h2><span class="section-number">3.1.3. </span>Hidden action and hidden information<a class="headerlink" href="#hidden-action-and-hidden-information" title="Link to this heading">#</a></h2>
+<p>This book studies two kinds of information problem, and it helps to keep them apart from the start.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Hidden information (Chapters 4 and 5)</p></th>
+<th class="head"><p>Hidden action (this chapter)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>What is hidden</p></td>
+<td><p>A <em>characteristic</em> of the informed party: car quality, health, ability</p></td>
+<td><p>A <em>choice</em> of the informed party: effort, care</p></td>
+</tr>
+<tr class="row-odd"><td><p>When the asymmetry arises</p></td>
+<td><p>Before the contract is signed</p></td>
+<td><p>After the contract is signed</p></td>
+</tr>
+<tr class="row-even"><td><p>Who is informed</p></td>
+<td><p>The informed party is born informed</p></td>
+<td><p>Both parties know the same at signing; the agent then acts unseen</p></td>
+</tr>
+<tr class="row-odd"><td><p>What the uninformed party fears</p></td>
+<td><p>Attracting the wrong <em>types</em> (lemons)</p></td>
+<td><p>Inducing the wrong <em>behaviour</em> (shirking)</p></td>
+</tr>
+<tr class="row-even"><td><p>Typical remedy</p></td>
+<td><p>Signals, screening, verification</p></td>
+<td><p>Making pay depend on outcomes; monitoring</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In practice the two problems often appear together. The case studies in <a class="reference internal" href="cases.html#sec-ha-cases"><span class="std std-ref">The model meets the data: two cases</span></a> show this. Under the NHS scheme, part of the measured improvement came from <em>which</em> patients practices recorded and excluded, something only the practice knew (hidden information), rather than from <em>better care</em> (hidden action). And the drivers who accept a telematics box are the ones who were safer to begin with.</p>
+</section>
+<section id="the-central-trade-off-insurance-versus-incentives">
+<h2><span class="section-number">3.1.4. </span>The central trade-off: insurance versus incentives<a class="headerlink" href="#the-central-trade-off-insurance-versus-incentives" title="Link to this heading">#</a></h2>
+<p>Chapter 2 showed that a risk-averse person who can buy actuarially fair insurance buys full insurance. Moral hazard is the reason the real world rarely looks like that. The tension is easy to see in the GP’s case.</p>
+<ul class="simple">
+<li><p><strong>A flat payment per registered patient</strong> (capitation) gives the GP perfect insurance: his income does not depend on how sick his patients happen to be or on a bad flu season. But it does not depend on the care he gives either, so he has no financial reason to do the time-consuming work of calling patients in and adjusting their treatment.</p></li>
+<li><p><strong>Pay that depends entirely on patients’ results</strong> gives him strong incentives. But it also makes his income depend on his patients’ age and circumstances, on whether they take their medicines and on epidemics, none of which he controls and all of which he dislikes because he is risk-averse. He must be compensated for that risk.</p></li>
+</ul>
+<p>The principal cannot have both perfect insurance and perfect incentives. The optimal contract is a compromise: pay depends on output just enough to make effort worthwhile, and no more. Measured against a world where effort could be seen, this compromise costs something. The main results of the chapter characterise the compromise and measure that cost.</p>
+</section>
+<section id="what-you-will-learn">
+<h2><span class="section-number">3.1.5. </span>What you will learn<a class="headerlink" href="#what-you-will-learn" title="Link to this heading">#</a></h2>
+<p>After working through this chapter you should be able to:</p>
+<ol class="arabic simple">
+<li><p>set up a principal–agent problem, stating the participation and incentive constraints and explaining what each one means;</p></li>
+<li><p>solve for the optimal contract when the action is contractible and when it is hidden, and prove that your solution is optimal;</p></li>
+<li><p>explain why hidden action forces the agent to bear risk, and compute the cost of that risk;</p></li>
+<li><p>explain why hidden action can lead to too little effort but never too much;</p></li>
+<li><p>map the model onto real contracts (piece rates, bonuses, deductibles, telematics) and judge which predictions hold in data;</p></li>
+<li><p>(Advanced) derive the optimal contract with many outcomes and explain the role of likelihood ratios and of extra signals.</p></li>
+</ol>
+<p><strong>What you need.</strong> Expected utility, risk aversion and certainty equivalents from Chapter 2, and Jensen’s inequality. The advanced section uses Lagrangians and the Karush–Kuhn–Tucker conditions.</p>
+<p><strong>Roadmap.</strong> <a class="reference internal" href="model.html#sec-ha-model"><span class="std std-ref">The model</span></a> sets out the model and explains each assumption. <a class="reference internal" href="fb.html#sec-ha-fb"><span class="std std-ref">The first best: contractible actions</span></a> solves the benchmark in which the action is contractible. <a class="reference internal" href="sb.html#sec-ha-sb"><span class="std std-ref">The second best: hidden actions</span></a> solves the problem when the action is hidden. <a class="reference internal" href="welfare.html#sec-ha-welfare"><span class="std std-ref">Welfare and the cost of hidden action</span></a> measures what is lost. <a class="reference internal" href="cases.html#sec-ha-cases"><span class="std std-ref">The model meets the data: two cases</span></a> takes the predictions to the NHS’s pay-for-performance scheme for GPs and to Progressive Insurance. <a class="reference internal" href="gen.html#sec-ha-gen"><span class="std std-ref">Generalisations</span></a> generalises the model for research students. Exercises and corrections to the lecture slides close the chapter.</p>
+<div class="important admonition">
+<p class="admonition-title">Proof toolkit: three techniques used throughout this chapter</p>
+<p>Almost every proof in this chapter is built from three moves. Learn to spot them.</p>
+<ul class="simple">
+<li><p><strong>(T1)</strong> <strong>Perturbation (“if not, improve”).</strong> To show a constraint binds at an optimum, suppose it is slack, construct a small change that stays feasible and strictly improves the objective, and conclude the original point was not optimal.</p></li>
+<li><p><strong>(T2)</strong> <strong>Jensen’s inequality.</strong> For a strictly convex function <span class="math notranslate nohighlight">\(h\)</span> and a non-degenerate random variable <span class="math notranslate nohighlight">\(Z\)</span>, <span class="math notranslate nohighlight">\(\E[h(Z)] &gt; h(\E[Z])\)</span>. Here <span class="math notranslate nohighlight">\(h\)</span> converts utility into money, so Jensen says that a risky promise of utility costs more money than a safe one with the same mean.</p></li>
+<li><p><strong>(T3)</strong> <strong>Relaxation.</strong> To solve a hard problem, drop a constraint, solve the easier problem, then check whether the solution happens to satisfy the constraint you dropped. If it does, it solves the original problem too.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Hidden actions: moral hazard</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="model.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.2. </span>The model</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-family-doctor-a-driver-and-a-tenant">3.1.1. A family doctor, a driver and a tenant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-moral-hazard-means">3.1.2. What “moral hazard” means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidden-action-and-hidden-information">3.1.3. Hidden action and hidden information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-trade-off-insurance-versus-incentives">3.1.4. The central trade-off: insurance versus incentives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-learn">3.1.5. What you will learn</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

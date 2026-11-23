@@ -1,0 +1,9 @@
+/* Information Economics: small additions to the Jupyter Book theme */
+.admonition.proof-box { border-left-color: #1F4E79; }
+.admonition.proof-box > .admonition-title { background: rgba(31, 78, 121, 0.08); }
+.admonition.proof-box > .admonition-title::before { color: #1F4E79; }
+/* "Why this step?" notes sit inside proofs: keep them light */
+.admonition.proof-box .admonition.tip { font-size: 0.93em; margin: 0.6rem 0 0.8rem 1.2rem; }
+/* Embedded interactive labs */
+figure.infoecon-lab { margin: 1.5rem 0; }
+figure.infoecon-lab figcaption { font-size: 0.9em; margin-top: 0.4rem; }

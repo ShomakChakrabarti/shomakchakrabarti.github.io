@@ -1,0 +1,92 @@
+/* HTML lecture slides for the Information Economics textbook (ECON20512).
+   Slides keep the 4:3 shape of the Beamer decks and scale with the window. */
+.ie-deck { --ink:#2F3034; --accent:#8C2F5A; --mute:#6D6E71; --hair:#D6D6D6; --wash:#FAF2F5;
+  margin: 1.2rem 0 1.6rem; outline: none; }
+.ie-deck:focus-visible .deck-stage { box-shadow: 0 0 0 3px #1A7F6E; }
+.deck-stage { position: relative; width: 100%; aspect-ratio: 133.4 / 100; background: #fff;
+  border: 1px solid var(--hair); border-radius: 6px; overflow: hidden; container-type: inline-size; }
+.slide { position: absolute; inset: 0; display: flex; flex-direction: column;
+  padding: 4.2cqw 5cqw 2.6cqw; font-size: 2.55cqw; line-height: 1.38; color: var(--ink);
+  font-family: var(--ie-serif, Georgia, serif); }
+.slide[hidden] { display: none; }
+.s-title { margin: 0 0 1.6cqw; font-size: 1.55em; font-weight: 600; color: var(--ink);
+  border-bottom: 0.25cqw solid var(--accent); padding-bottom: 0.8cqw; line-height: 1.2; }
+.s-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+.s-body > .cols, .s-body > .sfig, .s-body > .overprint, .s-body > .dmath, .s-body > .block, .s-body > .thm { margin: 0.6cqw auto; }
+.s-body p { margin: 0.4em 0; }
+.parbreak { display: block; height: 0.9cqw; }
+.cols { display: flex; gap: 2.4cqw; align-items: center; width: 100%; }
+.col { min-width: 0; }
+.col .sfig { margin: 0 auto; }
+.sfig { display: grid; margin: 0.8cqw auto; max-width: 100%; }
+.sfig img { grid-area: 1 / 1; width: 100%; height: auto; display: block; }
+.overprint { display: grid; width: 100%; font-size: 0.92em; }
+.overprint > .op { grid-area: 1 / 1; }
+.dmath { width: 100%; text-align: center; font-size: 1.02em; }
+.block, .thm { width: 100%; margin: 0.8cqw 0; border-left: 0.5cqw solid var(--accent);
+  background: var(--wash); padding: 1cqw 1.6cqw; border-radius: 0.4cqw; }
+.block-t, .thm-t { font-weight: 600; color: var(--accent); margin-bottom: 0.5cqw; }
+.slide ul, .slide ol { margin: 0.3em 0 0.3em 1.2em; padding: 0; }
+.slide li { margin: 0.18em 0; }
+.nt { margin: 0.35em 0 0.35em 0.6em; }
+.c-hl { color: #1F4E9A; }
+.c-gr { color: var(--mute); }
+.sc { font-variant: small-caps; }
+.center { text-align: center; }
+.slide a { color: #1F4E9A; }
+.s-foot { display: flex; flex-wrap: wrap; gap: 0.8cqw; align-items: center; font-size: 0.62em;
+  margin-top: 0.8cqw; min-height: 1.6em; font-family: var(--ie-sans, system-ui, sans-serif); }
+.s-foot .tb { color: #1F4E9A; text-decoration: none; }
+.s-foot .tlb { color: var(--tc); border: 1px solid var(--tc); border-radius: 0.4cqw; padding: 0 0.6cqw;
+  text-decoration: none; background: color-mix(in srgb, var(--tc) 9%, white); }
+.s-num { margin-left: auto; color: var(--mute); }
+.titleslide { text-align: center; margin: auto 0; }
+.ts-title { font-size: 1.7em; font-variant: small-caps; margin: 0 0 0.3em; border: 0; }
+.ts-sub { font-size: 1.05em; margin: 0 0 1.4em; }
+.ts-author, .ts-date { margin: 0.2em 0; color: var(--mute); }
+.ts-extra { margin-top: 1.4em; font-size: 0.75em; }
+/* steps: hidden steps keep their space, as \uncover does */
+.ie-deck .ov-off { visibility: hidden; }
+.ie-deck.all-steps .ov-off { visibility: visible; }
+.ie-deck [data-ov].ov-off { visibility: hidden; }
+.ie-deck .overprint > .op.ov-off, .ie-deck .sfig img.ov-off { visibility: hidden; }
+.ie-deck.all-steps [data-ov].ov-off { visibility: visible; }
+.ie-deck.all-steps .overprint { display: block; }
+.ie-deck.all-steps .overprint > .op { margin-bottom: 0.4em; }
+.ie-deck.all-steps .sfig img { display: none; }
+.ie-deck.all-steps .sfig img:last-child { display: block; visibility: visible; }
+.ie-deck.all-steps .deck-stage { aspect-ratio: auto; overflow: visible; }
+.ie-deck.all-steps .slide { position: relative; display: flex !important; border-bottom: 1px solid var(--hair); }
+/* toolbar */
+.deck-bar { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-top: 0.5rem;
+  font-family: var(--ie-sans, system-ui, sans-serif); font-size: 0.9rem; }
+.deck-bar button { border: 1px solid var(--hair); background: #fff; color: var(--ink); border-radius: 4px;
+  padding: 0.25rem 0.65rem; cursor: pointer; font: inherit; }
+.deck-bar button:hover { border-color: var(--accent); }
+.deck-bar button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.deck-bar button:focus-visible { outline: 3px solid #1A7F6E; outline-offset: 2px; }
+.d-pos { min-width: 9.5rem; text-align: center; color: var(--mute); }
+.d-sep { width: 1px; height: 1.4rem; background: var(--hair); margin: 0 0.3rem; }
+.d-swatch { width: 1.4rem; height: 1.4rem; padding: 0 !important; border-radius: 50% !important; }
+.d-swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px #fff inset; }
+/* annotation layer */
+.ink { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; touch-action: none; }
+.ie-deck.drawing .ink { pointer-events: auto; cursor: crosshair; }
+.ie-deck.all-steps .ink { display: none; }
+/* full screen */
+.ie-deck:fullscreen { background: #1d1d1f; display: flex; flex-direction: column; justify-content: center; padding: 1rem; }
+.ie-deck:fullscreen .deck-stage { width: min(100%, calc((100vh - 4rem) * 1.334)); margin: 0 auto; border: 0; }
+.ie-deck:fullscreen .deck-bar { justify-content: center; }
+.ie-deck:fullscreen .deck-bar button { background: #2c2c2e; color: #f2f2f2; border-color: #444; }
+.ie-deck:fullscreen .d-pos { color: #bbb; }
+@media (max-width: 640px) { .deck-bar { font-size: 0.8rem; } }
+@media (prefers-reduced-motion: no-preference) { .sfig img, [data-ov] { transition: visibility 0s; } }
+
+/* slide headings: the book theme styles every h3 in an article, so these
+   rules are made specific enough to win */
+.ie-deck .slide h3.s-title { font-size: 3.9cqw !important; font-weight: 600 !important;
+  line-height: 1.2 !important; margin: 0 0 1.8cqw !important; padding: 0 0 1cqw !important;
+  font-family: var(--ie-serif, Georgia, serif) !important; color: var(--ink) !important;
+  border-bottom: 0.25cqw solid var(--accent) !important; letter-spacing: 0 !important; }
+.ie-deck .slide h3.ts-title { font-size: 5cqw !important; font-weight: 600 !important; margin: 0 0 1.2cqw !important;
+  border: 0 !important; padding: 0 !important; line-height: 1.2 !important; }

@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.3. Expected utility &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch2/eu';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.4. Attitudes towards risk" href="risk.html" />
+    <link rel="prev" title="2.2. The model" href="model.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">2. Choice under uncertainty</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">2.2. The model</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch3/index.html">3. Hidden actions: moral hazard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Expected utility</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-expected-utility-theorem">2.3.1. The expected utility theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-are-straight-and-parallel">2.3.2. Indifference curves are straight and parallel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-unique-is-the-vnm-utility">2.3.3. How unique is the vNM utility?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="expected-utility">
+<span id="sec-cu-eu"></span><h1><span class="section-number">2.3. </span>Expected utility<a class="headerlink" href="#expected-utility" title="Link to this heading">#</a></h1>
+<section id="the-expected-utility-theorem">
+<h2><span class="section-number">2.3.1. </span>The expected utility theorem<a class="headerlink" href="#the-expected-utility-theorem" title="Link to this heading">#</a></h2>
+<p>To keep the proof transparent we assume that some outcome is best and some worst. With finitely many outcomes and complete, transitive preferences this is automatic: let <span class="math notranslate nohighlight">\(\bar x\)</span> and <span class="math notranslate nohighlight">\(\underline x\)</span> be outcomes with <span class="math notranslate nohighlight">\(\delta_{\bar x}\succsim\delta_x\succsim\delta_{\underline x}\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>. We also assume <span class="math notranslate nohighlight">\(\delta_{\bar x}\succ\delta_{\underline x}\)</span> (otherwise, as the proof shows, the decision maker is indifferent among all lotteries and any constant <span class="math notranslate nohighlight">\(u\)</span> works).</p>
+<div class="proof theorem admonition" id="thm-cu-eu">
+<p class="admonition-title"><span class="caption-number">Theorem 2.1 </span> (Expected utility; von Neumann and Morgenstern 1944)</p>
+<section class="theorem-content" id="proof-content">
+<p>A preference <span class="math notranslate nohighlight">\(\succsim\)</span> on <span class="math notranslate nohighlight">\(\Pi_X\)</span> satisfies completeness, transitivity, continuity and independence if and only if there is a function <span class="math notranslate nohighlight">\(u:X\to\R\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+\pi\succsim\rho\iff\sum_{x\in X}\pi_x\,u(x)\ \ge\ \sum_{x\in X}\rho_x\,u(x).
+\]</div>
+</section>
+</div><p>The function <span class="math notranslate nohighlight">\(u\)</span> is the <em>von Neumann–Morgenstern (vNM) utility</em>. It is defined on outcomes. The function <span class="math notranslate nohighlight">\(U(\pi)=\sum_x\pi_xu(x)\)</span> is the <em>expected utility</em>, defined on lotteries.</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Proof strategy (<a class="reference internal" href="#thm-cu-eu">Theorem 2.1</a>)</p>
+<p>The hard direction is “axioms <span class="math notranslate nohighlight">\(\Rightarrow\)</span> representation”. The idea is to build a ruler. Take the best and worst outcomes and form the mixtures <span class="math notranslate nohighlight">\(\alpha\delta_{\bar x}+(1-\alpha)\delta_{\underline x}\)</span>, “the best with probability <span class="math notranslate nohighlight">\(\alpha\)</span>”. Independence shows that a higher <span class="math notranslate nohighlight">\(\alpha\)</span> is better. Continuity shows that every lottery is exactly as good as one point on this ruler. Its position <span class="math notranslate nohighlight">\(\alpha\)</span> is a utility number for that lottery. We then show (independence again) that this number is linear in probabilities (T1), and a linear function of probabilities is an expected utility.</p>
+</div>
+<div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#thm-cu-eu">Theorem 2.1</a></p>
+<p><em>Representation <span class="math notranslate nohighlight">\(\Rightarrow\)</span> axioms.</em> If <span class="math notranslate nohighlight">\(U(\pi)=\sum_x\pi_xu(x)\)</span> represents <span class="math notranslate nohighlight">\(\succsim\)</span>, completeness and transitivity hold because <span class="math notranslate nohighlight">\(\ge\)</span> on real numbers is complete and transitive. Since <span class="math notranslate nohighlight">\(U\)</span> is linear, <span class="math notranslate nohighlight">\(U(w\pi+(1-w)\varphi)-U(w\rho+(1-w)\varphi)=w\,[U(\pi)-U(\rho)]\)</span>, which has the sign of <span class="math notranslate nohighlight">\(U(\pi)-U(\rho)\)</span> when <span class="math notranslate nohighlight">\(w&gt;0\)</span>: independence. If <span class="math notranslate nohighlight">\(U(\pi)&gt;U(\rho)&gt;U(\varphi)\)</span>, then <span class="math notranslate nohighlight">\(\alpha=\frac{U(\rho)-U(\varphi)}{U(\pi)-U(\varphi)}\in(0,1)\)</span> gives <span class="math notranslate nohighlight">\(U(\alpha\pi+(1-\alpha)\varphi)=U(\rho)\)</span>: continuity.</p>
+<p><em>Axioms <span class="math notranslate nohighlight">\(\Rightarrow\)</span> representation.</em> Write <span class="math notranslate nohighlight">\(L_\alpha\coloneqq\alpha\delta_{\bar x}+(1-\alpha)\delta_{\underline x}\)</span>.</p>
+<p><strong>Step 1: mixing with something worse makes things worse.</strong> If <span class="math notranslate nohighlight">\(\pi\succ\rho\)</span> and <span class="math notranslate nohighlight">\(w\in(0,1)\)</span>, then <span class="math notranslate nohighlight">\(\pi\succ w\pi+(1-w)\rho\succ\rho\)</span>. Indeed, apply independence to <span class="math notranslate nohighlight">\(\pi\succ\rho\)</span> with weight <span class="math notranslate nohighlight">\(1-w\)</span> and mixing lottery <span class="math notranslate nohighlight">\(\pi\)</span>: <span class="math notranslate nohighlight">\((1-w)\pi+w\pi\succ(1-w)\rho+w\pi\)</span>, that is, <span class="math notranslate nohighlight">\(\pi\succ w\pi+(1-w)\rho\)</span>. Applying it with weight <span class="math notranslate nohighlight">\(w\)</span> and mixing lottery <span class="math notranslate nohighlight">\(\rho\)</span> gives <span class="math notranslate nohighlight">\(w\pi+(1-w)\rho\succ w\rho+(1-w)\rho=\rho\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>Independence is stated with “<span class="math notranslate nohighlight">\(\succsim\)</span>”; its contrapositive gives the strict version, since <span class="math notranslate nohighlight">\(\pi\succ\rho\)</span> means <span class="math notranslate nohighlight">\(\rho\not\succsim\pi\)</span>.</p>
+</div>
+<p><strong>Step 2: the ruler is monotone.</strong> If <span class="math notranslate nohighlight">\(1\ge\alpha&gt;\beta\ge0\)</span> then <span class="math notranslate nohighlight">\(L_\alpha\succ L_\beta\)</span>. Write <span class="math notranslate nohighlight">\(L_\beta\)</span> as a mixture of <span class="math notranslate nohighlight">\(L_\alpha\)</span> and <span class="math notranslate nohighlight">\(\delta_{\underline x}\)</span>: <span class="math notranslate nohighlight">\(L_\beta=\frac\beta\alpha L_\alpha
++(1-\frac\beta\alpha)\delta_{\underline x}\)</span> (T1). Since <span class="math notranslate nohighlight">\(L_\alpha\succ\delta_{\underline x}\)</span> (Step 1 applied to <span class="math notranslate nohighlight">\(\delta_{\bar x}\succ\delta_{\underline x}\)</span>, or trivially if <span class="math notranslate nohighlight">\(\alpha=1\)</span>), Step 1 gives <span class="math notranslate nohighlight">\(L_\alpha\succ L_\beta\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>This is the formal version of “a higher chance of the best outcome is better”. It is not an assumption; independence delivers it.</p>
+</div>
+<p><strong>Step 3: every lottery has a place on the ruler.</strong> For each <span class="math notranslate nohighlight">\(\pi\)</span> there is a unique <span class="math notranslate nohighlight">\(\alpha_\pi\in[0,1]\)</span> with <span class="math notranslate nohighlight">\(\pi\sim L_{\alpha_\pi}\)</span>. First, <span class="math notranslate nohighlight">\(\delta_{\bar x}\succsim\pi\succsim\delta_{\underline x}\)</span>: every outcome of <span class="math notranslate nohighlight">\(\pi\)</span> is between the best and worst, and <span class="math notranslate nohighlight">\(\pi\)</span> is a mixture of degenerate lotteries, so repeated use of independence gives this. If <span class="math notranslate nohighlight">\(\pi\sim\delta_{\bar x}\)</span> take <span class="math notranslate nohighlight">\(\alpha_\pi=1\)</span>; if <span class="math notranslate nohighlight">\(\pi\sim\delta_{\underline x}\)</span> take <span class="math notranslate nohighlight">\(\alpha_\pi=0\)</span>. Otherwise <span class="math notranslate nohighlight">\(\delta_{\bar x}\succ\pi\succ\delta_{\underline x}\)</span> and continuity gives <span class="math notranslate nohighlight">\(\alpha_\pi\in(0,1)\)</span> with <span class="math notranslate nohighlight">\(\pi\sim L_{\alpha_\pi}\)</span>. Uniqueness follows from Step 2: two different <span class="math notranslate nohighlight">\(\alpha\)</span>’s give strictly ranked lotteries, which cannot both be indifferent to <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p><strong>Step 4: the place on the ruler is a utility.</strong> Define <span class="math notranslate nohighlight">\(U(\pi)\coloneqq\alpha_\pi\)</span>. Then <span class="math notranslate nohighlight">\(\pi\succsim\rho\iff L_{\alpha_\pi}\succsim L_{\alpha_\rho}
+\iff\alpha_\pi\ge\alpha_\rho\)</span>, by transitivity and Step 2. So <span class="math notranslate nohighlight">\(U\)</span> represents <span class="math notranslate nohighlight">\(\succsim\)</span>.</p>
+<p><strong>Step 5: the utility is linear (T1).</strong> Take <span class="math notranslate nohighlight">\(\pi,\rho\)</span> and <span class="math notranslate nohighlight">\(w\in[0,1]\)</span>. By independence applied twice,</p>
+<div class="math notranslate nohighlight">
+\[
+w\pi+(1-w)\rho\ \sim\ wL_{\alpha_\pi}+(1-w)\rho
+  \ \sim\ wL_{\alpha_\pi}+(1-w)L_{\alpha_\rho}.
+\]</div>
+<p>The last lottery gives <span class="math notranslate nohighlight">\(\bar x\)</span> with probability <span class="math notranslate nohighlight">\(w\alpha_\pi+(1-w)\alpha_\rho\)</span> and <span class="math notranslate nohighlight">\(\underline x\)</span> otherwise, so it is</p>
+<div class="math notranslate nohighlight">
+\[
+L_{w\alpha_\pi+(1-w)\alpha_\rho}.
+\]</div>
+<p>Hence <span class="math notranslate nohighlight">\(U(w\pi+(1-w)\rho)=wU(\pi)+(1-w)U(\rho)\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>Independence with indifference: apply it in both directions to <span class="math notranslate nohighlight">\(\pi\sim L_{\alpha_\pi}\)</span>. This is the step that gives expected utility its linear form; without independence, <span class="math notranslate nohighlight">\(U\)</span> would still exist (by Steps 1–4 it needs only a ruler), but it need not be linear.</p>
+</div>
+<p><strong>Step 6: linear means expected utility.</strong> Let <span class="math notranslate nohighlight">\(u(x)\coloneqq
+U(\delta_x)\)</span>. Any lottery is a mixture of degenerate ones: <span class="math notranslate nohighlight">\(\pi=\sum_x\pi_x\delta_x\)</span>. Applying Step 5 repeatedly (by induction on the number of outcomes with positive probability),</p>
+<div class="math notranslate nohighlight">
+\[
+U(\pi)=\sum_{x\in X}\pi_x\,U(\delta_x)=\sum_{x\in X}\pi_x\,u(x).
+\]</div>
+</div>
+<p><strong>Interpreting the theorem.</strong></p>
+<ol class="arabic simple">
+<li><p><strong>The decision process.</strong> The decision maker evaluates each outcome once, with <span class="math notranslate nohighlight">\(u\)</span>. To evaluate any lottery she weights those values by the lottery’s probabilities. A different lottery uses different weights on the same values.</p></li>
+<li><p><strong>The utility number has a meaning.</strong> By construction <span class="math notranslate nohighlight">\(u(x)\)</span> is the probability <span class="math notranslate nohighlight">\(\alpha\)</span> at which <span class="math notranslate nohighlight">\(x\)</span> for sure is as good as “<span class="math notranslate nohighlight">\(\bar x\)</span> with probability <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\underline x\)</span> otherwise”. You could, in principle, measure <span class="math notranslate nohighlight">\(u\)</span> by asking such questions.</p></li>
+<li><p><strong>No shape is imposed on <span class="math notranslate nohighlight">\(u\)</span>.</strong> The theorem says nothing about whether <span class="math notranslate nohighlight">\(u\)</span> is concave, convex or neither. The shape describes the decision maker’s attitude to risk, which is the subject of <a class="reference internal" href="risk.html#sec-cu-risk"><span class="std std-ref">Attitudes towards risk</span></a>.</p></li>
+<li><p><strong>Expected utility is linear in probabilities,</strong> even when <span class="math notranslate nohighlight">\(u\)</span> is not linear in outcomes.</p></li>
+</ol>
+</section>
+<section id="indifference-curves-are-straight-and-parallel">
+<h2><span class="section-number">2.3.2. </span>Indifference curves are straight and parallel<a class="headerlink" href="#indifference-curves-are-straight-and-parallel" title="Link to this heading">#</a></h2>
+<p>With three outcomes <span class="math notranslate nohighlight">\(x_1&lt;x_2&lt;x_3\)</span>, a lottery is a point <span class="math notranslate nohighlight">\((\pi_1,\pi_3)\)</span> in the triangle <span class="math notranslate nohighlight">\(\pi_1,\pi_3\ge0\)</span>, <span class="math notranslate nohighlight">\(\pi_1+\pi_3\le1\)</span>, with <span class="math notranslate nohighlight">\(\pi_2=1-\pi_1-\pi_3\)</span>. This is the <em>probability triangle</em> (or Marschak–Machina triangle).</p>
+<div class="proof proposition admonition" id="prop-cu-lines">
+<p class="admonition-title"><span class="caption-number">Proposition 2.1 </span> (Indifference curves in the triangle)</p>
+<section class="proposition-content" id="proof-content">
+<p>Under expected utility with <span class="math notranslate nohighlight">\(u(x_1)&lt;u(x_2)&lt;u(x_3)\)</span>, the indifference curves in the probability triangle are parallel straight lines with slope</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\pi_3}{d\pi_1}\Big|_{U\text{ constant}}=\frac{u(x_2)-u(x_1)}{u(x_3)-u(x_2)}&gt;0,
+\]</div>
+<p>and utility increases towards the top left (more of <span class="math notranslate nohighlight">\(x_3\)</span>, less of <span class="math notranslate nohighlight">\(x_1\)</span>).</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-cu-lines">Proposition 2.1</a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+U&amp;=\pi_1u(x_1)+(1-\pi_1-\pi_3)u(x_2)+\pi_3u(x_3)\\
+&amp;=u(x_2)-\pi_1[u(x_2)-u(x_1)]+\pi_3[u(x_3)-u(x_2)].
+\end{align*}
+\end{split}\]</div>
+<p>A level set of a function that is affine in <span class="math notranslate nohighlight">\((\pi_1,\pi_3)\)</span> is a straight line, and all level sets have the same slope, obtained by setting <span class="math notranslate nohighlight">\(dU=0\)</span>.</p>
+</div>
+<figure class="align-default" id="fig-cu-triangle">
+<a class="reference internal image-reference" href="../_images/uncertainty-figure-1.svg"><img alt="../_images/uncertainty-figure-1.svg" src="../_images/uncertainty-figure-1.svg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">The probability triangle for outcomes <span class="math notranslate nohighlight">\(0&lt;2400&lt;2500\)</span>. Under expected utility, indifference lines are straight and parallel (<a class="reference internal" href="#prop-cu-lines">Proposition 2.1</a>). The segments <span class="math notranslate nohighlight">\(BA\)</span> and <span class="math notranslate nohighlight">\(DC\)</span> of the Allais paradox (<a class="reference internal" href="cases.html#sec-cu-cases"><span class="std std-ref">The theory meets the data</span></a>) are parallel, so a decision maker who prefers <span class="math notranslate nohighlight">\(B\)</span> to <span class="math notranslate nohighlight">\(A\)</span> must prefer <span class="math notranslate nohighlight">\(D\)</span> to <span class="math notranslate nohighlight">\(C\)</span>.</span><a class="headerlink" href="#fig-cu-triangle" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Interpretation.</strong> Parallel lines are exactly what independence means geometrically. Moving from one lottery to another in the same direction by the same distance always changes utility by the same amount, wherever in the triangle you start. <a class="reference internal" href="cases.html#sec-cu-cases"><span class="std std-ref">The theory meets the data</span></a> shows that this is what people violate in the Allais paradox.</p>
+</section>
+<section id="how-unique-is-the-vnm-utility">
+<h2><span class="section-number">2.3.3. </span>How unique is the vNM utility?<a class="headerlink" href="#how-unique-is-the-vnm-utility" title="Link to this heading">#</a></h2>
+<p>In consumer theory, any increasing transformation of a utility function represents the same preferences: only the ranking matters (utility is <em>ordinal</em>). For vNM utility this is no longer true.</p>
+<div class="proof example admonition" id="ex-cu-sqsq">
+<p class="admonition-title"><span class="caption-number">Example 2.3 </span> (An increasing transformation that changes choices)</p>
+<section class="example-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(u(x)=\sqrt x\)</span> and <span class="math notranslate nohighlight">\(v(x)=x^2=(\sqrt x)^4\)</span>, an increasing transformation of <span class="math notranslate nohighlight">\(u\)</span>. Compare <span class="math notranslate nohighlight">\(\rho=\{0\circ\tfrac12;\ 2\circ\tfrac12\}\)</span> with <span class="math notranslate nohighlight">\(\varphi=\delta_1\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\sum\pi_x\sqrt x\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\sum\pi_x x^2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\rho=\{0\circ\frac12;\ 2\circ\frac12\}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\tfrac12\sqrt2\approx0.707\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\varphi=\delta_1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Under <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(\varphi\succ\rho\)</span>; under <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\rho\succ\varphi\)</span>. So <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> do not represent the same preferences over lotteries.</p>
+</section>
+</div><div class="proof proposition admonition" id="prop-cu-affine">
+<p class="admonition-title"><span class="caption-number">Proposition 2.2 </span> (Uniqueness up to positive affine transformations)</p>
+<section class="proposition-content" id="proof-content">
+<p>Two vNM utilities <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> represent the same preference over lotteries if and only if there are <span class="math notranslate nohighlight">\(a&gt;0\)</span> and <span class="math notranslate nohighlight">\(b\in\R\)</span> with <span class="math notranslate nohighlight">\(v(x)=a\,u(x)+b\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</section>
+</div><div class="dropdown tip admonition">
+<p class="admonition-title">Proof strategy (<a class="reference internal" href="#prop-cu-affine">Proposition 2.2</a>)</p>
+<p>“If” is a one-line calculation. For “only if”, use the ruler of <a class="reference internal" href="#thm-cu-eu">Theorem 2.1</a>: each outcome <span class="math notranslate nohighlight">\(x\)</span> is indifferent to “<span class="math notranslate nohighlight">\(\bar x\)</span> with probability <span class="math notranslate nohighlight">\(\alpha_x\)</span>”. That indifference must hold under both <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>, and it pins down <span class="math notranslate nohighlight">\(\alpha_x\)</span> as the relative position of <span class="math notranslate nohighlight">\(u(x)\)</span> between <span class="math notranslate nohighlight">\(u(\underline x)\)</span> and <span class="math notranslate nohighlight">\(u(\bar x)\)</span>, and likewise for <span class="math notranslate nohighlight">\(v\)</span>.</p>
+</div>
+<div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-cu-affine">Proposition 2.2</a></p>
+<p><strong>If.</strong> <span class="math notranslate nohighlight">\(\sum_x\pi_x(au(x)+b)=a\sum_x\pi_xu(x)+b\)</span>, an increasing function of <span class="math notranslate nohighlight">\(\sum_x\pi_xu(x)\)</span> since <span class="math notranslate nohighlight">\(a&gt;0\)</span>. So the two expected utilities rank all lotteries the same way.</p>
+<p><strong>Only if.</strong> Suppose <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> represent the same <span class="math notranslate nohighlight">\(\succsim\)</span>, with <span class="math notranslate nohighlight">\(\delta_{\bar x}\succ\delta_{\underline x}\)</span> (otherwise both are constant and the claim is trivial). For each <span class="math notranslate nohighlight">\(x\)</span>, Step 3 of <a class="reference internal" href="#thm-cu-eu">Theorem 2.1</a> gives <span class="math notranslate nohighlight">\(\alpha_x\)</span> with <span class="math notranslate nohighlight">\(\delta_x\sim L_{\alpha_x}\)</span>. Under <span class="math notranslate nohighlight">\(u\)</span> this says <span class="math notranslate nohighlight">\(u(x)=\alpha_xu(\bar x)+(1-\alpha_x)u(\underline x)\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha_x=\frac{u(x)-u(\underline x)}{u(\bar x)-u(\underline x)} .
+\]</div>
+<p>The same indifference under <span class="math notranslate nohighlight">\(v\)</span> gives the same formula with <span class="math notranslate nohighlight">\(v\)</span>. Equating the two, <span class="math notranslate nohighlight">\(v(x)=v(\underline x)+\frac{v(\bar x)-v(\underline x)}{u(\bar x)-u(\underline x)}\,
+[u(x)-u(\underline x)]\)</span>, which is <span class="math notranslate nohighlight">\(au(x)+b\)</span> with <span class="math notranslate nohighlight">\(a=\frac{v(\bar x)-v(\underline x)}{u(\bar x)-u(\underline x)}&gt;0\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p><span class="math notranslate nohighlight">\(a&gt;0\)</span> because both utilities rank <span class="math notranslate nohighlight">\(\bar x\)</span> strictly above <span class="math notranslate nohighlight">\(\underline x\)</span>.</p>
+</div>
+</div>
+<p><strong>Why it matters: utility differences have meaning.</strong> Because <span class="math notranslate nohighlight">\(u\)</span> is unique only up to <span class="math notranslate nohighlight">\(au+b\)</span>, <em>ratios of utility differences</em> are meaningful. For instance,</p>
+<div class="math notranslate nohighlight">
+\[
+u(200)-u(100)&gt;u(100)-u(0)\iff\tfrac12u(0)+\tfrac12u(200)&gt;u(100),
+\]</div>
+<p>which says the decision maker prefers the coin flip between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(200\)</span> to <span class="math notranslate nohighlight">\(100\)</span> for sure. A statement about utility differences is a statement about choices over lotteries. Utility is <em>cardinal</em>.</p>
+<p><strong>Practical consequences.</strong> Positive affine changes can simplify calculations: <span class="math notranslate nohighlight">\(v(x)=e^2\sqrt x+12\)</span> and <span class="math notranslate nohighlight">\(u(x)=\sqrt x\)</span> describe the same person. And no data on choices can distinguish <span class="math notranslate nohighlight">\(u\)</span> from <span class="math notranslate nohighlight">\(au+b\)</span>, so empirical work fixes the scale by convention.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="model.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>The model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="risk.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Attitudes towards risk</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-expected-utility-theorem">2.3.1. The expected utility theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-are-straight-and-parallel">2.3.2. Indifference curves are straight and parallel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-unique-is-the-vnm-utility">2.3.3. How unique is the vNM utility?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

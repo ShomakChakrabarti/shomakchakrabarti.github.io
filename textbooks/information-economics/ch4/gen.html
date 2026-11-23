@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.8. Generalisations &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch4/gen';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.9. Exercises" href="ex.html" />
+    <link rel="prev" title="4.7. The model meets the data: two cases" href="cases.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch3/index.html">3. Hidden actions: moral hazard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/model.html">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch3/errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">4. Hidden information: adverse selection</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generalisations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-qualities-and-values">4.8.1. General qualities and values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#certification-grades">4.8.2. Certification grades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insurance-demand-and-cost-curves">4.8.3. Insurance: demand and cost curves</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="generalisations">
+<span id="sec-ad-gen"></span><h1><span class="section-number">4.8. </span>Generalisations<a class="headerlink" href="#generalisations" title="Link to this heading">#</a></h1>
+<div class="seealso admonition">
+<p class="admonition-title">Advanced: for research students</p>
+<p>This section replaces the uniform distribution and linear payoffs with general ones, studies existence, multiplicity and welfare ranking of equilibria, shows how certification grades restore trade, and introduces the demand–cost-curve framework used in empirical work on insurance.</p>
+</div>
+<p><strong>Why generalise?</strong> The uniform model gives a knife-edge answer: either nothing trades (<span class="math notranslate nohighlight">\(k&lt;2\)</span>) or everything does (<span class="math notranslate nohighlight">\(k\ge2\)</span>). Real markets show partial unravelling, as in the Harvard example. The general model explains when unravelling is partial, why there can be several equilibria, and how to measure the welfare loss with data.</p>
+<section id="general-qualities-and-values">
+<h2><span class="section-number">4.8.1. </span>General qualities and values<a class="headerlink" href="#general-qualities-and-values" title="Link to this heading">#</a></h2>
+<p>Let quality <span class="math notranslate nohighlight">\(\theta\)</span> have a continuous distribution <span class="math notranslate nohighlight">\(F\)</span> with support <span class="math notranslate nohighlight">\([\underline\theta,\bar\theta]\)</span>. A seller values keeping a unit at <span class="math notranslate nohighlight">\(s(\theta)\)</span> and a buyer values it at <span class="math notranslate nohighlight">\(b(\theta)\)</span>, where <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are continuous and strictly increasing and <span class="math notranslate nohighlight">\(b(\theta)\ge s(\theta)\)</span>, with strict inequality for <span class="math notranslate nohighlight">\(\theta&gt;\underline\theta\)</span>. At price <span class="math notranslate nohighlight">\(p\)</span>, the units offered are those with <span class="math notranslate nohighlight">\(s(\theta)\le p\)</span>, and buyers’ willingness to pay is</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi(p)=\E\big[b(\theta)\mid s(\theta)\le p\big],\qquad p\ge s(\underline\theta).
+\]</div>
+<p>The equilibrium price (<a class="reference internal" href="model.html#def-ad-eq">Definition 4.3</a>) is <span class="math notranslate nohighlight">\(p^*=\max\{p:\varphi(p)\ge p\}\)</span>.</p>
+<div class="proof lemma admonition" id="lem-ad-mono">
+<p class="admonition-title"><span class="caption-number">Lemma 4.2 </span> (Willingness to pay rises with the price)</p>
+<section class="lemma-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(\varphi\)</span> is nondecreasing.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#lem-ad-mono">Lemma 4.2</a></p>
+<p>Let <span class="math notranslate nohighlight">\(c=s^{-1}(p)\)</span> and <span class="math notranslate nohighlight">\(c'=s^{-1}(p')\)</span> with <span class="math notranslate nohighlight">\(p&lt;p'\)</span>, so <span class="math notranslate nohighlight">\(c&lt;c'\)</span>. Write <span class="math notranslate nohighlight">\(B=b(\theta)\)</span>. The units offered at <span class="math notranslate nohighlight">\(p'\)</span> are those offered at <span class="math notranslate nohighlight">\(p\)</span> plus those with <span class="math notranslate nohighlight">\(\theta\in(c,c']\)</span>. So <span class="math notranslate nohighlight">\(\varphi(p')\)</span> is a weighted average of <span class="math notranslate nohighlight">\(\varphi(p)=\E[B\mid\theta\le c]\)</span> and <span class="math notranslate nohighlight">\(\E[B\mid c&lt;\theta\le c']\)</span>. The second is at least <span class="math notranslate nohighlight">\(b(c)\)</span>, because <span class="math notranslate nohighlight">\(b\)</span> is increasing, and the first is at most <span class="math notranslate nohighlight">\(b(c)\)</span>. A weighted average of a number and something at least as large is at least the number, so <span class="math notranslate nohighlight">\(\varphi(p')\ge\varphi(p)\)</span>.</p>
+</div>
+<div class="proof proposition admonition" id="prop-ad-exist">
+<p class="admonition-title"><span class="caption-number">Proposition 4.7 </span> (Existence and complete unravelling)</p>
+<section class="proposition-content" id="proof-content">
+<p>An equilibrium price exists and satisfies <span class="math notranslate nohighlight">\(p^*\ge s(\underline\theta)\)</span>. There is complete unravelling (<span class="math notranslate nohighlight">\(p^*=s(\underline\theta)\)</span>, so that only the lowest quality trades) if and only if</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi(p)&lt;p\qquad\text{for every } p&gt;s(\underline\theta).
+\]</div>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-ad-exist">Proposition 4.7</a></p>
+<p>At <span class="math notranslate nohighlight">\(p=s(\underline\theta)\)</span> only <span class="math notranslate nohighlight">\(\underline\theta\)</span> is offered and <span class="math notranslate nohighlight">\(\varphi(p)=b(\underline\theta)\ge p\)</span>, so the set <span class="math notranslate nohighlight">\(A=\{p\ge s(\underline\theta):\varphi(p)\ge p\}\)</span> is non-empty. It is bounded above by <span class="math notranslate nohighlight">\(b(\bar\theta)\)</span>, since <span class="math notranslate nohighlight">\(\varphi\le b(\bar\theta)\)</span>. Under our continuity assumptions <span class="math notranslate nohighlight">\(\varphi\)</span> is continuous, so <span class="math notranslate nohighlight">\(A\)</span> is closed and has a maximum. The characterisation of complete unravelling is a restatement: <span class="math notranslate nohighlight">\(p^*=s(\underline\theta)\)</span> exactly when no larger price lies in <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</div>
+<p>For the uniform model, <span class="math notranslate nohighlight">\(s(\theta)=\theta\)</span>, <span class="math notranslate nohighlight">\(b(\theta)=k\theta\)</span> and the condition is <span class="math notranslate nohighlight">\(k&lt;2\)</span>. <a class="reference internal" href="ex.html#ex-ad-power"><span class="std std-numref">Exercise 4.14</span></a> shows how it depends on the shape of the distribution: more mass near the top makes complete unravelling harder.</p>
+<div class="proof proposition admonition" id="prop-ad-multi">
+<p class="admonition-title"><span class="caption-number">Proposition 4.8 </span> (Several equilibria, ranked)</p>
+<section class="proposition-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(p_1&lt;p_2\)</span> are both fixed points, <span class="math notranslate nohighlight">\(\varphi(p_i)=p_i\)</span>, then the outcome at <span class="math notranslate nohighlight">\(p_2\)</span> Pareto-dominates the outcome at <span class="math notranslate nohighlight">\(p_1\)</span>: buyers’ expected surplus is zero at both, every seller who trades at <span class="math notranslate nohighlight">\(p_1\)</span> is strictly better off at <span class="math notranslate nohighlight">\(p_2\)</span>, and no seller is worse off.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-ad-multi">Proposition 4.8</a></p>
+<p>At a fixed point buyers pay exactly their expected value, so their expected surplus is <span class="math notranslate nohighlight">\(\varphi(p_i)-p_i=0\)</span>. A seller with <span class="math notranslate nohighlight">\(s(\theta)\le p_1\)</span> gets <span class="math notranslate nohighlight">\(p_1\)</span> at the first and <span class="math notranslate nohighlight">\(p_2&gt;p_1\)</span> at the second. A seller with <span class="math notranslate nohighlight">\(p_1&lt;s(\theta)\le p_2\)</span> keeps his unit (worth <span class="math notranslate nohighlight">\(s(\theta)\)</span>) at the first and sells for <span class="math notranslate nohighlight">\(p_2\ge s(\theta)\)</span> at the second, so he does not lose. Sellers with <span class="math notranslate nohighlight">\(s(\theta)&gt;p_2\)</span> are unaffected.</p>
+</div>
+<p>Multiplicity arises when <span class="math notranslate nohighlight">\(\varphi\)</span> crosses the <span class="math notranslate nohighlight">\(45^\circ\)</span> line more than once, which happens when a block of good units joins the market as the price rises past a threshold (<a class="reference internal" href="ex.html#ex-ad-multi"><span class="std std-numref">Exercise 4.15</span></a>). Our selection rule picks the highest fixed point. Wilson (1980) shows that when there are several candidate prices, which outcome arises depends on how prices are set (by an auctioneer, by sellers or by buyers). The idea behind our selection rule is that a buyer who offers more attracts better units, so low-price outcomes are vulnerable when buyers can raise their offers. Levin (2001) shows that more asymmetric information need not always reduce trade, which is a reminder that the comparative statics of these models are subtler than the uniform example suggests.</p>
+</section>
+<section id="certification-grades">
+<h2><span class="section-number">4.8.2. </span>Certification grades<a class="headerlink" href="#certification-grades" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="remedies.html#prop-ad-floor">Proposition 4.6</a> certified one fact, <span class="math notranslate nohighlight">\(\theta\ge a\)</span>. Suppose instead a certifier sorts units into <span class="math notranslate nohighlight">\(n\)</span> grades of equal width <span class="math notranslate nohighlight">\(w=1/n\)</span>: <span class="math notranslate nohighlight">\([0,w),[w,2w),\dots,[1-w,1]\)</span>. Buyers see the grade but not <span class="math notranslate nohighlight">\(\theta\)</span>, so each grade is a separate market.</p>
+<div class="proof proposition admonition" id="prop-ad-grades">
+<p class="admonition-title"><span class="caption-number">Proposition 4.9 </span> (Finer grades restore trade)</p>
+<section class="proposition-content" id="proof-content">
+<p>Suppose <span class="math notranslate nohighlight">\(\theta\)</span> is uniform on <span class="math notranslate nohighlight">\([0,1]\)</span>, <span class="math notranslate nohighlight">\(s(\theta)=\theta\)</span>, <span class="math notranslate nohighlight">\(b(\theta)=k\theta\)</span> with <span class="math notranslate nohighlight">\(4/3\le k&lt;2\)</span>, and grades have width <span class="math notranslate nohighlight">\(w\)</span>. Then every unit outside the bottom grade trades, the bottom grade unravels completely, and the surplus lost is <span class="math notranslate nohighlight">\((k-1)w^2/2\)</span>, which tends to zero as <span class="math notranslate nohighlight">\(w\to0\)</span>.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-ad-grades">Proposition 4.9</a></p>
+<p>Take a grade <span class="math notranslate nohighlight">\([L,L+w]\)</span>. By the argument of <a class="reference internal" href="remedies.html#prop-ad-floor">Proposition 4.6</a> with the grade’s own floor and ceiling, all units in the grade trade if and only if buyers’ value of the average unit covers the best seller’s outside option: <span class="math notranslate nohighlight">\(k(2L+w)/2\ge L+w\)</span>, which rearranges to <span class="math notranslate nohighlight">\(L(2k-2)\ge w(2-k)\)</span>. For <span class="math notranslate nohighlight">\(L\ge w\)</span> this holds whenever <span class="math notranslate nohighlight">\(2k-2\ge2-k\)</span>, i.e. <span class="math notranslate nohighlight">\(k\ge4/3\)</span>. For the bottom grade, <span class="math notranslate nohighlight">\(L=0\)</span>, and the market in that grade is the market of <a class="reference internal" href="asym.html#thm-ad-akerlof">Theorem 4.1</a> scaled by <span class="math notranslate nohighlight">\(w\)</span>: nothing with <span class="math notranslate nohighlight">\(\theta&gt;0\)</span> trades. The lost surplus is <span class="math notranslate nohighlight">\(\int_0^w(k-1)\theta\,d\theta=(k-1)w^2/2\)</span>.</p>
+</div>
+<p>Coarse information can therefore go a long way. With <span class="math notranslate nohighlight">\(k=1.5\)</span>, two grades already recover 75% of the surplus, four grades about 94%, and ten grades 99%. This is one reason why grading schemes (energy ratings, credit ratings, hygiene scores) are so common.</p>
+</section>
+<section id="insurance-demand-and-cost-curves">
+<span id="sec-ad-efc"></span><h2><span class="section-number">4.8.3. </span>Insurance: demand and cost curves<a class="headerlink" href="#insurance-demand-and-cost-curves" title="Link to this heading">#</a></h2>
+<p>Empirical work on insurance uses a graphical framework due to Einav, Finkelstein and Cullen (2010). Consumers differ in their expected cost to the insurer, which they know. A single contract is offered at price <span class="math notranslate nohighlight">\(P\)</span>. Order consumers by willingness to pay and let <span class="math notranslate nohighlight">\(q\)</span> be the share who buy.</p>
+<ul class="simple">
+<li><p>The <em>demand curve</em> <span class="math notranslate nohighlight">\(P(q)\)</span> is the willingness to pay of the marginal buyer.</p></li>
+<li><p>The <em>marginal cost curve</em> <span class="math notranslate nohighlight">\(MC(q)\)</span> is the expected cost of the marginal buyer.</p></li>
+<li><p>The <em>average cost curve</em> <span class="math notranslate nohighlight">\(AC(q)\)</span> is the expected cost of all buyers at <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
+</ul>
+<p><em>Adverse selection</em> means that those most willing to pay are the most expensive to cover, so <span class="math notranslate nohighlight">\(MC(q)\)</span> falls with <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(AC(q)&gt;MC(q)\)</span>.</p>
+<div class="proof proposition admonition" id="prop-ad-efc">
+<p class="admonition-title"><span class="caption-number">Proposition 4.10 </span> (Equilibrium and efficiency)</p>
+<section class="proposition-content" id="proof-content">
+<p>With competitive insurers earning zero profit on a single contract, equilibrium is where demand meets average cost, <span class="math notranslate nohighlight">\(P(q^*)=AC(q^*)\)</span>. Efficient coverage is where demand meets marginal cost, <span class="math notranslate nohighlight">\(P(q^{e})=MC(q^{e})\)</span>. Under adverse selection <span class="math notranslate nohighlight">\(q^*&lt;q^{e}\)</span>, and the welfare loss is <span class="math notranslate nohighlight">\(\int_{q^*}^{q^{e}}\big(P(q)-MC(q)\big)\,dq\)</span>.</p>
+</section>
+</div><div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#prop-ad-efc">Proposition 4.10</a></p>
+<p>Zero profit means the price equals the average cost of those who buy. A buyer should be covered if and only if his willingness to pay exceeds his own cost, so the efficient set is <span class="math notranslate nohighlight">\(\{q:P(q)\ge MC(q)\}\)</span>. Since <span class="math notranslate nohighlight">\(AC&gt;MC\)</span>, at <span class="math notranslate nohighlight">\(q^{e}\)</span> we have <span class="math notranslate nohighlight">\(P(q^e)=MC(q^e)&lt;AC(q^e)\)</span>, so the price needed to break even there is too high for the marginal buyer, and equilibrium coverage is lower: <span class="math notranslate nohighlight">\(q^*&lt;q^e\)</span>. Consumers between <span class="math notranslate nohighlight">\(q^*\)</span> and <span class="math notranslate nohighlight">\(q^e\)</span> value cover above its cost but do not buy, losing <span class="math notranslate nohighlight">\(P(q)-MC(q)\)</span> each.</p>
+</div>
+<p>In <a class="reference internal" href="cases.html#ex-ad-harvard">Example 4.3</a>, consumers with <span class="math notranslate nohighlight">\(\theta\le q\)</span> buy, so <span class="math notranslate nohighlight">\(P(q)=k(1-q)\)</span>, <span class="math notranslate nohighlight">\(MC(q)=1-q\)</span> and <span class="math notranslate nohighlight">\(AC(q)=1-q/2\)</span>. Equilibrium solves <span class="math notranslate nohighlight">\(k(1-q)=1-q/2\)</span>, giving <span class="math notranslate nohighlight">\(q^*=(2k-2)/(2k-1)\)</span>, which is the long-run share in the example. Since <span class="math notranslate nohighlight">\(P&gt;MC\)</span> for every <span class="math notranslate nohighlight">\(q&lt;1\)</span>, efficient coverage is <span class="math notranslate nohighlight">\(q^e=1\)</span>. The welfare loss is <span class="math notranslate nohighlight">\((k-1)(1-q^*)^2/2\)</span>: with <span class="math notranslate nohighlight">\(k=1.25\)</span>, <span class="math notranslate nohighlight">\(q^*=1/3\)</span> and the loss is <span class="math notranslate nohighlight">\(1/18\approx0.056\)</span>, which is 44% of the efficient surplus <span class="math notranslate nohighlight">\(0.125\)</span>.</p>
+<figure class="align-default" id="fig-ad-efc">
+<a class="reference internal image-reference" href="../_images/adverse-selection-figure-5.svg"><img alt="../_images/adverse-selection-figure-5.svg" src="../_images/adverse-selection-figure-5.svg" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">The Harvard example as demand and cost curves (<span class="math notranslate nohighlight">\(k=1.25\)</span>). Equilibrium is where demand meets average cost; efficiency would cover everyone. The shaded triangle between demand and marginal cost is the welfare loss, 44% of the attainable surplus.</span><a class="headerlink" href="#fig-ad-efc" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The framework also explains the remedies. A mandate moves coverage to <span class="math notranslate nohighlight">\(q^e\)</span> directly. A subsidy lowers the price consumers face and moves demand outward. And when the people who value cover most are the cheapest to cover (so-called <em>advantageous</em> selection, which some empirical studies find in particular insurance markets), <span class="math notranslate nohighlight">\(MC\)</span> rises with <span class="math notranslate nohighlight">\(q\)</span>, and the market can provide <em>too much</em> cover.</p>
+<p><strong>Further reading.</strong> Akerlof (1970); Wilson (1980); Rothschild and Stiglitz (1976) on screening in insurance; Einav and Finkelstein (2011) for a survey of the empirical framework; Mas-Colell, Whinston and Green (1995), ch. 13, for a textbook treatment.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cases.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.7. </span>The model meets the data: two cases</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ex.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.9. </span>Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-qualities-and-values">4.8.1. General qualities and values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#certification-grades">4.8.2. Certification grades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insurance-demand-and-cost-curves">4.8.3. Insurance: demand and cost curves</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+/* =====================================================================
+   Information Economics: essay theme for both websites.
+   Light Roboto Serif for reading, Google Sans Flex for labels (both SIL
+   Open Font License, bundled in fonts/), charcoal ink, grey secondary
+   text, thin grey rules and a pale rose wash. Used by Jupyter Book
+   (html_css_files) and PreTeXt (injected by tools/prepare_pretext_web.py).
+   ===================================================================== */
+@font-face{font-family:"Roboto Serif";font-style:normal;font-weight:300;font-display:swap;src:url(fonts/roboto-serif-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Roboto Serif";font-style:italic;font-weight:300;font-display:swap;src:url(fonts/roboto-serif-latin-300-italic.woff2) format("woff2")}
+@font-face{font-family:"Roboto Serif";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/roboto-serif-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Roboto Serif";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/roboto-serif-latin-500-italic.woff2) format("woff2")}
+@font-face{font-family:"Roboto Serif";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/roboto-serif-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Roboto Serif";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/roboto-serif-latin-600-italic.woff2) format("woff2")}
+@font-face{font-family:"Google Sans Flex";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/google-sans-flex-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Google Sans Flex";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/google-sans-flex-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Google Sans Flex";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/google-sans-flex-latin-600-normal.woff2) format("woff2")}
+
+:root{
+  --ie-ink:#2F3034; --ie-muted:#6D6E71; --ie-rule:#D6D6D6;
+  --ie-wash:#FAF2F5; --ie-edge:#EBCFDB; --ie-accent:#8C2F5A; --ie-head:#18181B;
+  --ie-teal:#1A7F6E; --ie-amber:#B7791F; --ie-red:#B03A2E;
+  --ie-serif:"Roboto Serif", Georgia, "Times New Roman", serif;
+  --ie-sans:"Google Sans Flex", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---------- Jupyter Book (pydata / sphinx-book theme) ---------- */
+html[data-theme="light"], html:not([data-theme]){
+  --pst-font-family-base:var(--ie-serif);
+  --pst-font-family-heading:var(--ie-serif);
+  --pst-color-text-base:var(--ie-ink);
+  --pst-color-text-muted:var(--ie-muted);
+  --pst-color-primary:var(--ie-accent);
+  --pst-color-link:var(--ie-accent);
+  --pst-color-link-hover:var(--ie-ink);
+  --pst-color-border:var(--ie-rule);
+  --pst-color-background:#FFFFFF;
+  --pst-color-on-background:#FFFFFF;
+  --pst-color-surface:var(--ie-wash);
+}
+html{--pst-font-weight-heading:500}
+.bd-article, .bd-article p, .bd-article li{font-weight:300; letter-spacing:.01em; line-height:1.6}
+.bd-article strong, .bd-article b, .bd-article th{font-weight:600}
+.bd-article h1, .bd-article h2, .bd-article h3, .bd-article h4{font-weight:500; letter-spacing:-.01em; color:var(--ie-ink)}
+.bd-article h1{font-size:2rem; border-bottom:1px solid var(--ie-rule); padding-bottom:.4rem}
+.bd-article h2{font-size:1.45rem; margin-top:2.6rem}
+.bd-article h3{font-size:1.15rem; margin-top:2rem}
+.bd-article a{text-decoration:none}
+.bd-article a:hover{text-decoration:underline; text-decoration-thickness:1px}
+.bd-sidebar-primary, .bd-header, .bd-sidebar-secondary, .bd-footer-article, .prev-next-area{font-family:var(--ie-sans)}
+.bd-header{background:var(--ie-wash)!important; border-bottom:1px solid var(--ie-edge); box-shadow:none}
+figcaption, .caption{font-size:.92em; color:var(--ie-muted)}
+.caption-number{font-family:var(--ie-sans); font-weight:500; color:var(--ie-ink)}
+
+/* boxes: pale wash, no frame, thin coloured rule on the left, spaced-capitals label */
+.bd-article .admonition, .bd-article div.admonition, .bd-article .proof, .bd-article details.dropdown{
+  border:0!important; border-left:2px solid var(--ie-accent)!important; border-radius:0!important;
+  box-shadow:none!important; background:var(--ie-wash)!important;}
+.bd-article .admonition > .admonition-title, .bd-article details.dropdown > summary{
+  background:transparent!important; font-family:var(--ie-sans); font-weight:500;
+  font-size:.74rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ie-accent);}
+.bd-article .admonition > .admonition-title::before, .bd-article .admonition > .admonition-title::after{display:none!important}
+.bd-article .admonition > .admonition-title{padding-left:.9rem!important}
+/* results (theorem, proposition, lemma) sit between thin rules on white */
+.bd-article .admonition.theorem, .bd-article .admonition.proposition, .bd-article .admonition.lemma, .bd-article .admonition.corollary{
+  background:#fff!important; border-left:0!important; border-top:1px solid var(--ie-accent)!important; border-bottom:1px solid var(--ie-rule)!important;}
+.bd-article .admonition.theorem > .admonition-title, .bd-article .admonition.proposition > .admonition-title,
+.bd-article .admonition.lemma > .admonition-title, .bd-article .admonition.corollary > .admonition-title{padding-left:0!important}
+.bd-article .admonition.theorem > section, .bd-article .admonition.proposition > section,
+.bd-article .admonition.lemma > section, .bd-article .admonition.corollary > section,
+.bd-article .admonition.theorem > p, .bd-article .admonition.proposition > p{padding-left:0}
+.bd-article .admonition.tip{border-left-color:var(--ie-teal)!important}
+.bd-article .admonition.tip > .admonition-title{color:var(--ie-teal)}
+.bd-article .admonition.warning, .bd-article .admonition.caution, .bd-article .admonition.danger{border-left-color:var(--ie-red)!important}
+.bd-article .admonition.warning > .admonition-title, .bd-article .admonition.caution > .admonition-title{color:var(--ie-red)}
+.bd-article .admonition.important, .bd-article .admonition.hint{border-left-color:var(--ie-amber)!important}
+.bd-article .admonition.important > .admonition-title, .bd-article .admonition.hint > .admonition-title{color:var(--ie-amber)}
+.bd-article .admonition.note{border-left-color:var(--ie-muted)!important; background:#fff!important}
+.bd-article .admonition.note > .admonition-title{color:var(--ie-muted)}
+
+/* tables: near-black header row, thin rules */
+.bd-article table{border-collapse:collapse; font-size:.92em}
+.bd-article table th{background:var(--ie-head)!important; color:#fff!important; font-family:var(--ie-sans); font-weight:500; border:0}
+.bd-article table td{border:0; border-bottom:1px solid var(--ie-rule)}
+
+/* ---------- PreTeXt ---------- */
+:root{
+  --font-body:var(--ie-serif);
+  --font-headings:var(--ie-serif);
+  --body-text-color:var(--ie-ink);
+  --primary-color:var(--ie-accent);
+  --link-text-color:var(--ie-accent);
+  --block-border-color:var(--ie-rule);
+}
+.pretext .ptx-content, .pretext .ptx-content p, .pretext .ptx-content li{font-family:var(--ie-serif); font-weight:300; color:var(--ie-ink); letter-spacing:.01em; line-height:1.6}
+.pretext .ptx-content b, .pretext .ptx-content strong, .pretext .ptx-content .bold, .pretext .ptx-content th{font-weight:600}
+.pretext .ptx-content .heading, .pretext .ptx-content h1, .pretext .ptx-content h2, .pretext .ptx-content h3, .pretext .ptx-content h4{font-family:var(--ie-serif); font-weight:500; color:var(--ie-ink)}
+.pretext .ptx-content section > .heading{border-bottom:0}
+.pretext .ptx-content a{text-decoration:none}
+.pretext .ptx-masthead{background:var(--ie-wash); border-bottom:1px solid var(--ie-edge)}
+.pretext .ptx-masthead .title, .pretext .ptx-masthead .byline{font-family:var(--ie-serif); font-weight:400; color:var(--ie-ink)}
+.pretext .ptx-navbar, .pretext .ptx-toc, .pretext .ptx-page-footer{font-family:var(--ie-sans)}
+.pretext .ptx-content article.theorem-like{border:0; border-top:1px solid var(--ie-accent); border-bottom:1px solid var(--ie-rule); padding:.5rem 0; background:#fff}
+.pretext .ptx-content article.theorem-like > .heading{color:var(--ie-accent)}
+.pretext .ptx-content article.definition-like, .pretext .ptx-content article.example-like, .pretext .ptx-content article.remark-like,
+.pretext .ptx-content article.project-like, .pretext .ptx-content aside, .pretext .ptx-content .born-hidden-knowl{
+  border:0!important; border-left:2px solid var(--ie-accent)!important; border-radius:0!important; background:var(--ie-wash); box-shadow:none}
+.pretext .ptx-content article.definition-like{border-left-color:var(--ie-ink)!important}
+.pretext .ptx-content article.example-like{border-left-color:var(--ie-muted)!important}
+.pretext .ptx-content table th{background:var(--ie-head); color:#fff; font-family:var(--ie-sans); font-weight:500}
+.pretext .ptx-content figcaption{color:var(--ie-muted)}
+/* PreTeXt contents panel and banner: white, charcoal text, rose for the current page */
+:root, body.pretext{
+  --toc-background:#FFFFFF!important; --toc-text-color:var(--ie-ink)!important; --toc-border-color:var(--ie-rule)!important;
+  --tocitem-background:#FFFFFF!important;
+  --tocitem-active-background:var(--ie-wash)!important; --tocitem-active-text-color:var(--ie-accent)!important; --tocitem-active-border-color:var(--ie-accent)!important;
+  --tocitem-highlight-background:var(--ie-wash)!important; --tocitem-highlight-text-color:var(--ie-ink)!important; --tocitem-highlight-border-color:var(--ie-edge)!important;
+  --primary-color:var(--ie-accent)!important; --link-text-color:var(--ie-accent)!important;
+}
+.pretext .ptx-toc{font-family:var(--ie-sans); font-size:.92em}
+.pretext .ptx-banner .title, .pretext .ptx-banner .subtitle{font-family:var(--ie-serif); font-weight:500; color:var(--ie-ink)!important}
+.pretext .ptx-banner .subtitle{font-weight:300}
+.pretext .ptx-banner .byline{font-family:var(--ie-sans); color:var(--ie-muted)}
+.pretext .ptx-navbar{background:#fff; border-bottom:1px solid var(--ie-rule)}

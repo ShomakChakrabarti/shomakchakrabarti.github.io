@@ -1,0 +1,817 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2. The model &#8212; Information Economics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cd343283" />
+    <link rel="stylesheet" type="text/css" href="../_static/ie-theme.css?v=f9b83eea" />
+    <link rel="stylesheet" type="text/css" href="../_static/slides.css?v=619ef92b" />
+    <link rel="stylesheet" type="text/css" href="../_static/protect.css?v=735ce3e5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathbb{E}", "R": "\\mathbb{R}", "ah": "\\bar a", "al": "\\underline a", "muh": "\\bar\\mu", "mul": "\\underline\\mu", "Dpi": "\\Delta_\\pi", "Dy": "\\Delta_y", "uo": "u_0", "hinv": "h", "PC": "\\text{(PC)}", "IC": "\\text{(IC)}", "FB": "\\text{FB}", "SB": "\\text{SB}", "Var": "\\operatorname{Var}", "argmax": "\\operatorname*{arg\\,max}", "argmin": "\\operatorname*{arg\\,min}", "coloneqq": "\\mathrel{\\vcenter{:}}=", "eqqcolon": "=\\mathrel{\\vcenter{:}}", "mh": "\\bar\\mu", "ml": "\\underline\\mu", "Dp": "\\Delta_\\pi"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/../mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch3/model';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/labs-embed.js?v=ba1653ce"></script>
+    <script src="../_static/text-width.js?v=cdcadc06"></script>
+    <script src="../_static/slides.js?v=d1b9c555"></script>
+    <script src="../_static/protect.js?v=4c54ffb8"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.3. The first best: contractible actions" href="fb.html" />
+    <link rel="prev" title="3.1. Introduction" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Information Economics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before you start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../before-you-start.html">Before you start: why an AI summary will not teach you this</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I · Choice over time</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part0-time.html">Introduction to choice over time</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch1/index.html">1. Factor markets: saving, investment and the future</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/intro.html">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/model.html">1.2. The two-period model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/saving.html">1.3. The best plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/rate.html">1.4. A change in the interest rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/npv.html">1.5. Investment and net present value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/unc.html">1.6. What the model assumes about the future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/gen.html">1.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/ex.html">1.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/errata.html">1.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II · Choice under uncertainty</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part1-uncertainty.html">Introduction to choice under uncertainty</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch2/index.html">2. Choice under uncertainty</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/intro.html">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/model.html">2.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/eu.html">2.3. Expected utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/risk.html">2.4. Attitudes towards risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ins.html">2.5. The demand for insurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/cases.html">2.6. The theory meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/gen.html">2.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/ex.html">2.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/errata.html">2.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III · Asymmetric information</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../parts/part2-asymmetric.html">Introduction to asymmetric information</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Hidden actions: moral hazard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">3.1. Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fb.html">3.3. The first best: contractible actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sb.html">3.4. The second best: hidden actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="welfare.html">3.5. Welfare and the cost of hidden action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cases.html">3.6. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen.html">3.7. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex.html">3.8. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errata.html">3.9. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch4/index.html">4. Hidden information: adverse selection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/intro.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/model.html">4.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/bench.html">4.3. Benchmarks: symmetric information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/asym.html">4.4. Asymmetric information: the market for lemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/remedies.html">4.5. Remedies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/welfare.html">4.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/cases.html">4.7. The model meets the data: two cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/gen.html">4.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/ex.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch4/errata.html">4.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ch5/index.html">5. Hidden information: signalling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/intro.html">5.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/model.html">5.2. The model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/bench.html">5.3. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/sep.html">5.4. Separating equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/pool.html">5.5. Pooling equilibria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/welfare.html">5.6. Welfare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/cases.html">5.7. The model meets the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/gen.html">5.8. Generalisations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/ex.html">5.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch5/errata.html">5.10. Corrections relative to the lecture slides</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture slides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slides/ha2.html">Hidden actions, Lecture 2: the second best and welfare</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model-in-one-paragraph">3.2.1. The model in one paragraph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#players">3.2.2. Players</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcomes-actions-and-noise">3.2.3. Outcomes, actions and noise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preferences">3.2.4. Preferences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contracts-and-what-they-can-depend-on">3.2.5. Contracts and what they can depend on</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thinking-in-utility-not-money">3.2.6. Thinking in utility, not money</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">3.2.7. Timing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-and-the-two-stage-method">3.2.8. Equilibrium and the two-stage method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-ingredients-of-moral-hazard">3.2.9. The three ingredients of moral hazard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-running-example">3.2.10. A running example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-model">
+<span id="sec-ha-model"></span><h1><span class="section-number">3.2. </span>The model<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h1>
+<section id="the-model-in-one-paragraph">
+<h2><span class="section-number">3.2.1. </span>The model in one paragraph<a class="headerlink" href="#the-model-in-one-paragraph" title="Link to this heading">#</a></h2>
+<p>A risk-neutral principal hires a risk-averse agent. The agent chooses one of two actions, high or low; the high action costs him more but makes a good outcome more likely. Output is either good or bad, and the principal sees it; she does not see the action. The principal offers a wage schedule that can depend on output, on a take-it-or-leave-it basis. The agent accepts or rejects; if he accepts he chooses his action, output is realised and he is paid.</p>
+<p>The rest of this section explains each piece of that paragraph and why it is there. A good habit when you meet any model is to ask, for each assumption, <em>what would change if it were dropped?</em> The answers are collected in <a class="reference internal" href="#sec-ha-ingredients"><span class="std std-ref">The three ingredients of moral hazard</span></a>.</p>
+</section>
+<section id="players">
+<h2><span class="section-number">3.2.2. </span>Players<a class="headerlink" href="#players" title="Link to this heading">#</a></h2>
+<p>There are two players: a <strong>Principal</strong> (<em>she</em>) and an <strong>Agent</strong> (<em>he</em>).<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> The principal owns a productive venture. This could be a firm, an insurance pool, or a plot of farmland. The output of this venture is observable to every party in this environment. The agent’s action affects how much output the venture produces.</p>
+</section>
+<section id="outcomes-actions-and-noise">
+<h2><span class="section-number">3.2.3. </span>Outcomes, actions and noise<a class="headerlink" href="#outcomes-actions-and-noise" title="Link to this heading">#</a></h2>
+<p>The venture’s output takes one of two values, <span class="math notranslate nohighlight">\(y\in\{y_b,y_g\}\)</span>, with <span class="math notranslate nohighlight">\(y_g&gt;y_b\)</span>. We interpret <span class="math notranslate nohighlight">\(y_g\)</span> as “<em>good</em>” output and <span class="math notranslate nohighlight">\(y_b\)</span> as “bad” output. We write</p>
+<div class="math notranslate nohighlight">
+\[
+\Dy \coloneqq y_g-y_b&gt;0
+\]</div>
+<p>for the gain from a good output. The agent chooses an action <span class="math notranslate nohighlight">\(a\in\{\al,\ah\}\)</span> with <span class="math notranslate nohighlight">\(\ah&gt;\al\)</span>. We interpret <span class="math notranslate nohighlight">\(\ah\)</span> as the “<em>high</em>” action and <span class="math notranslate nohighlight">\(\al\)</span> as the “<em>low</em>” action Importantly, we assume that the agent’s action does not determine output <em>directly</em>. Actions rather shifts the <strong>probability</strong> of the good output:</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{\Pr(y_g\mid \ah)=\muh}_{\text{prob. of good output from high action}},\qquad \underbrace{\Pr(y_g\mid\al)=\mul}_{\text{prob. of good output from low action}},
+  \qquad \Dpi\coloneqq \muh-\mul&gt;0 .
+\]</div>
+<p>Write <span class="math notranslate nohighlight">\(\mu(a)\)</span> for <span class="math notranslate nohighlight">\(\Pr(y_g\mid a)\)</span>. We can interpret the agent’s action as the effort or care that the agent puts into the production process. <em>If he puts in more care, more likely is the output going to be good!</em></p>
+<p><strong>Interpreting the action.</strong> “Action” is deliberately broad. It is anything the agent does that is costly to him, benefits the principal, and cannot be written into a contract: the effort a doctor puts into following up patients, the care taken while driving, the attention a manager gives to a project. Two actions are the smallest number that can create a trade-off. <a class="reference internal" href="gen.html#sec-ha-gen"><span class="std std-ref">Generalisations</span></a> discusses what changes with many actions and many outcomes; the main lessons survive.</p>
+<p><strong>Interpreting the probabilities.</strong> The pair <span class="math notranslate nohighlight">\((\muh,\mul)\)</span> describes two things at once. It is a <em>production technology</em>: the high action raises expected output by</p>
+<div class="math notranslate nohighlight">
+\[
+\big[\muh y_g+(1-\muh)y_b\big]-\big[\mul y_g+(1-\mul)y_b\big]=\Dpi\,\Dy .
+\]</div>
+<p>It is also a <em>monitoring technology</em>: output is the only evidence the principal has about the action, and <span class="math notranslate nohighlight">\(\Dpi\)</span> measures how good that evidence is. When <span class="math notranslate nohighlight">\(\Dpi\)</span> is close to one, a good outcome almost proves that the agent worked. When <span class="math notranslate nohighlight">\(\Dpi\)</span> is close to zero, output tells the principal almost nothing, because luck swamps effort. We will see that the cost of hidden action is driven by this second role.</p>
+<p><strong>Why output must be noisy.</strong> The randomness in output is essential. If output were a deterministic function of the action, the principal could infer the action from output perfectly, and a contract on output would be as good as a contract on the action. The noise is what makes the action genuinely hidden.</p>
+<div class="proof assumption admonition" id="as-ha-prob">
+<p class="admonition-title"><span class="caption-number">Assumption 3.1 </span> (Interior probabilities)</p>
+<section class="assumption-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(0&lt;\mul&lt;\muh&lt;1\)</span>.</p>
+</section>
+</div><p>Both outcomes can happen under both actions. Suppose instead that <span class="math notranslate nohighlight">\(\muh=1\)</span>: the high action guarantees a good outcome. Then a bad outcome would prove the agent shirked, and the principal could attach a severe penalty to it. A diligent agent would never pay the penalty, so the threat would cost the principal nothing, and the first best could be achieved. Assumption <a class="reference internal" href="#as-ha-prob">Assumption 3.1</a> rules out such “smoking gun” outcomes. (Mirrlees (1975) showed that a version of this argument can work even when no outcome is a perfect smoking gun, if punishments can be unboundedly severe; this is one reason the limited-liability case in <a class="reference internal" href="gen.html#sec-ha-ll"><span class="std std-ref">Limited liability and rents</span></a> matters.)</p>
+</section>
+<section id="preferences">
+<h2><span class="section-number">3.2.4. </span>Preferences<a class="headerlink" href="#preferences" title="Link to this heading">#</a></h2>
+<div class="proof assumption admonition" id="as-ha-pref">
+<p class="admonition-title"><span class="caption-number">Assumption 3.2 </span> (Preferences)</p>
+<section class="assumption-content" id="proof-content">
+<ul class="simple">
+<li><p><strong>(a)</strong> The principal is risk-neutral. If she pays wage <span class="math notranslate nohighlight">\(w\)</span> and output is <span class="math notranslate nohighlight">\(y\)</span> her payoff is <span class="math notranslate nohighlight">\(y-w\)</span>. Her outside option is <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+<li><p><strong>(b)</strong> The agent is risk-averse. If he is paid <span class="math notranslate nohighlight">\(w\)</span> and takes action <span class="math notranslate nohighlight">\(a\)</span> his payoff is <span class="math notranslate nohighlight">\(u(w)-c(a)\)</span>, where <span class="math notranslate nohighlight">\(u\)</span> is strictly increasing and strictly concave. His outside option is <span class="math notranslate nohighlight">\(\uo\)</span>.</p></li>
+<li><p><strong>(c)</strong> The cost of the low action is normalised to zero and the high action costs more: <span class="math notranslate nohighlight">\(c(\al)=0&lt;c(\ah)\eqqcolon c\)</span>.</p></li>
+</ul>
+</section>
+</div><p><strong>Why is the principal risk-neutral?</strong> The principal is usually an owner who holds a diversified portfolio (shareholders), or an institution that pools many independent risks (an insurer). In either case the risk attached to any one agent’s output is small relative to her wealth, and she cares only about its expected value. Chapter 2 explains why a large pool of independent risks makes an insurer behave as if risk-neutral.</p>
+<p><strong>Why is the agent risk-averse?</strong> The agent’s income from this one relationship is a large part of his wealth, and he cannot easily diversify it: a worker cannot sell shares in his own labour income. Strict concavity of <span class="math notranslate nohighlight">\(u\)</span> means a fixed amount of money is worth less to him the more he already has, so he dislikes variable income.</p>
+<p><strong>Why is utility separable?</strong> The agent’s payoff <span class="math notranslate nohighlight">\(u(w)-c(a)\)</span> is <em>additively separable</em> in money and effort: the pain of effort does not depend on how much he is paid, and the pleasure of money does not depend on how hard he worked. This is a simplifying assumption. Without it, a richer agent might find effort more or less painful, and the analysis would have to track these “income effects”. With it, the incentive constraint becomes linear in utilities, which is what makes the problem easy to solve.</p>
+<p><strong>What does the cost mean?</strong> The cost <span class="math notranslate nohighlight">\(c\)</span> is measured in units of utility, not money. It is the agent’s disutility from working at the high action rather than the low one. Only the <em>difference</em> <span class="math notranslate nohighlight">\(c(\ah)-c(\al)\)</span> ever enters the analysis: adding a constant to both costs would shift the agent’s payoff from every contract and action by the same amount, which changes nothing he chooses. That is why we can normalise <span class="math notranslate nohighlight">\(c(\al)=0\)</span> without loss of generality.</p>
+<p><strong>What does the outside option mean?</strong> The outside option <span class="math notranslate nohighlight">\(\uo\)</span> is the utility the agent gets if he turns the principal down: a job elsewhere, or no insurance. It is often called his <em>reservation utility</em>. It summarises the state of the market for agents. If many practices compete to recruit scarce GPs, <span class="math notranslate nohighlight">\(\uo\)</span> is high; if GPs are plentiful, it is low. In this model the principal can push the agent all the way down to <span class="math notranslate nohighlight">\(\uo\)</span>, and no further.</p>
+</section>
+<section id="contracts-and-what-they-can-depend-on">
+<h2><span class="section-number">3.2.5. </span>Contracts and what they can depend on<a class="headerlink" href="#contracts-and-what-they-can-depend-on" title="Link to this heading">#</a></h2>
+<p>A contract is offered before output is realised but paid after it, so it can depend on anything that is publicly observable <em>and verifiable</em> when payment is due. Verifiable means that a court, or any third party that enforces the contract, could confirm it.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Observable?</p></th>
+<th class="head"><p>Wage can depend on it?</p></th>
+<th class="head"><p>Action can depend on it?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Payoffs, probabilities</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Output <span class="math notranslate nohighlight">\(y\)</span></p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>no (realised later)</p></td>
+</tr>
+<tr class="row-even"><td><p>The wage schedule offered</p></td>
+<td><p>yes</p></td>
+<td><p>—</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>The agent’s action <span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td><p><strong>no</strong></p></td>
+<td><p><strong>no</strong></p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Observable is not enough.</strong> The distinction between observable and verifiable matters in practice. A supervisor may <em>see</em> that a practice’s reviews of its patients are rushed, but if she cannot prove it to a court or an arbitrator, a contract that pays according to her opinion cannot be enforced: the payer would always claim the work was poor, to save money. For our purposes, an action that the principal can see but not prove is just as hidden as one she cannot see at all. When we say an action is “observable” in <a class="reference internal" href="fb.html#sec-ha-fb"><span class="std std-ref">The first best: contractible actions</span></a>, we mean that it is <em>contractible</em>.</p>
+<p><strong>Two jobs for one contract.</strong> When the action is hidden, a contract is a pair of wages <span class="math notranslate nohighlight">\(w=(w_g,w_b)\)</span>, one for each output. Because output is random, the wage is a random variable whose distribution the agent controls through his action. The contract therefore does two jobs at once. It <em>shares risk</em>: the more the wage varies with output, the more of the output risk the agent carries. And it <em>provides incentives</em>: the more the wage varies with output, the more the agent gains from making the good outcome likely. Both jobs are done by the same number, the gap between <span class="math notranslate nohighlight">\(w_g\)</span> and <span class="math notranslate nohighlight">\(w_b\)</span>. That is why they conflict.</p>
+<p><strong>Familiar contracts in this notation.</strong> Many real contracts are special cases of <span class="math notranslate nohighlight">\((w_g,w_b)\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Contract</p></th>
+<th class="head"><p>In the model</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Flat wage, salary</p></td>
+<td><p><span class="math notranslate nohighlight">\(w_g=w_b\)</span>: full insurance, no incentives</p></td>
+</tr>
+<tr class="row-odd"><td><p>Base pay plus bonus</p></td>
+<td><p><span class="math notranslate nohighlight">\(w_b\)</span> is the base, <span class="math notranslate nohighlight">\(w_g-w_b\)</span> is the bonus</p></td>
+</tr>
+<tr class="row-even"><td><p>Piece rate</p></td>
+<td><p><span class="math notranslate nohighlight">\(w_g-w_b\)</span> is proportional to the output gap <span class="math notranslate nohighlight">\(\Dy\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Insurance with a deductible</p></td>
+<td><p>The insured’s wealth after an accident (<span class="math notranslate nohighlight">\(w_b\)</span>) is below her wealth without one (<span class="math notranslate nohighlight">\(w_g\)</span>) by the deductible</p></td>
+</tr>
+<tr class="row-even"><td><p>Sharecropping</p></td>
+<td><p>The tenant keeps a fixed share of the harvest, so <span class="math notranslate nohighlight">\(w_g-w_b\)</span> is that share of <span class="math notranslate nohighlight">\(\Dy\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Selling the firm, franchising</p></td>
+<td><p>The agent keeps all output and pays a fixed fee, so <span class="math notranslate nohighlight">\(w_g-w_b=\Dy\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="thinking-in-utility-not-money">
+<h2><span class="section-number">3.2.6. </span>Thinking in utility, not money<a class="headerlink" href="#thinking-in-utility-not-money" title="Link to this heading">#</a></h2>
+<p>It is much easier to work with the utility the contract promises in each state than with the wage itself. Let <span class="math notranslate nohighlight">\(z_i\coloneqq u(w_i)\)</span> for <span class="math notranslate nohighlight">\(i\in\{g,b\}\)</span> and let</p>
+<div class="math notranslate nohighlight">
+\[
+\hinv\coloneqq u^{-1},\qquad\text{so that}\qquad w_i=\hinv(z_i).
+\]</div>
+<p>A contract is then equivalently a pair <span class="math notranslate nohighlight">\((z_g,z_b)\)</span> of promised utilities.</p>
+<p><strong>Interpretation of <span class="math notranslate nohighlight">\(h\)</span>.</strong> Read <span class="math notranslate nohighlight">\(h(z)\)</span> as <em>the money it costs the principal to give the agent utility <span class="math notranslate nohighlight">\(z\)</span></em>. Its shape carries the economics. Because the agent has diminishing marginal utility of money, each extra unit of utility costs more money than the last. For example, with <span class="math notranslate nohighlight">\(u(w)=\sqrt w\)</span> we have <span class="math notranslate nohighlight">\(h(z)=z^2\)</span>: raising the agent’s utility from 9 to 10 costs <span class="math notranslate nohighlight">\(100-81=19\)</span>, while raising it from 10 to 11 costs <span class="math notranslate nohighlight">\(121-100=21\)</span>. So <span class="math notranslate nohighlight">\(h\)</span> is convex. Lemma <a class="reference internal" href="#lem-ha-h">Lemma 3.1</a> proves this in general.</p>
+<div class="proof lemma admonition" id="lem-ha-h">
+<p class="admonition-title"><span class="caption-number">Lemma 3.1 </span> (Properties of <span class="math notranslate nohighlight">\(h\)</span>)</p>
+<section class="lemma-content" id="proof-content">
+<p>Under <a class="reference internal" href="#as-ha-pref">Assumption 3.2</a>, <span class="math notranslate nohighlight">\(h=u^{-1}\)</span> is strictly increasing and strictly convex. If <span class="math notranslate nohighlight">\(u\)</span> is differentiable, <span class="math notranslate nohighlight">\(h'(z)=1/u'(h(z))&gt;0\)</span>.</p>
+</section>
+</div><div class="dropdown tip admonition">
+<p class="admonition-title">Proof strategy</p>
+<p>“Strictly increasing” is inherited directly. For convexity we turn the definition of concavity of <span class="math notranslate nohighlight">\(u\)</span> into a statement about <span class="math notranslate nohighlight">\(h\)</span> by applying the increasing function <span class="math notranslate nohighlight">\(h\)</span> to both sides of an inequality.</p>
+</div>
+<div class="dropdown proof-box admonition">
+<p class="admonition-title">Proof of <a class="reference internal" href="#lem-ha-h">Lemma 3.1</a></p>
+<p>If <span class="math notranslate nohighlight">\(z_1&lt;z_2\)</span> then <span class="math notranslate nohighlight">\(h(z_1)&lt;h(z_2)\)</span>, otherwise applying the increasing <span class="math notranslate nohighlight">\(u\)</span> would give <span class="math notranslate nohighlight">\(z_1\ge z_2\)</span>. So <span class="math notranslate nohighlight">\(h\)</span> is strictly increasing.</p>
+<p>Take <span class="math notranslate nohighlight">\(z_1\neq z_2\)</span> and <span class="math notranslate nohighlight">\(t\in(0,1)\)</span>; let <span class="math notranslate nohighlight">\(w_i=h(z_i)\)</span>, so <span class="math notranslate nohighlight">\(w_1\ne w_2\)</span>. Strict concavity of <span class="math notranslate nohighlight">\(u\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[
+u\big(tw_1+(1-t)w_2\big) &gt; t\,u(w_1)+(1-t)\,u(w_2) = tz_1+(1-t)z_2 .
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Why this step?</p>
+<p>We want an inequality about <span class="math notranslate nohighlight">\(h\)</span>, so we apply <span class="math notranslate nohighlight">\(h\)</span> to both sides; it is increasing, so the inequality survives.</p>
+</div>
+<p>Applying <span class="math notranslate nohighlight">\(h\)</span> to both sides, <span class="math notranslate nohighlight">\(t\,h(z_1)+(1-t)\,h(z_2) &gt; h\big(tz_1+(1-t)z_2\big)\)</span>, which is strict convexity. The formula for <span class="math notranslate nohighlight">\(h'\)</span> is the inverse function rule.</p>
+</div>
+<p><strong>Why the change of variables helps.</strong> In money, the agent’s expected utility <span class="math notranslate nohighlight">\(\mu u(w_g)+(1-\mu)u(w_b)\)</span> is a non-linear function of the contract. In utilities, it is <span class="math notranslate nohighlight">\(\mu z_g+(1-\mu)z_b\)</span>, which is linear. So every constraint involving the agent’s preferences becomes a linear constraint, and all of the non-linearity moves into the principal’s cost <span class="math notranslate nohighlight">\(h\)</span>. Linear constraints and a convex objective make a problem that is easy to solve and easy to reason about.</p>
+<p><strong>The principal’s objective.</strong> The principal’s payoff from contract <span class="math notranslate nohighlight">\((z_g,z_b)\)</span> when the agent takes action <span class="math notranslate nohighlight">\(a\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{\mu(a)y_g+(1-\mu(a))y_b}_{\text{expected output}}
+  \;-\;\underbrace{\big[\mu(a)\,h(z_g)+(1-\mu(a))\,h(z_b)\big]}_{\text{expected wage bill}} .
+\]</div>
+<p>For a fixed action, expected output is a constant, so <em>maximising profit is the same as minimising the expected wage bill</em>. Every proof below starts from this observation.</p>
+<div class="proof assumption admonition" id="as-ha-int">
+<p class="admonition-title"><span class="caption-number">Assumption 3.3 </span> (Interiority)</p>
+<section class="assumption-content" id="proof-content">
+<p>Every utility level the principal needs to promise below lies in the range of <span class="math notranslate nohighlight">\(u\)</span>. For <span class="math notranslate nohighlight">\(u(w)=\sqrt w\)</span> this means <span class="math notranslate nohighlight">\(z_b\ge 0\)</span>, i.e. <span class="math notranslate nohighlight">\(\uo\ge \mul c/\Dpi\)</span>.</p>
+</section>
+</div><p>This is a technical assumption with an economic meaning: the principal is able to pay the agent little enough after a bad outcome. Without it, the wage would have to fall below the lowest wage <span class="math notranslate nohighlight">\(u\)</span> is defined for (for <span class="math notranslate nohighlight">\(\sqrt w\)</span>, below zero). Then a <em>limited-liability</em> constraint binds, which changes the results in an interesting way (<a class="reference internal" href="gen.html#sec-ha-ll"><span class="std std-ref">Limited liability and rents</span></a>).</p>
+</section>
+<section id="timing">
+<h2><span class="section-number">3.2.7. </span>Timing<a class="headerlink" href="#timing" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../_images/hidden-actions-figure-1.svg"><img alt="../_images/hidden-actions-figure-1.svg" class="align-center" src="../_images/hidden-actions-figure-1.svg" style="width: 100%;" />
+</a>
+<p><strong>Reading the timeline.</strong> Three features of the timing do real work.</p>
+<ol class="arabic simple">
+<li><p><strong>The contract comes first.</strong> The principal commits to a wage schedule before the agent acts. She cannot change it once she sees output. We will see in <a class="reference internal" href="sb.html#sec-ha-sb-interp"><span class="std std-ref">Interpreting the second-best contract</span></a> that this commitment matters: in equilibrium the principal will punish bad outcomes even though she knows the agent worked.</p></li>
+<li><p><strong>The action comes after acceptance.</strong> The agent knows the contract when he chooses his action. So the principal can predict how he will respond to any contract she offers, and she designs the contract with that response in mind.</p></li>
+<li><p><strong>Information is symmetric at signing.</strong> Nobody knows anything the other does not when the contract is signed. The asymmetry arises only afterwards, when the agent acts unseen. This is what distinguishes moral hazard from the hidden-information problems of Chapters 4 and 5.</p></li>
+</ol>
+<p><strong>Who has the bargaining power?</strong> The principal makes a take-it-or-leave-it offer, so she has all the bargaining power and the agent is held to his outside option. This is a simplification. If principals competed for agents, the agent would capture more of the surplus. The <em>shape</em> of the optimal contract, which is what we care about most, would not change: whoever gets the surplus, it is still cheapest to induce effort with the contract we derive below. The case studies show that the prediction about <em>who gets the surplus</em> is the one that fails most often in practice.</p>
+</section>
+<section id="equilibrium-and-the-two-stage-method">
+<h2><span class="section-number">3.2.8. </span>Equilibrium and the two-stage method<a class="headerlink" href="#equilibrium-and-the-two-stage-method" title="Link to this heading">#</a></h2>
+<div class="proof definition admonition" id="def-ha-eq">
+<p class="admonition-title"><span class="caption-number">Definition 3.2 </span> (Equilibrium)</p>
+<section class="definition-content" id="proof-content">
+<p>A (subgame-perfect) equilibrium is a contract <span class="math notranslate nohighlight">\(w^*\)</span> and an agent strategy such that:</p>
+<ul class="simple">
+<li><p><strong>(a)</strong> for every contract <span class="math notranslate nohighlight">\(w\)</span>, the agent accepts if and only if his best expected payoff from accepting is at least <span class="math notranslate nohighlight">\(\uo\)</span>, and if he accepts he chooses an action that maximises <span class="math notranslate nohighlight">\(\E[u(w(y))\mid a]-c(a)\)</span>;</p></li>
+<li><p><strong>(b)</strong> given the agent’s strategy, <span class="math notranslate nohighlight">\(w^*\)</span> maximises the principal’s expected payoff.</p></li>
+</ul>
+<p><em>Tie-breaking.</em> When indifferent, the agent accepts, and takes the action the principal recommends.</p>
+</section>
+</div><div class="proof remark admonition" id="hidden-actions-remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 3.1 </span> (Why the tie-breaking rule is harmless)</p>
+<section class="remark-content" id="proof-content">
+<p>If the agent strictly preferred to reject, the principal could add an arbitrarily small <span class="math notranslate nohighlight">\(\varepsilon\)</span> to every <span class="math notranslate nohighlight">\(z_i\)</span> and he would accept. The rule just lets us write the limit of such contracts as an optimum rather than an infimum. The same is true for the action choice.</p>
+</section>
+</div><p>The equilibrium is found by backward induction, and in this model backward induction takes a particularly useful form, due to Grossman and Hart (1983). Rather than ask “what is the best contract?” in one go, we split the principal’s problem into two stages.</p>
+<div class="important admonition">
+<p class="admonition-title">Proof toolkit: the two-stage method</p>
+<ul class="simple">
+<li><p><strong>Stage 1: implementation.</strong> For each action <span class="math notranslate nohighlight">\(a\)</span>, find the cheapest contract that <em>implements</em> <span class="math notranslate nohighlight">\(a\)</span>: one that the agent accepts and under which he chooses <span class="math notranslate nohighlight">\(a\)</span>. Call its expected cost <span class="math notranslate nohighlight">\(C(a)\)</span>.</p></li>
+<li><p><strong>Stage 2: selection.</strong> Choose the action that maximises expected output minus <span class="math notranslate nohighlight">\(C(a)\)</span>.</p></li>
+</ul>
+<p>Stage 1 is a cost-minimisation problem, like a firm finding the cheapest way to produce a given quantity. Stage 2 compares benefits with costs. Every theorem in this chapter has this structure. Hidden action changes only Stage 1: it makes some actions more expensive to implement.</p>
+</div>
+<p>The constraints in Stage 1 have names that recur throughout contract theory:</p>
+<ul class="simple">
+<li><p>the <em>participation constraint</em> (PC) says the agent prefers accepting the contract to his outside option;</p></li>
+<li><p>the <em>incentive-compatibility constraint</em> (IC) says the agent prefers the action the principal wants to any other action.</p></li>
+</ul>
+<p>When the action is contractible, only (PC) is needed. When it is hidden, (IC) must be added. The whole chapter is about the cost of that one extra constraint.</p>
+</section>
+<section id="the-three-ingredients-of-moral-hazard">
+<span id="sec-ha-ingredients"></span><h2><span class="section-number">3.2.9. </span>The three ingredients of moral hazard<a class="headerlink" href="#the-three-ingredients-of-moral-hazard" title="Link to this heading">#</a></h2>
+<p>Hidden action creates a real problem only when three ingredients are present at once. Remove any one of them and the principal can achieve the first best.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ingredient</p></th>
+<th class="head"><p>What happens without it</p></th>
+<th class="head"><p>Where it is shown</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>The action is not contractible</p></td>
+<td><p>The contract specifies the action directly; the agent is fully insured</p></td>
+<td><p><a class="reference internal" href="fb.html#thm-ha-fb">Theorem 3.1</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Output is noisy</p></td>
+<td><p>Output reveals the action, so a contract on output works like a contract on the action</p></td>
+<td><p>Discussion after <a class="reference internal" href="#as-ha-prob">Assumption 3.1</a></p></td>
+</tr>
+<tr class="row-even"><td><p>The agent is risk-averse (or protected by limited liability)</p></td>
+<td><p>The agent can bear all the risk at no cost; “selling the firm” to him achieves the first best</p></td>
+<td><p><a class="reference internal" href="ex.html#ex-ha-rn"><span class="std std-numref">Exercise 3.6</span></a>, <a class="reference internal" href="gen.html#sec-ha-ll"><span class="std std-ref">Limited liability and rents</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This table is worth remembering. When you meet a real incentive problem, check which ingredients are present. The remedies we see in practice usually attack one of them: monitoring attacks the first, better measurement attacks the second, and paying agents who have wealth to post as a bond attacks the third.</p>
+</section>
+<section id="a-running-example">
+<h2><span class="section-number">3.2.10. </span>A running example<a class="headerlink" href="#a-running-example" title="Link to this heading">#</a></h2>
+<p>We use one set of numbers throughout the chapter. It is based on the NHS case in <a class="reference internal" href="cases.html#sec-ha-cases"><span class="std std-ref">The model meets the data: two cases</span></a>. Money is in thousands of pounds a year.</p>
+<div class="proof example admonition" id="ex-ha-run">
+<p class="admonition-title"><span class="caption-number">Example 3.1 </span> (The GP practice)</p>
+<section class="example-content" id="proof-content">
+<p>A GP looks after the patients on his practice’s list who have long-term conditions such as diabetes and high blood pressure. In a <em>good year</em> most of them have their condition under control, and the health they gain is worth 400 to the NHS; in a <em>bad year</em> it is worth 200. (At £20,000 per quality-adjusted life year, the lower end of the range NICE has traditionally used, that is 20 and 10 QALYs.) So <span class="math notranslate nohighlight">\(y_g=400\)</span> and <span class="math notranslate nohighlight">\(y_b=200\)</span>. <em>Proactive care</em>, calling patients in for reviews, adjusting their medicines and chasing those who miss appointments, raises the chance of a good year from <span class="math notranslate nohighlight">\(\mul=0.35\)</span> to <span class="math notranslate nohighlight">\(\muh=0.65\)</span>. His utility of money is <span class="math notranslate nohighlight">\(u(w)=\sqrt w\)</span>, so <span class="math notranslate nohighlight">\(h(z)=z^2\)</span>. His outside option is salaried or locum work paying 100 a year, so <span class="math notranslate nohighlight">\(\uo=\sqrt{100}=10\)</span>. Proactive care costs him <span class="math notranslate nohighlight">\(c=0.3\)</span> utils in time and effort.</p>
+<ul class="simple">
+<li><p>The high action raises the expected health gain by <span class="math notranslate nohighlight">\(\Dpi\Dy=0.3\times200=60\)</span> a year.</p></li>
+<li><p>In money, the effort cost is worth <span class="math notranslate nohighlight">\(h(\uo+c)-h(\uo)=10.3^2-100
+        =6.09\)</span> to him at his outside option: about £6,000 a year.</p></li>
+<li><p>Effort is clearly worth buying if it can be bought: it produces 60 and costs 6.09. The question is what it costs when it cannot be observed.</p></li>
+</ul>
+</section>
+</div><hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>The labels are about roles, not about who is more powerful. In an insurance application the “principal” is the insurer and the “agent” is the customer.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fb.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>The first best: contractible actions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model-in-one-paragraph">3.2.1. The model in one paragraph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#players">3.2.2. Players</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcomes-actions-and-noise">3.2.3. Outcomes, actions and noise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preferences">3.2.4. Preferences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contracts-and-what-they-can-depend-on">3.2.5. Contracts and what they can depend on</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thinking-in-utility-not-money">3.2.6. Thinking in utility, not money</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">3.2.7. Timing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-and-the-two-stage-method">3.2.8. Equilibrium and the two-stage method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-ingredients-of-moral-hazard">3.2.9. The three ingredients of moral hazard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-running-example">3.2.10. A running example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shomak Chakrabarti, University of Manchester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
