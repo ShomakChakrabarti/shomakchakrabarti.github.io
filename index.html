@@ -488,7 +488,7 @@ const SITE = {
       {term:"Aut 2024",score:4.6},{term:"Spr 2025",score:4.5},{term:"Aut 2025",score:4.7},{term:"Spr 2026",score:4.8}
     ],
     courses:[
-      { code:"ECON 20512", title:"Intermediate Microeconomic Theory 2", level:"Undergraduate, Year 2", role:"Course Unit Director", terms:"Oct 25 - now", students:200, blurb:"Information economics: choice over time and under uncertainty, hidden actions, hidden information and signalling. Taught with an interactive textbook.", href:"textbooks/information-economics/intro.html", linkLabel:"Open the textbook" } },
+      { code:"ECON 20512", title:"Intermediate Microeconomic Theory 2", level:"Undergraduate, Year 2", role:"Course Unit Director", terms:"Oct 25 - now", students:200, blurb:"Information economics: choice over time and under uncertainty, hidden actions, hidden information and signalling. Taught with an interactive textbook.", href:"textbooks/information-economics/intro.html", linkLabel:"Open the textbook" },
       { code:"ECON 10071", title:"Advanced Mathematics", level:"Undergraduate, Year 1 & 2", role:"Course Unit Director", terms:"Oct 2022 – now", students:950, blurb:"Two sentences on what the course covers and how it is taught. Mention where the interactive textbook is used.", href:"#" },
       { code:"ECON 10072", title:"Advanced Statistics", level:"Undergraduate, Year 1 & 2", role:"Course Unit Director", terms:"Feb 2025 – Jun 2025", students:950, blurb:"What students produce in this seminar, and one thing they say they valued.", href:"#" },
       { code:"ECON 10192", title:"Introduction to Mathematical Economics", level:"Undergraduate, Year 1 & 2", role:"Course Unit Director", terms:"Feb 2022 - Jun 2024", students:200, blurb:"Placeholder description for a graduate course.", href:"#" },
@@ -677,7 +677,7 @@ const P = {
     <div class="list">${t.courses.map(c=>`<article class="course">
       <span class="code">${esc(c.code)}</span>
       <div><h3>${esc(c.title)}</h3><p class="by">${esc(c.level)} · ${esc(c.role)} · ${esc(c.terms)}</p><p class="desc">${esc(c.blurb)}</p>
-        <div class="acts"><a${ext(c.href)}>${esc(c.linkLabel||"Syllabus")} ↗</a></div></div></article>`).join("")}</div>`;
+      <div class="acts"><a${ext(c.href)}>${esc(c.linkLabel||"Syllabus")} ↗</a></div></div></article>`).join("")}</div>`;
   },
 
   textbooks(){
