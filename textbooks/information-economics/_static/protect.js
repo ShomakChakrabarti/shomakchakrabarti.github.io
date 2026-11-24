@@ -19,7 +19,7 @@
     'For students enrolled on ECON20512 only. Uploading these materials to ChatGPT ' +
     'or any other AI tool is not permitted.';
   /* Origins allowed to send the student's name. Change to your Canvas address. */
-  var NAME_ORIGINS = ['https://online.manchester.ac.uk'];
+  var NAME_ORIGINS = ['https://canvas.manchester.ac.uk'];
   var PRINT_MESSAGE = 'Printing is disabled for ECON20512 materials. They are read online ' +
     'and may not be printed, saved as PDF or uploaded to AI tools.';
 

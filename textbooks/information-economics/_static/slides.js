@@ -204,6 +204,34 @@
 
   function init() {
     document.querySelectorAll('.ie-deck').forEach(function (d, i) { if (!d._deck) d._deck = new Deck(d, i); });
+    initVotes();
+  }
+  /* ---------------- class votes ----------------
+     \vote{id}{A}{B} in a deck becomes two buttons. A student's choice is kept
+     in this browser only (localStorage), so it survives moving between slides
+     and reloading; nothing is sent anywhere. */
+  function initVotes() {
+    document.querySelectorAll('.vote').forEach(function (v) {
+      if (v._vote) return; v._vote = true;
+      var key = 'ie-vote:' + v.getAttribute('data-vote');
+      var msg = v.querySelector('.vote-msg');
+      function show(c) {
+        v.querySelectorAll('.vote-btn').forEach(function (b) {
+          var on = b.getAttribute('data-choice') === c;
+          b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.classList.toggle('chosen', on);
+        });
+        msg.textContent = c ? 'You voted ' + c + '. Keep it in mind: the next slide shows what each question measures. (Click the other option to change your vote.)' : '';
+      }
+      show(store(key));
+      v.addEventListener('click', function (e) {
+        var b = e.target.closest('.vote-btn'); if (!b) return;
+        e.stopPropagation();
+        var c = b.getAttribute('data-choice'); store(key, c); show(c);
+      });
+      v.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Enter') e.stopPropagation();   /* press the button, do not change slide */
+      });
+    });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

@@ -90,3 +90,16 @@
   border-bottom: 0.25cqw solid var(--accent) !important; letter-spacing: 0 !important; }
 .ie-deck .slide h3.ts-title { font-size: 5cqw !important; font-weight: 600 !important; margin: 0 0 1.2cqw !important;
   border: 0 !important; padding: 0 !important; line-height: 1.2 !important; }
+
+/* class votes (\vote in a deck) */
+.vote { display: flex; flex-wrap: wrap; gap: 0.8em; justify-content: center; margin: 0.6em 0 0;
+  font-family: var(--ie-sans, system-ui, sans-serif); }
+.vote-btn { font: inherit; font-size: 0.95em; padding: 0.45em 0.9em; border: 2px solid #660099; border-radius: 0.4em;
+  background: #fff; color: #2F3034; cursor: pointer; }
+.vote-btn b { color: #660099; margin-right: 0.25em; }
+.vote-btn:hover { background: #F3E9F8; }
+.vote-btn:focus-visible { outline: 3px solid #1F4E9A; outline-offset: 2px; }
+.vote-btn.chosen { background: #660099; color: #fff; }
+.vote-btn.chosen b { color: #fff; }
+.vote-msg { flex-basis: 100%; margin: 0.2em 0 0; min-height: 1.3em; font-size: 0.85em; color: #0E6B60; text-align: center; }
+

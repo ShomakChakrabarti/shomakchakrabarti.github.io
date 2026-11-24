@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which question would you ask?</title>
+<style>
+:root{ --bg:#F5F6F8; --surface:#FFFFFF; --ink:#1A2130; --muted:#5A6375; --rule:#DCE0E7;
+  --accent:#22508F; --accent-soft:#E7EEF8; --good:#2C7A47; --good-soft:#E6F3EA; --warn:#A3392E; --warn-soft:#FAEAE7;
+  --f-text: Georgia, "Times New Roman", serif; --f-ui: system-ui, -apple-system, "Segoe UI", sans-serif; }
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--surface); color:var(--ink); font-family:var(--f-text); line-height:1.5; }
+.labpage{ max-width:46rem; margin:0 auto; padding:1rem 1.1rem 1.2rem; }
+h1{ font-family:var(--f-ui); font-size:1.15rem; margin:0 0 .3rem; }
+.muted{ color:var(--muted); } .ui{ font-family:var(--f-ui); font-size:.92rem; }
+.qs{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:.8rem 0; }
+@media (max-width:560px){ .qs{ grid-template-columns:1fr; } }
+.q{ border:2px solid var(--rule); border-radius:10px; padding:.7rem .8rem; background:#fff; text-align:left; font:inherit; color:inherit; cursor:pointer; }
+.q b{ font-family:var(--f-ui); color:var(--accent); }
+.q:hover{ background:var(--accent-soft); }
+.q:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+.q[aria-pressed="true"]{ border-color:var(--accent); background:var(--accent-soft); }
+.reveal{ border-left:4px solid var(--good); background:var(--good-soft); padding:.6rem .8rem; border-radius:0 8px 8px 0; margin:.6rem 0; }
+.reveal.a{ border-color:var(--warn); background:var(--warn-soft); }
+.try{ border:1px solid var(--rule); border-radius:10px; padding:.7rem .9rem; margin-top:.9rem; }
+.try h2{ font-family:var(--f-ui); font-size:1rem; margin:0 0 .4rem; }
+.row{ display:grid; grid-template-columns:13rem 1fr 4.5rem; gap:.6rem; align-items:center; margin:.35rem 0; }
+@media (max-width:560px){ .row{ grid-template-columns:1fr 4.5rem; } .row label{ grid-column:1 / -1; } }
+input[type=range]{ width:100%; }
+.out{ display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-top:.5rem; }
+.box{ border-radius:8px; padding:.5rem .7rem; font-family:var(--f-ui); font-size:.92rem; }
+.box.a{ background:var(--warn-soft); } .box.b{ background:var(--good-soft); }
+.big{ display:block; font-size:1.35rem; font-weight:600; }
+button.link{ font:inherit; font-family:var(--f-ui); font-size:.85rem; background:none; border:0; color:var(--accent); text-decoration:underline; cursor:pointer; padding:0; }
+[hidden]{ display:none !important; }
+</style>
+<body data-lab="survey-question">
+<main class="labpage">
+<h1>Which question would you ask?</h1>
+<p class="ui muted">The government wants to know whether a 20% higher price will reduce smoking. You are writing the survey. Click the question you would put in it.</p>
+
+<div class="qs" role="group" aria-label="Your vote">
+  <button type="button" class="q" data-choice="A" aria-pressed="false"><b>A.</b> <em>If cigarettes cost 20% more next year, will you smoke more or less?</em></button>
+  <button type="button" class="q" data-choice="B" aria-pressed="false"><b>B.</b> <em>Suppose your income and your workload next year are the same as this year. If cigarettes cost 20% more, will you smoke more or less?</em></button>
+</div>
+
+<div id="msg" aria-live="polite">
+  <div class="reveal a" id="ra" hidden><strong>You chose A.</strong> It is the natural question, but its answer mixes the price with everything else that changes next year. The surgeon answers &ldquo;more&rdquo; because difficult operations are coming up, and a survey of answers like hers would conclude that the tax does nothing. Question B is the one that isolates the price.</div>
+  <div class="reveal" id="rb" hidden><strong>You chose B.</strong> It holds income and workload fixed, so the answer isolates the one factor the policy is about. That is exactly what a model does: it shuts down the factors the question is not about. It does not claim they are unimportant.</div>
+  <p class="ui" id="change" hidden><button type="button" class="link" id="reset">Change my vote</button></p>
+</div>
+
+<section class="try" id="try" hidden aria-labelledby="tryh">
+  <h2 id="tryh">See what each question measures</h2>
+  <p class="ui muted">In the model of Section 0.3 the surgeon smokes <em>a</em>/<em>p</em> packs a week. Question B holds her stress <em>a</em> fixed; question A lets it change.</p>
+  <div class="row"><label for="pr" class="ui">Price rise</label><input id="pr" type="range" min="0" max="50" step="5" value="20"><output for="pr" id="prv" class="ui">20%</output></div>
+  <div class="row"><label for="st" class="ui">Rise in stress <em>a</em> next year</label><input id="st" type="range" min="0" max="100" step="10" value="40"><output for="st" id="stv" class="ui">40%</output></div>
+  <div class="out" aria-live="polite">
+    <div class="box a">Answer to A (price and stress)<span class="big" id="oa">+16.7%</span></div>
+    <div class="box b">Answer to B (price only)<span class="big" id="ob">&minus;16.7%</span></div>
+  </div>
+  <p class="ui muted" id="note"></p>
+</section>
+</main>
+<script>
+(function(){
+  var KEY='ie-vote:survey-question';
+  function get(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function put(v){ try{ if(v) localStorage.setItem(KEY,v); else localStorage.removeItem(KEY); }catch(e){} }
+  var qs=document.querySelectorAll('.q');
+  function show(c){
+    qs.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-choice')===c ? 'true':'false'); });
+    document.getElementById('ra').hidden = c!=='A';
+    document.getElementById('rb').hidden = c!=='B';
+    document.getElementById('change').hidden = !c;
+    document.getElementById('try').hidden = !c;
+  }
+  qs.forEach(function(b){ b.addEventListener('click', function(){ var c=b.getAttribute('data-choice'); put(c); show(c); }); });
+  document.getElementById('reset').addEventListener('click', function(){ put(null); show(null); qs[0].focus(); });
+  var pr=document.getElementById('pr'), st=document.getElementById('st');
+  function pct(x){ var s=(x*100).toFixed(1); return (x>0?'+':x<0?'−':'')+s.replace('-','')+'%'; }
+  function calc(){
+    var p=1+pr.value/100, a=1+st.value/100;
+    document.getElementById('prv').textContent=pr.value+'%';
+    document.getElementById('stv').textContent=st.value+'%';
+    var A=a/p-1, B=1/p-1;
+    document.getElementById('oa').textContent=pct(A);
+    document.getElementById('ob').textContent=pct(B);
+    document.getElementById('note').textContent = (A>0 && B<0)
+      ? 'Question A reports that smoking rises, although the price alone lowers it.'
+      : (A<B ? 'Here stress falls, so question A overstates the effect of the price.'
+             : 'Question A and question B differ by the change in stress, which the policy does not control.');
+  }
+  pr.addEventListener('input',calc); st.addEventListener('input',calc); calc();
+  show(get());
+})();
+</script>
+<script>
+(function(){
+  function send(){
+    var m=document.querySelector('.labpage'); var h=Math.ceil(m.getBoundingClientRect().height)+28;
+    try{ parent.postMessage({infoeconLab:document.body.dataset.lab,height:h},'*'); }catch(e){}
+  }
+  window.addEventListener('load',send);
+  if (window.ResizeObserver) new ResizeObserver(send).observe(document.body);
+  setTimeout(send,1500);
+})();
+</script>
+</body>
+</html>
